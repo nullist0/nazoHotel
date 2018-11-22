@@ -13,14 +13,14 @@
 }
 
 .bar {
-    height: 60px;
+    height: 55px;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     z-index: 1050;
     background-color: rgb(255,255,255,0.9);
-    font-size: 10pt;
+    font-size: 14pt;
     text-align: center;
     border-radius: 0 0 10px 10px;
     padding-top: 5px;
@@ -46,12 +46,48 @@
 
 .bookmenu {
     background-color: white;
-    width: 60%;
+    width: 50%;
     height: 120px;
     float: left;
     position: absolute;
-    left: 20%;
+    left: 25%;
     bottom: 5%;
+
+}
+
+.chkin, .chkout, .chknum{
+    display: inline-block;
+    margin: 0 30px;
+}
+
+.bookmenu .chk button{
+    margin: 0 30px;
+    font-size: 18px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.bookmenu .chk{
+    margin: 21px;
+    margin-right: 0;
+    font-size: 20px;
+    border-right: black solid;
+    width: 65%;
     text-align: center;
-    font-size: 60px;
+    display: inline-block;
+}
+
+.bookmenu .book{
+    display: inline-block;
+    width: 28%;
+    font-size: 40px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.bookmenu .book button{
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    text-align: center;
 }
