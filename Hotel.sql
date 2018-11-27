@@ -80,8 +80,9 @@ CREATE TABLE `Claim`
 CREATE TABLE `Vacation` 
 (
 	`employee_id` int,
-	`start_date` timestamp,
-	`end_date` timestamp,
+	`start_date` date,
+	`end_date` date,
+	`type` varchar(255),
 	PRIMARY KEY(`employee_id`, `start_date`),
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`)
 );
@@ -90,8 +91,8 @@ CREATE TABLE `Time_table`
 (
 	`employee_id` int,
 	`date` date,
-	`enter_time` timestamp,
-	`leave_time` timestamp,
+	`enter_time` datetime,
+	`leave_time` datetime,
 	PRIMARY KEY(`employee_id`, `date`),
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`)
 );
@@ -101,8 +102,8 @@ CREATE TABLE `Book`
 	`book_id` int AUTO_INCREMENT,
 	`room_id` int,
 	`customer_id` int,
-	`check_in` timestamp,
-	`check_out` timestamp,
+	`check_in` date,
+	`check_out` date,
 	`book_price` int,
 	`option_price` int,
 	`total_price` int,
@@ -132,7 +133,7 @@ CREATE TABLE `Take`
 (
 	`claim_id` int,
 	`employee_id` int,
-	`finish_time` timestamp,
+	`finish_time` datetime,
 	PRIMARY KEY(`claim_id`, `employee_id`),
 	FOREIGN KEY(`claim_id`) REFERENCES `Claim`(`claim_id`),
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`)
@@ -142,9 +143,9 @@ CREATE TABLE `Use`
 (
 	`facility_id` int,
 	`room_id` int,
-	`date` timestamp,
-	`start_time` timestamp,
-	`end_time` timestamp,
+	`date` date,
+	`start_time` datetime,
+	`end_time` datetime,
 	PRIMARY KEY(`facility_id`, `room_id`, `date`),
 	FOREIGN KEY(`room_id`) REFERENCES `Room`(`room_id`),
 	FOREIGN KEY(`facility_id`) REFERENCES `Facility`(`facility_id`)
@@ -155,7 +156,7 @@ CREATE TABLE `Fix`
 	`fix_id` int,
 	`facility_id` int,
 	`employee_id` int,
-	`fixed_time` timestamp,
+	`fixed_time` datetime,
 	PRIMARY KEY(`fix_id`),
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`),
 	FOREIGN KEY(`facility_id`) REFERENCES `Facility`(`facility_id`)
