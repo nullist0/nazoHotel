@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko-kr">
-   
-
-   
-    <head>
-    
+<html lang="zxx">
+<head>
     <!-- Google Tag Manager -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-TFC5925"></script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-TFC5925');</script>
+    })(window,document,'script','dataLayer','GTM-TFC5925');
+    </script>
     <!-- End Google Tag Manager -->
-    <title>Hotel Alpha - Hotel Booking HTML Template</title>
+    <title>nazoHotel - Hotel Booking HTML Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -24,8 +23,8 @@
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap-datepicker.min.css">
 
     <!-- Custom stylesheet -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -49,71 +48,76 @@
     <script  src="js/html5shiv.min.js"></script>
     <script  src="js/respond.min.js"></script>
     <![endif]-->
-    
-    </head>
+</head>
+<body>    
+    <img src="img/s.jpg" class="bg">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+    ::before
+    "<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFC5925" height="0" width="0" style="display:none;visibility:hidden"></iframe>"
+    ::after
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="page_loader" style="display: none;"></div>
 
-
-    <body>
-    
-        <div class="banner banner-2">
-            <div class="banner-inner">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Main header start -->
-                <header class="main-header main-header-2 main-header-3">
-                    <div class="container">
-                        <nav class="navbar navbar-default">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a href="home.html" class="logo">
-                                    <img src="img/logos/white-logo.png" alt="logo">
-                                </a>
-                            </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown active">
-                                        <a href="layout.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li class="dropdown active">
-                                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Rooms<span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="singleroom.html">Single Room</a></li>
-                                            <li><a href="doubleroom.html">Double Room</a></li>
-                                            <li><a href="deluxroom.html">Delux Room</a></li>
-                                            <li><a href="suiteroom.html">Suite Room</a></li>
-                                        </ul>
-                                    </li>   
-                                    <li class="dropdown active">
-                                        <a href="contact" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Contact Us
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- /.navbar-collapse -->
-                            <!-- /.container -->
-                        </nav>
-
+    <!-- Content bg area start -->
+    <div class="contact-bg overview-bgi">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Form content box start -->
+                    <div class="form-content-box">
+                        <!-- logo -->
+                        <a href="index.html" class="clearfix alpha-logo">
+                            <img src="img/logos/white-logo.png" alt="white-logo">
+                        </a>
+                        <!-- details -->
+                        <div class="details">
+                            <h3>Search your booking</h3>
+                            <!-- Form start-->
+                            <form action="#" method="GET">
+                                <div class="form-group">
+                                    <input type="tel" name="booking_number" class="input-text" placeholder="Booking number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="fullname" class="input-text" placeholder="Full Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="phone_number" class="input-text" placeholder="Phone number">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="emailaddress" class="input-text" placeholder="E-mail">
+                                </div>
+                                <div class="mb-0">
+                                    <button type="submit" class="btn-md btn-info btn-block">SEARCH</button>
+                                </div>
+                            </form>
+                            <!-- Form end-->
+                        </div>
                     </div>
-                </header>
-                <!-- Main header end -->
+                    <!-- Form content box end -->
+                </div>
             </div>
         </div>
-        </div>
-<!-- Banner end -->
+    </div>
+    <!-- Content bg area end -->
 
-    
-    </body>
+    <script  src="js/jquery-2.2.0.min.js"></script>
+    <script  src="js/bootstrap.min.js"></script>
+    <script  src="js/bootstrap-submenu.js"></script>
+    <script  src="js/jquery.mb.YTPlayer.js"></script>
+    <script  src="js/wow.min.js"></script>
+    <script  src="js/bootstrap-select.min.js"></script>
+    <script  src="js/jquery.easing.1.3.js"></script>
+    <script  src="js/jquery.scrollUp.js"></script>
+    <script  src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script  src="js/jquery.filterizr.js"></script>
+    <script  src="js/bootstrap-datepicker.min.js"></script>
+    <script  src="js/app.js"></script>
 
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script  src="js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Custom javascript -->
 
+</body>
 </html>

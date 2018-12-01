@@ -150,7 +150,13 @@ b {
 }
 
 /** OVERVIEW BGI **/
-
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
 /** SOCIAL COLOR AREA START **/
 
 .google:hover {
