@@ -2604,3 +2604,10 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 .contact-map-content p {
     font-weight: 600;
 }
+
+/* rooms test*/
+.rooms{
+    height: 500px;
+    background-color: black;
+    margin-top: 100px;
+}

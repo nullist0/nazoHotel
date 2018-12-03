@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
-   
 
-   
-    <head>
-    
+
+
+<head>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -12,7 +12,7 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TFC5925');</script>
     <!-- End Google Tag Manager -->
-    <title>Hotel Alpha - Hotel Booking HTML Template</title>
+    <title>nazoHotel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/blue-light-2.css">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
@@ -42,22 +42,22 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script  src="js/ie-emulation-modes-warning.js"></script>
+    <script src="js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script  src="js/html5shiv.min.js"></script>
     <script  src="js/respond.min.js"></script>
     <![endif]-->
-    
-    </head>
+
+</head>
 
 
-    <body>
-    
-        <div class="banner banner-2">
-            <div class="banner-inner">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<body>
+
+    <div class="banner banner-2">
+        <div class="banner-inner">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Main header start -->
                 <header class="main-header main-header-2 main-header-3">
                     <div class="container">
@@ -77,24 +77,29 @@
                             <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown active">
-                                        <a href="layout.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                        <a href="home.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
                                             Home
                                         </a>
                                     </li>
                                     <li class="dropdown active">
-                                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                        <a href="room.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
                                             Rooms<span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="singleroom.html">Single Room</a></li>
-                                            <li><a href="doubleroom.html">Double Room</a></li>
-                                            <li><a href="deluxroom.html">Delux Room</a></li>
-                                            <li><a href="suiteroom.html">Suite Room</a></li>
+                                            <li><a href="#singleroom">Single Room</a></li>
+                                            <li><a href="#doubleroom">Double Room</a></li>
+                                            <li><a href="#deluxroom">Delux Room</a></li>
+                                            <li><a href="#suiteroom">Suite Room</a></li>
                                         </ul>
-                                    </li>   
+                                    </li>
                                     <li class="dropdown active">
-                                        <a href="contact" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                        <a href="contact.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
                                             Contact Us
+                                        </a>
+                                    </li>
+                                    <li class="dropdown active">
+                                        <a href="search.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                            Check Booking
                                         </a>
                                     </li>
                                 </ul>
@@ -109,11 +114,14 @@
                 <!-- Main header end -->
             </div>
         </div>
-        </div>
-<!-- Banner end -->
+    </div>
+    <!-- Banner end -->
+    <div id="singleroom" class="rooms"></div>
+    <div id="doubleroom" class="rooms"></div>
+    <div id="deluxroom" class="rooms"></div>
+    <div id="suiteroom" class="rooms"></div>
 
-    
-    </body>
+</body>
 
 
 </html>
