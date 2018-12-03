@@ -151,12 +151,23 @@ b {
 
 /** OVERVIEW BGI **/
 .bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
 }
+
+@media only screen and (max-height: 800px) {
+    .bg {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 0;
+    }
+}
+
 /** SOCIAL COLOR AREA START **/
 
 .google:hover {
