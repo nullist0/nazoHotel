@@ -44,6 +44,8 @@
     <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
 
+    <script src="js/moment.js"></script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script  src="js/html5shiv.min.js"></script>
@@ -127,7 +129,7 @@
             <span>· 호텔 : </span><strong class="item">나조호텔</strong>
             <span>· 객실 : </span><span class="item" id="room" style="padding-right:15px;"></span><br>
             <span class="item" style="padding-right:15px;">· 투숙 기간 :
-                <span id="checkin"></span> - <span id="checkout"></span>
+                <span id="checkin"></span> - <span id="checkout"></span> (<span id="diff"></span>박)
             </span>
             <span class="item">
                 · 인원 정보 :
@@ -922,23 +924,27 @@
         var checkout = getParameterByName('co');
         var person = getParameterByName('adults');
         var roomtype;
-        if (room == "싱글 (Single)"){
+        if (room == "싱글 (Single)") {
             roomtype = "single";
         }
-        if (room == "더블 (Double)"){
+        if (room == "더블 (Double)") {
             roomtype = "double";
         }
-        if (room == "디럭스 (Delux)"){
+        if (room == "디럭스 (Delux)") {
             roomtype = "delux";
         }
-        if (room == "스위트 (Suite)"){
+        if (room == "스위트 (Suite)") {
             roomtype = "Suite";
         }
+//        var a = moment(ci, 'DD/MM/YYYY');
+//        var b = moment(co, 'DD/MM/YYYY');
+//        var days = b.diff(a, 'days');
         document.getElementById("checkin").innerHTML = checkin;
         document.getElementById("room").innerHTML = room;
         document.getElementById("checkout").innerHTML = checkout;
         document.getElementById("person").innerHTML = person;
-//        alert(room);
+        document.getElementById("diff").innerHTML = days;
+        //        alert(room);
 
     </script>
 
