@@ -4,9 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//customer
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
+var bookRouter = require('./routes/book');
+
+//admin
+var adminIndexRouter = require('./routes/admin/index');
+var adminBookRouter = require('./routes/admin/book');
+var adminEmployeeRouter = require('./routes/admin/employee');
+
+var adminFacilityRouter = require('./routes/admin/facility');
+var adminRoomRouter = require('./routes/admin/room');
+var adminClaimRouter = require('./routes/admin/claim');
 
 var app = express();
 
@@ -20,9 +29,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//customer
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/test', testRouter);
+app.use('/book', bookRouter);
+
+//admin
+app.use('/admin', adminIndexRouter);
+app.use('/admin/book', adminBookRouter);
+app.use('/admin/claim', adminClaimRouter);
+
+app.use('/admin/employee', adminEmployeeRouter);
+app.use('/admin/facility', adminFacilityRouter);
+app.use('/admin/room', adminRoomRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

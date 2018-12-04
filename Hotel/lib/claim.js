@@ -1,7 +1,9 @@
 var conn = require('./db');
 
+
+
 /**
- * 
+ * find all rows in Claim Table
  * @param {fucntion} callback 
  */
 var findAllClaim = function(callback){
@@ -9,7 +11,7 @@ var findAllClaim = function(callback){
 };
 
 /**
- * 
+ * find all joined datas
  * @param {function} callback 
  */
 var findAllJoin = function(callback){
@@ -17,7 +19,7 @@ var findAllJoin = function(callback){
 };
 
 /**
- * 
+ * find all rows ordered by ordering
  * @param {boolean} orderAscending 
  * @param {function} callback 
  */
@@ -38,7 +40,7 @@ var findAllOrderBy = function(orderAscending, callback){
 };
 
 /**
- * 
+ * find row by all conditions
  * @param {Object} all 
  * @param {function} callback 
  */
@@ -79,7 +81,7 @@ var findBy = function(all, callback){
 };
 
 /**
- * 
+ * create claim row
  * @param {Object} data 
  */
 var createClaim = function(data){
@@ -100,7 +102,7 @@ var createClaim = function(data){
 };
 
 /**
- * 
+ * update claim row
  * @param {Object} data 
  */
 var updateClaim = function(data){
@@ -137,7 +139,7 @@ var updateClaim = function(data){
 };
 
 /**
- * 
+ * delete claim row
  * @param {number} id 
  */
 var deleteClaim = function(id){
@@ -152,10 +154,10 @@ var deleteClaim = function(id){
 };
 
 /**
- * 
+ * find rows which are employee selected or not
  * @param {boolean} finished 
  * @param {function} callback 
- */
+ */ 
 var findFinished = function(finished, callback){
     const db = conn.connect();
 
@@ -171,8 +173,10 @@ var findFinished = function(finished, callback){
     conn.end();
 };
 
+//개발노트 데모시나리오 산출물
+
 /**
- * 
+ * find rows which are employee selected or not
  * @param {boolean} selected 
  * @param {function} callback 
  */
