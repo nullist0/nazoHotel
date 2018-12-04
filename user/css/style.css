@@ -3448,13 +3448,6 @@ figcaption {
     display: block;
 }
 
-button {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    outline: none;
-}
-
 button::-moz-focus-inner {
     padding: 0;
     border: 0;
@@ -4257,7 +4250,7 @@ input[type=password]::-ms-clear {
     vertical-align: middle;
     display: inline-block;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .btn-1 {
@@ -4268,7 +4261,8 @@ input[type=password]::-ms-clear {
 
 /* í‚¤ì»¬ëŸ¬ */
 .btn-1:hover {
-    background-color: #764234;
+    background-color: #5a5959;
+    color: #fff;
 }
 
 .btn-2 {
@@ -4281,6 +4275,7 @@ input[type=password]::-ms-clear {
 /* íˆ¬ëª… */
 .btn-2:hover {
     background-color: #f7f7f7;
+    color: #333;
 }
 
 .btnA {
