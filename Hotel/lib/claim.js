@@ -1,7 +1,5 @@
 var conn = require('./db');
 
-
-
 /**
  * find all rows in Claim Table
  * @param {fucntion} callback 
@@ -32,7 +30,7 @@ var findAllOrderBy = function(orderAscending, callback){
     else
         sql += `ORDER BY deadline DESC`
     
-    db.query(sql, [id], function (error, results, fields){
+    db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
     });
@@ -128,8 +126,8 @@ var updateClaim = function(data){
 
     sql += `WHERE claim_id = ?`;
 
-    console.log(sql);
-    console.log(values);
+    // console.log(sql);
+    // console.log(values);
     
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
