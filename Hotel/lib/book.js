@@ -8,21 +8,6 @@ var findAllBook = function(callback){
     conn.getTable(`book`,callback);
 };
 
-/** 
- *
- * @param {function} callback
- */ 
-var findAllRoom = function(callback){
-    conn.getTable(`room`,callback);
-};
-
-/** 
- *
- * @param {function} callback
- */ 
-var findAllCustomer = function(callback){
-    conn.getTable(`customer`,callback);
-};
 
 /** 
  *
@@ -134,9 +119,7 @@ var findBook = function(data, callback){
 
 module.exports = {
     find:{
-        allBook: findAllBook,
-        allRoom: findAllRoom,
-        allCustomer: findAllCustomer,
+        all: findAllBook,
         allJoin: findAllJoin,
         searchBook: searchBook,
         findBook: findBook
