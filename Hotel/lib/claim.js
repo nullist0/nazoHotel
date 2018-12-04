@@ -70,8 +70,8 @@ var findBy = function(all, callback){
         else
             sql += `ORDER BY deadline DESC`;
     }
-
-    db.query(sql, value, function (error, results, fields){
+    
+    db.query(sql, values, function (error, results, fields){
         if(error) throw error;
         callback(results);
     });

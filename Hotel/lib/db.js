@@ -17,7 +17,7 @@ module.exports = {
         const db = this.connect();
     
         var sql = `SELECT * FROM ` + table;
-        db.query(sql, [id], function (error, results, fields){
+        db.query(sql, function (error, results, fields){
             if(error) throw error;
             callback(results);
         });
