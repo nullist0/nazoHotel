@@ -13,7 +13,7 @@ var findAllfacility = function(callback){
  * @param {function} callback 
  */
 var findAllJoin = function(callback){
-    conn.getTable(`Claim natural left join Take`, callback);
+    conn.getTable(`facility natural left join Take`, callback);
 };
 
 /**
