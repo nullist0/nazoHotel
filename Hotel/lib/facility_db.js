@@ -82,6 +82,17 @@ module.exports = {
         this.end();
     },
 
+    addfex:function(fix_id, facility_id, employee_id, fixed_time, callback){
+        const db = this.connect();
+    
+        var sql = 'insert into fix (facility_id, employee_id, fixed_time) VALUES(' + facility_id + ', ' + employee_id + ', ' + fixed_time + ')';
+        db.query(sql, [id], function (error, results, fields){
+            if(error) throw error;
+            callback(results);
+        });
+        this.end();
+    },
+
     end:function(){
         this.conn.end();
     }

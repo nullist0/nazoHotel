@@ -13,3 +13,15 @@ var editfix = function(all, callback){
     }, all);
     conn.editfix(target, all, callback);
 };
+
+var addfix = function(fix_id, facility_id, employee_id, fixed_time, callback){
+    conn.addfacility(fix_id, facility_id, employee_id, fixed_time, callback);
+};
+
+module.exports = {
+    find:{
+        all: findAllfix,
+    },
+    edit: editfix,
+    add: addfix
+};

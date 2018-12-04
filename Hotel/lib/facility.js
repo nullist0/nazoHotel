@@ -14,7 +14,7 @@ var findfacilityList = function(callback){
 };
 
 var addfacility = function(floor, type, m_staff, s_staff, callback){
-    conn.addfacility(fllor, type, m_staff, s_staff, callback);
+    conn.addfacility(floor, type, m_staff, s_staff, callback);
 };
 
 var editfacility = function(all, callback){
@@ -30,4 +30,14 @@ var editfacility = function(all, callback){
 
 var delfacility = function(facility_id, callback){
     conn.delfacility(facility_id, callback);
+};
+
+module.exports = {
+    find:{
+        all: findAllfacility,
+        list: findfacilityList,
+    },
+    add: addfacility,
+    edit: editfacility,
+    delete: delfacility
 };
