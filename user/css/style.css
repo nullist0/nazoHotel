@@ -3377,8 +3377,7 @@ body,
 input,
 textarea,
 select,
-button,
-table {
+button {
     font-family: 'ë§‘ì€ ê³ ë”•', 'Malgun Gothic', 'ë‹ì›€', Dotum, Helvetica, AppleGothic, Sans-serif;
     font-size: 14px;
     line-height: 1.6;
@@ -3452,14 +3451,6 @@ button {
 button::-moz-focus-inner {
     padding: 0;
     border: 0;
-}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: fixed;
-    border-spacing: 0;
-    width: 100%;
 }
 
 tbody,
@@ -3711,6 +3702,17 @@ input[type=password]::-ms-clear {
 
 /********** TABLE **********/
 .tb-1 {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    letter-spacing: -0.025em;
+    word-break: keep-all;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-spacing: 0;
+    width: 100%;
     border-top: solid 2px #404160;
 }
 
