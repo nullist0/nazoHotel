@@ -9,7 +9,7 @@ var editfix = function(all, callback){
     all = Object.assign({
         facility_id: null,
         employee_id: null,
-        fixed_imde: null,
+        fixed_time: null,
     }, all);
     conn.editfix(target, all, callback);
 };

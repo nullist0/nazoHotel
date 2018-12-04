@@ -71,8 +71,16 @@ module.exports = {
     },
 
     editfix:function(target, inform, callback){
-        
-    }
+        const db = this.connect();
+
+        var where = 'set facility_id = ' + inform.facility_id;
+        var sql = 'update facility set facility_id=' + inform.facility_id + 'employee_id=' + inform.employee + 'fixed_time =' + inform.fixed_time + 'where = ' + where;
+        db.query(sql, [id], function (error, results, fields){
+            if(error) throw error;
+            callback(results);
+        });
+        this.end();
+    },
 
     end:function(){
         this.conn.end();
