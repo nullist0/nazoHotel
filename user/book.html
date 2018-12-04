@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
-   
 
-   
-    <head>
-    
+
+
+<head>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/blue-light-2.css">
 
     <!-- Favicon icon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
@@ -42,22 +42,24 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script  src="js/ie-emulation-modes-warning.js"></script>
+    <script src="js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script  src="js/html5shiv.min.js"></script>
     <script  src="js/respond.min.js"></script>
     <![endif]-->
-    
-    </head>
 
 
-    <body>
-    
-        <div class="banner banner-2">
-            <div class="banner-inner">
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+</head>
+
+
+<body onload="init()">
+
+    <div class="banner banner-2">
+        <div class="banner-inner">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Main header start -->
                 <header class="main-header main-header-2 main-header-3">
                     <div class="container">
@@ -69,7 +71,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="home.html" class="logo">
+                                <a href="index.html" class="logo">
                                     <img src="img/logos/white-logo.png" alt="logo">
                                 </a>
                             </div>
@@ -78,12 +80,12 @@
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown active">
                                         <a href="layout.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Home
+                                            홈
                                         </a>
                                     </li>
                                     <li class="dropdown active">
                                         <a href="room.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Rooms<span class="caret"></span>
+                                            객실<span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li><a href="room.html#singleroom">Single Room</a></li>
@@ -91,15 +93,15 @@
                                             <li><a href="room.html#deluxroom">Delux Room</a></li>
                                             <li><a href="room.html#suiteroom">Suite Room</a></li>
                                         </ul>
-                                    </li>   
+                                    </li>
                                     <li class="dropdown active">
                                         <a href="contact" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Contact Us
+                                            문의사항
                                         </a>
                                     </li>
                                     <li class="dropdown active">
                                         <a href="search.html" tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
-                                            Check Booking
+                                            예약조회
                                         </a>
                                     </li>
                                 </ul>
@@ -114,63 +116,64 @@
                 <!-- Main header end -->
             </div>
         </div>
-        </div>
-        <!-- Banner end -->
-        
-               <!-- Reservation area start -->
-        <div class="contWrap">
+    </div>
+    <!-- Banner end -->
 
-			<!-- Search -->
-			<div class="search ty2">
-				<span>· 호텔 : </span><strong class="item">나조호텔</strong>
-				<span>· 객실 : </span><span class="item" style="padding-right:15px;"><strong>슈페리어[더블]</strong> / 기본가</span><br>
-				<span class="item" style="padding-right:15px;">· 투숙 기간 : 2018.12.03 - 2018.12.04 (1박)</span>				
-				<span class="item">
-					· 인원 정보 : 
-					객실1개 / 성인2명 / 어린이0명</span>
-				<a href="#" class="btnRefresh i-refresh" onclick="fnInitRsvSrch();">예약 초기화</a>
-			</div>
-			<!-- // Search -->
-					
-			<form id="reservationForm" name="reservationForm" method="post" autocomplete="off">
-			
-				<input type="hidden" name="rsv_type" value="RM">
-				<input type="hidden" name="rsv_text" value="나조호텔">
-				<input type="hidden" name="rsv_hcode" value="H0001">
-				<input type="hidden" name="rsv_prdno" value="">
-				<input type="hidden" name="rsv_prdkind" value="M0801">
-				<input type="hidden" name="rsv_period" value="">
-				<input type="hidden" name="rsv_sdate" value="2018.12.03">
-				<input type="hidden" name="rsv_edate" value="2018.12.04">
-				<input type="hidden" name="rsv_roomcnt" value="1">
-				<input type="hidden" name="rsv_adult" value="2">
-				<input type="hidden" name="rsv_child" value="0">
-				<input type="hidden" name="rsv_personinfo" value="1:2:0">
-				<input type="hidden" name="rsv_maxadult" value="2">
-				<input type="hidden" name="rsv_maxchild" value="0">
-				<input type="hidden" name="rsv_rdotype" value="">
-				<input type="hidden" name="rsv_promocode" value="">
-				<input type="hidden" name="rsv_coupon" value="">
-				<input type="hidden" name="rsv_islm" value="">
-				<input type="hidden" name="rsv_prdtType" value="RATE">
-				<input type="hidden" name="rsv_prdid" value="6">
-				<input type="hidden" name="rsv_roomid" value="PRDRO00008">
-				<input type="hidden" name="rsv_hname" value="나조호텔">
-				<input type="hidden" name="rsv_rmname" value="슈페리어[더블]">
-				<input type="hidden" name="rsv_pdname" value="기본가">
-				<input type="hidden" name="rsv_isiam" value="">
-				
-				<input type="hidden" name="dpots" id="dpots" value="">
-				<input type="hidden" name="rsvTel0" value="82">
-				<input type="hidden" name="dscpc" value="7500">
-				<input type="hidden" name="cdCmp" id="cdCmp">
-				<input type="hidden" name="rPC" id="rPC" value="320294b576e9403928ed67ebd0288e84">
-				<input type="hidden" name="oPC" id="oPC">
-				<input type="hidden" name="rsvCard" id="rsvCard">
-				<input type="hidden" name="rsvinf" value="7a8ca153d7064ae81f4332b540c01d93cda739e947985d0fe097cdaf0d0b1b5dcba9c661c37324364fd84480a7f3153d">
-				<input type="hidden" name="couponInfo" value="">
-				<!-- 옵션선택 및 요청사항 // -->
-				<!-- 
+    <!-- Reservation area start -->
+    <div class="contWrap">
+
+        <!-- Search -->
+        <div class="search ty2">
+            <span>· 호텔 : </span><strong class="item">나조호텔</strong>
+            <span>· 객실 : </span><span class="item" id="room" style="padding-right:15px;"></span><br>
+            <span class="item" style="padding-right:15px;">· 투숙 기간 :
+                <span id="checkin"></span> - <span id="checkout"></span>
+            </span>
+            <span class="item">
+                · 인원 정보 :
+                성인 <span id="person"></span>명</span>
+        </div>
+        <!-- // Search -->
+
+        <form id="reservationForm" name="reservationForm" method="post" autocomplete="off">
+
+            <input type="hidden" name="rsv_type" value="RM">
+            <input type="hidden" name="rsv_text" value="나조호텔">
+            <input type="hidden" name="rsv_hcode" value="H0001">
+            <input type="hidden" name="rsv_prdno" value="">
+            <input type="hidden" name="rsv_prdkind" value="M0801">
+            <input type="hidden" name="rsv_period" value="">
+            <input type="hidden" name="rsv_sdate" value="2018.12.03">
+            <input type="hidden" name="rsv_edate" value="2018.12.04">
+            <input type="hidden" name="rsv_roomcnt" value="1">
+            <input type="hidden" name="rsv_adult" value="2">
+            <input type="hidden" name="rsv_child" value="0">
+            <input type="hidden" name="rsv_personinfo" value="1:2:0">
+            <input type="hidden" name="rsv_maxadult" value="2">
+            <input type="hidden" name="rsv_maxchild" value="0">
+            <input type="hidden" name="rsv_rdotype" value="">
+            <input type="hidden" name="rsv_promocode" value="">
+            <input type="hidden" name="rsv_coupon" value="">
+            <input type="hidden" name="rsv_islm" value="">
+            <input type="hidden" name="rsv_prdtType" value="RATE">
+            <input type="hidden" name="rsv_prdid" value="6">
+            <input type="hidden" name="rsv_roomid" value="PRDRO00008">
+            <input type="hidden" name="rsv_hname" value="나조호텔">
+            <input type="hidden" name="rsv_rmname" value="슈페리어[더블]">
+            <input type="hidden" name="rsv_pdname" value="기본가">
+            <input type="hidden" name="rsv_isiam" value="">
+
+            <input type="hidden" name="dpots" id="dpots" value="">
+            <input type="hidden" name="rsvTel0" value="82">
+            <input type="hidden" name="dscpc" value="7500">
+            <input type="hidden" name="cdCmp" id="cdCmp">
+            <input type="hidden" name="rPC" id="rPC" value="320294b576e9403928ed67ebd0288e84">
+            <input type="hidden" name="oPC" id="oPC">
+            <input type="hidden" name="rsvCard" id="rsvCard">
+            <input type="hidden" name="rsvinf" value="7a8ca153d7064ae81f4332b540c01d93cda739e947985d0fe097cdaf0d0b1b5dcba9c661c37324364fd84480a7f3153d">
+            <input type="hidden" name="couponInfo" value="">
+            <!-- 옵션선택 및 요청사항 // -->
+            <!-- 
 				<h3 class="title-3 fc-1 first">옵션선택 및 요청사항</h3>
 				<table class="tb-1 tbData">
 					<caption>옵션선택 및 요청사항</caption>
@@ -187,273 +190,589 @@
 					</tbody>
 				</table>
 				 -->
-				
-				<!-- 예약자 정보 // -->			
-				<h3 class="title-3 fc-1">예약자 정보</h3>
-				<table class="tb-1 tbData">
-					<caption>예약자 정보</caption>
-					<colgroup><col width="175px"><col width="*"><col width="175px"><col width="*"></colgroup>
-					<tbody>
-						<tr>
-							<th scope="row">이름</th>
-							<td class="fm" colspan="3">
-								<input type="text" class="ipt fw-1" placeholder="성" title="성" name="rsvLastNm" id="rsvLastNm" value="" maxlength="2"> <input type="text" class="ipt fw-2" placeholder="이름" title="이름" name="rsvFirstNm" id="rsvFirstNm" value="" maxlength="5">
-									<span class="radG fmMgL">
-									<span class="radFm">
-										<input type="radio" class="rad" id="rsvGender1" name="rsvGender" value="M0541"><span class="act"></span><label for="rsvGender1">남</label>
-									</span>
-									<span class="radFm">
-										<input type="radio" class="rad" id="rsvGender2" name="rsvGender" value="M0542"><span class="act"></span><label for="rsvGender2">여</label>
-									</span>
-								</span>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">생년월일</th>
-							<td class="fm">
-								<select class="slt fw-4" title="년" name="rsvBrthdyYY" id="rsvBrthdyYY">
-									<option value="">선택</option>
-								<option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970" selected="">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option></select>
-								<span class="fmTxt-1">년</span>
-								<select class="slt fw-4" title="월" name="rsvBrthdyMT" id="rsvBrthdyMT">
-									<option value="">선택</option>
-								<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
-								<span class="fmTxt-1">월</span>
-								<select class="slt fw-4" title="일" name="rsvBrthdyDE" id="rsvBrthdyDE">
-									<option value="">선택</option>
-								<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-								<span class="fmTxt-1">일</span>
-							</td>
-							<th scope="row">연락처</th>
-							<td class="fm"><!-- ** Code ** // -->						
-								<select class="slt fw-3" title="연락처 앞자리" name="rsvTel1" id="rsvTel1">
-												<option value="010">010</option>
-												<option value="011">011</option>
-												<option value="016">016</option>
-												<option value="017">017</option>
-												<option value="018">018</option>
-												<option value="019">019</option>
-												</select>
-											<span class="fmTxt-3">-</span>
-								<input type="text" class="ipt fw-3" title="연락처 중간자리" name="rsvTel2" id="rsvTel2" value="" maxlength="4" style="ime-mode:disabled;">
-								<span class="fmTxt-3">-</span>
-								<input type="text" class="ipt fw-3" title="연락처 끝자리" name="rsvTel3" id="rsvTel3" value="" maxlength="4" style="ime-mode:disabled;">
-							</td><!-- // ** Code ** -->
-	
-						</tr>
-						<tr>
-							<th scope="row">이메일</th>
-							<td class="fm" colspan="3">
-								<input type="text" class="ipt fw-5" title="E-mail 주소" name="rsvEmail1" id="rsvEmail1" value="" maxlength="30">
-								<span class="fmTxt-3">@</span>
-								<input type="text" class="ipt fw-5" title="E-mail 도메인" name="rsvEmail2" id="rsvEmail2" value="" maxlength="30" style="width:144px;ime-mode:disabled;">
-								<select class="slt fw-6" title="직접입력" onchange="fnSetMailType('rsvEmail2', this.value);" id="rsvEmailDomain" name="rsvEmailDomain">
-								<option value="1" selected="">직접입력</option><option value="gmail.com">gmail.com</option><option value="hanmail.net">hanmail.net</option><option value="daum.net">daum.net</option><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option><option value="hotmail.com">hotmail.com</option><option value="zum.com">zum.com</option><option value="yahoo.com">yahoo.com</option></select>
-								</td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- // 예약자 정보 -->
-	
-				<div class="msgBox-3">
-					<span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkNotSampeRsvGst" name="chkNotSampeRsvGst" value="Y"><span class="act"></span><label for="chkNotSampeRsvGst">예약자와 투숙객이 동일인이 아닙니다.</label></span>
-				</div>
-				
-				<div id="guestInfos" style="display: none;">
-					<h3 class="title-3 fc-1">투숙객 정보</h3>
-					<ul class="tab-2" data-type="tab" data-titles=">li>a">
-						<li class="{isActive} active"><a href="#room-1" onclick="fnChangCurrIdx('1');" id="gstBtn1">객실1</a></li>
-						</ul>
-					<div class="tabTxt">
-						</div>
-	
-					<div id="room-1" class="tabCont active" style="display: block;">
-							<table class="tb-1 tbData">
-								<caption>객실1예약자 정보</caption>
-								<colgroup><col width="175px"><col width="*"><col width="175px"><col width="*"></colgroup>
-								<tbody>
-									<tr>
-										<th scope="row">이름</th>
-										<td class="fm" colspan="3">
-											<input type="text" class="ipt fw-1" placeholder="성" title="성" name="gst_lastnm_1" id="gst_lastnm_1" maxlength="2">
-													<input type="text" class="ipt fw-2" placeholder="이름" title="이름" name="gst_firstnm_1" id="gst_firstnm_1" maxlength="5">
-												<span class="radG fmMgL">
-												<span class="radFm">
-													<input type="radio" class="rad" id="gst_gender_1_1" name="gst_gender_1" value="M0541"><span class="act"></span><label for="gst_gender_1_1">남</label>
-												</span>
-												<span class="radFm">
-													<input type="radio" class="rad" id="gst_gender_1_2" name="gst_gender_1" value="M0542"><span class="act"></span><label for="gst_gender_1_2">여</label>
-												</span>
-											</span>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">생년월일</th>
-										<td class="fm">
-											<select class="slt fw-4" title="년" name="gst_yy_1" id="gst_yy_1">
-												<option value="">선택</option>
-											<option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970" selected="">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option></select>
-											<span class="fmTxt-1">년</span>
-											<select class="slt fw-4" title="월" name="gst_mm_1" id="gst_mm_1">
-												<option value="">선택</option>
-											<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
-											<span class="fmTxt-1">월</span>
-											<select class="slt fw-4" title="일" name="gst_dd_1" id="gst_dd_1">
-												<option value="">선택</option>
-											<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-											<span class="fmTxt-1">일</span>
-										</td>
-										<th scope="row">연락처</th>
-										<td class="fm">
-											<select class="slt fw-3" title="연락처 앞자리" name="gst_tel1_1" id="gst_tel1_1">
-															<option value="010">010</option>
-															<option value="011">011</option>
-															<option value="016">016</option>
-															<option value="017">017</option>
-															<option value="018">018</option>
-															<option value="019">019</option>
-															</select>
-														<span class="fmTxt-3">-</span>
-											<input type="text" class="ipt fw-3" title="연락처 중간자리" name="gst_tel2_1" id="gst_tel2_1" maxlength="4" style="ime-mode:disabled;">
-											<span class="fmTxt-3">-</span>
-											<input type="text" class="ipt fw-3" title="연락처 끝자리" name="gst_tel3_1" id="gst_tel3_1" maxlength="4" style="ime-mode:disabled;">
-										</td>
-									</tr>
-									<tr>
-										<th scope="row">이메일</th>
-										<td class="fm" colspan="3">
-											<input type="text" class="ipt fw-5" title="E-mail 주소" name="gst_email_1" id="gst_email_1" maxlength="30">
-											<span class="fmTxt-3">@</span>
-											<input type="text" class="ipt fw-5" title="E-mail 도메인" name="gst_email2_1" id="gst_email2_1" maxlength="30" style="width:144px;ime-mode:disabled;">
-											<select class="slt fw-6" title="직접입력" onchange="fnSetMailType('gst_email2_1', this.value);" id="gst_emaildomain_1" name="gst_emaildomain_1">
-											<option value="1" selected="">직접입력</option><option value="gmail.com">gmail.com</option><option value="hanmail.net">hanmail.net</option><option value="daum.net">daum.net</option><option value="naver.com">naver.com</option><option value="nate.com">nate.com</option><option value="hotmail.com">hotmail.com</option><option value="zum.com">zum.com</option><option value="yahoo.com">yahoo.com</option></select>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-	
-				<!-- 결제 정보 // -->
-				<h3 class="title-3 fc-1">결제정보</h3>
-				<table class="tb-1 tbData">
-					<caption>결제정보</caption>
-					<colgroup><col width="175px"><col width="*"><col width="175px"><col width="*"></colgroup>
-					<tbody>
-						<tr>
-							<th scope="row">카드회사</th>
-							<td colspan="3" class="fm">
-								<select class="slt fw-25" title="카드회사" id="card_cmpy_code" name="card_cmpy_code" onchange="fnCdCmp()">
-									<option value="">카드사 선택</option>
-									<option value="M0957">광주카드</option>
-									<option value="M0964">기타</option>
-									<option value="M0950">농협NH카드</option>
-									<option value="M0944">롯데카드</option>
-									<option value="M0946">비씨카드</option>
-									<option value="M0953">산업은행카드</option>
-									<option value="M0955">삼성카드</option>
-									<option value="M0959">수협카드</option>
-									<option value="M0942">신한카드</option>
-									<option value="M0952">씨티카드</option>
-									<option value="M0945">외환카드</option>
-									<option value="M0949">우리카드</option>
-									<option value="M0956">저축은행(체크카드)</option>
-									<option value="M0958">전북은행카드</option>
-									<option value="M0960">제주은행카드</option>
-									<option value="M0948">하나(BC)카드</option>
-									<option value="M0947">하나SK카드</option>
-									<option value="M0954">한미카드</option>
-									<option value="M0941">현대카드</option>
-									<option value="M1384">American Express</option>
-									<option value="M0963">JCB</option>
-									<option value="M0943">KB카드</option>
-									<option value="M0962">MASTER</option>
-									<option value="M0951">NH비씨카드</option>
-									<option value="M0961">VISA</option>
-									</select>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">카드번호</th>
-							<td class="fm">
-								<input type="text" class="ipt fw-10" title="첫번째 자리" id="card_no1" name="card_no1" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no2')">
-								<span class="fmTxt-3">-</span>
-								<input type="text" class="ipt fw-10" title="두번째 자리" id="card_no2" name="card_no2" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no3')">
-								<span class="fmTxt-3">-</span>
-								<input type="password" class="ipt fw-10" title="세번째 자리" id="card_no3" name="card_no3" maxlength="4" autocomplete="new-password" style="ime-mode:disabled" onkeyup="nextF(this,'card_no4')">
-								<span class="fmTxt-3">-</span>
-								<input type="text" class="ipt fw-10" title="네번째 자리" id="card_no4" name="card_no4" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_termYY')">
-							</td>
-							<th scope="row">유효기간</th>
-							<td class="fm">
-								<select class="slt fw-4" title="년" name="card_termYY" id="card_termYY">
-								<option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option></select>
-								<span class="fmTxt-1">년</span>
-								<select class="slt fw-4" title="월" name="card_termMM" id="card_termMM">
-								<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12" selected="">12</option></select>
-								<span class="fmTxt-1">월</span>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- // 결제 정보 -->
-	
-				<!-- 결제 금액 // -->
-				<h3 class="title-3 fc-1">결제 금액</h3>
-				<table class="tb-1 tbData">
-					<caption>결제 금액</caption>
-					<colgroup><col width="175px"><col width="240px"><col width="175px"><col width="240px"><col width="*"></colgroup>
-					<tbody>
-						<tr>
-							<th scope="row">객실 가격</th><!-- 객실가격 -->
-									<td colspan="3">150,000원</td>
-								<td rowspan="4" class="totalPricefield">
-								<dl class="totalPrice">
-									<dt class="total">최종 결제 금액</dt>
-									<dd class="total">
-										<em id="midTotal">165,000</em> 원</dd>
-									</dl>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">추가 금액</th><!-- 옵션 -->
-							<td>
-								<span id="midOptpc">
-									0원</span>
-								<!-- <a href="#" onclick="fnShowOption2();return false;" class="btnD btn-4 fmMgL">객실 옵션 선택</a> -->
-							</td>
-							<td colspan="2">
-								<div id="optionInfos"></div>
-							</td>
-						</tr>					
-						<tr>
-							<th scope="row">부가세</th><!-- 부가세 -->
-							<td colspan="3" id="midVatpc">
-								15,000원</td>
-						</tr>
-						<tr>
-							<th scope="row">최종 결제 금액</th><!-- 최종결제금액 -->
-							<td colspan="3" id="lastTotal">
-								165,000원</td>
-						</tr>
-					</tbody>
-				</table>
-				<!-- // 결제 금액 -->
-                
-                <!-- // 옵션선택 및 요청사항 -->
-				<div id="room2-1" class="tabCont" style="display:block;">			
-					<div class="cHead chw-3">
-						<h2 class="title-3 fc-1 chwTit">요청사항</h2>
-						</div>
-	
-					<div class="msgBox-1">
-						별도의 요청 사항은 호텔의 상황에 따라 제공이 어려울 경우가 있으니 양해 부탁 드립니다.</div>
-	
-					<table class="tb-1 tbData">
-						<caption>객실1요청사항</caption>
-						<colgroup><col width="175px"><col width="*"></colgroup>
-						<tbody>
-							<!--  
+
+            <!-- 예약자 정보 // -->
+            <h3 class="title-3 fc-1">예약자 정보</h3>
+            <table class="tb-1 tbData">
+                <caption>예약자 정보</caption>
+                <colgroup>
+                    <col width="175px">
+                    <col width="*">
+                    <col width="175px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">이름</th>
+                        <td class="fm" colspan="3">
+                            <input type="text" class="ipt fw-1" placeholder="성" title="성" name="rsvLastNm" id="rsvLastNm" value="" maxlength="2"> <input type="text" class="ipt fw-2" placeholder="이름" title="이름" name="rsvFirstNm" id="rsvFirstNm" value="" maxlength="5">
+                            <span class="radG fmMgL">
+                                <span class="radFm">
+                                    <input type="radio" class="rad" id="rsvGender1" name="rsvGender" value="M0541"><span class="act"></span><label for="rsvGender1">남</label>
+                                </span>
+                                <span class="radFm">
+                                    <input type="radio" class="rad" id="rsvGender2" name="rsvGender" value="M0542"><span class="act"></span><label for="rsvGender2">여</label>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">생년월일</th>
+                        <td class="fm">
+                            <select class="slt fw-4" title="년" name="rsvBrthdyYY" id="rsvBrthdyYY">
+                                <option value="">선택</option>
+                                <option value="1918">1918</option>
+                                <option value="1919">1919</option>
+                                <option value="1920">1920</option>
+                                <option value="1921">1921</option>
+                                <option value="1922">1922</option>
+                                <option value="1923">1923</option>
+                                <option value="1924">1924</option>
+                                <option value="1925">1925</option>
+                                <option value="1926">1926</option>
+                                <option value="1927">1927</option>
+                                <option value="1928">1928</option>
+                                <option value="1929">1929</option>
+                                <option value="1930">1930</option>
+                                <option value="1931">1931</option>
+                                <option value="1932">1932</option>
+                                <option value="1933">1933</option>
+                                <option value="1934">1934</option>
+                                <option value="1935">1935</option>
+                                <option value="1936">1936</option>
+                                <option value="1937">1937</option>
+                                <option value="1938">1938</option>
+                                <option value="1939">1939</option>
+                                <option value="1940">1940</option>
+                                <option value="1941">1941</option>
+                                <option value="1942">1942</option>
+                                <option value="1943">1943</option>
+                                <option value="1944">1944</option>
+                                <option value="1945">1945</option>
+                                <option value="1946">1946</option>
+                                <option value="1947">1947</option>
+                                <option value="1948">1948</option>
+                                <option value="1949">1949</option>
+                                <option value="1950">1950</option>
+                                <option value="1951">1951</option>
+                                <option value="1952">1952</option>
+                                <option value="1953">1953</option>
+                                <option value="1954">1954</option>
+                                <option value="1955">1955</option>
+                                <option value="1956">1956</option>
+                                <option value="1957">1957</option>
+                                <option value="1958">1958</option>
+                                <option value="1959">1959</option>
+                                <option value="1960">1960</option>
+                                <option value="1961">1961</option>
+                                <option value="1962">1962</option>
+                                <option value="1963">1963</option>
+                                <option value="1964">1964</option>
+                                <option value="1965">1965</option>
+                                <option value="1966">1966</option>
+                                <option value="1967">1967</option>
+                                <option value="1968">1968</option>
+                                <option value="1969">1969</option>
+                                <option value="1970" selected="">1970</option>
+                                <option value="1971">1971</option>
+                                <option value="1972">1972</option>
+                                <option value="1973">1973</option>
+                                <option value="1974">1974</option>
+                                <option value="1975">1975</option>
+                                <option value="1976">1976</option>
+                                <option value="1977">1977</option>
+                                <option value="1978">1978</option>
+                                <option value="1979">1979</option>
+                                <option value="1980">1980</option>
+                                <option value="1981">1981</option>
+                                <option value="1982">1982</option>
+                                <option value="1983">1983</option>
+                                <option value="1984">1984</option>
+                                <option value="1985">1985</option>
+                                <option value="1986">1986</option>
+                                <option value="1987">1987</option>
+                                <option value="1988">1988</option>
+                                <option value="1989">1989</option>
+                                <option value="1990">1990</option>
+                                <option value="1991">1991</option>
+                                <option value="1992">1992</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                            </select>
+                            <span class="fmTxt-1">년</span>
+                            <select class="slt fw-4" title="월" name="rsvBrthdyMT" id="rsvBrthdyMT">
+                                <option value="">선택</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <span class="fmTxt-1">월</span>
+                            <select class="slt fw-4" title="일" name="rsvBrthdyDE" id="rsvBrthdyDE">
+                                <option value="">선택</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <span class="fmTxt-1">일</span>
+                        </td>
+                        <th scope="row">연락처</th>
+                        <td class="fm">
+                            <!-- ** Code ** // -->
+                            <select class="slt fw-3" title="연락처 앞자리" name="rsvTel1" id="rsvTel1">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            <span class="fmTxt-3">-</span>
+                            <input type="text" class="ipt fw-3" title="연락처 중간자리" name="rsvTel2" id="rsvTel2" value="" maxlength="4" style="ime-mode:disabled;">
+                            <span class="fmTxt-3">-</span>
+                            <input type="text" class="ipt fw-3" title="연락처 끝자리" name="rsvTel3" id="rsvTel3" value="" maxlength="4" style="ime-mode:disabled;">
+                        </td><!-- // ** Code ** -->
+
+                    </tr>
+                    <tr>
+                        <th scope="row">이메일</th>
+                        <td class="fm" colspan="3">
+                            <input type="text" class="ipt fw-5" title="E-mail 주소" name="rsvEmail1" id="rsvEmail1" value="" maxlength="30">
+                            <span class="fmTxt-3">@</span>
+                            <input type="text" class="ipt fw-5" title="E-mail 도메인" name="rsvEmail2" id="rsvEmail2" value="" maxlength="30" style="width:144px;ime-mode:disabled;">
+                            <select class="slt fw-6" title="직접입력" onchange="fnSetMailType('rsvEmail2', this.value);" id="rsvEmailDomain" name="rsvEmailDomain">
+                                <option value="1" selected="">직접입력</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="zum.com">zum.com</option>
+                                <option value="yahoo.com">yahoo.com</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- // 예약자 정보 -->
+
+            <div class="msgBox-3">
+                <span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkNotSampeRsvGst" name="chkNotSampeRsvGst" value="Y"><span class="act"></span><label for="chkNotSampeRsvGst">예약자와 투숙객이 동일인이 아닙니다.</label></span>
+            </div>
+
+            <div id="guestInfos" style="display: none;">
+                <h3 class="title-3 fc-1">투숙객 정보</h3>
+                <ul class="tab-2" data-type="tab" data-titles=">li>a">
+                    <li class="{isActive} active"><a href="#room-1" onclick="fnChangCurrIdx('1');" id="gstBtn1">객실1</a></li>
+                </ul>
+                <div class="tabTxt">
+                </div>
+
+                <div id="room-1" class="tabCont active" style="display: block;">
+                    <table class="tb-1 tbData">
+                        <caption>객실1예약자 정보</caption>
+                        <colgroup>
+                            <col width="175px">
+                            <col width="*">
+                            <col width="175px">
+                            <col width="*">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">이름</th>
+                                <td class="fm" colspan="3">
+                                    <input type="text" class="ipt fw-1" placeholder="성" title="성" name="gst_lastnm_1" id="gst_lastnm_1" maxlength="2">
+                                    <input type="text" class="ipt fw-2" placeholder="이름" title="이름" name="gst_firstnm_1" id="gst_firstnm_1" maxlength="5">
+                                    <span class="radG fmMgL">
+                                        <span class="radFm">
+                                            <input type="radio" class="rad" id="gst_gender_1_1" name="gst_gender_1" value="M0541"><span class="act"></span><label for="gst_gender_1_1">남</label>
+                                        </span>
+                                        <span class="radFm">
+                                            <input type="radio" class="rad" id="gst_gender_1_2" name="gst_gender_1" value="M0542"><span class="act"></span><label for="gst_gender_1_2">여</label>
+                                        </span>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">생년월일</th>
+                                <td class="fm">
+                                    <select class="slt fw-4" title="년" name="gst_yy_1" id="gst_yy_1">
+                                        <option value="">선택</option>
+                                        <option value="1918">1918</option>
+                                        <option value="1919">1919</option>
+                                        <option value="1920">1920</option>
+                                        <option value="1921">1921</option>
+                                        <option value="1922">1922</option>
+                                        <option value="1923">1923</option>
+                                        <option value="1924">1924</option>
+                                        <option value="1925">1925</option>
+                                        <option value="1926">1926</option>
+                                        <option value="1927">1927</option>
+                                        <option value="1928">1928</option>
+                                        <option value="1929">1929</option>
+                                        <option value="1930">1930</option>
+                                        <option value="1931">1931</option>
+                                        <option value="1932">1932</option>
+                                        <option value="1933">1933</option>
+                                        <option value="1934">1934</option>
+                                        <option value="1935">1935</option>
+                                        <option value="1936">1936</option>
+                                        <option value="1937">1937</option>
+                                        <option value="1938">1938</option>
+                                        <option value="1939">1939</option>
+                                        <option value="1940">1940</option>
+                                        <option value="1941">1941</option>
+                                        <option value="1942">1942</option>
+                                        <option value="1943">1943</option>
+                                        <option value="1944">1944</option>
+                                        <option value="1945">1945</option>
+                                        <option value="1946">1946</option>
+                                        <option value="1947">1947</option>
+                                        <option value="1948">1948</option>
+                                        <option value="1949">1949</option>
+                                        <option value="1950">1950</option>
+                                        <option value="1951">1951</option>
+                                        <option value="1952">1952</option>
+                                        <option value="1953">1953</option>
+                                        <option value="1954">1954</option>
+                                        <option value="1955">1955</option>
+                                        <option value="1956">1956</option>
+                                        <option value="1957">1957</option>
+                                        <option value="1958">1958</option>
+                                        <option value="1959">1959</option>
+                                        <option value="1960">1960</option>
+                                        <option value="1961">1961</option>
+                                        <option value="1962">1962</option>
+                                        <option value="1963">1963</option>
+                                        <option value="1964">1964</option>
+                                        <option value="1965">1965</option>
+                                        <option value="1966">1966</option>
+                                        <option value="1967">1967</option>
+                                        <option value="1968">1968</option>
+                                        <option value="1969">1969</option>
+                                        <option value="1970" selected="">1970</option>
+                                        <option value="1971">1971</option>
+                                        <option value="1972">1972</option>
+                                        <option value="1973">1973</option>
+                                        <option value="1974">1974</option>
+                                        <option value="1975">1975</option>
+                                        <option value="1976">1976</option>
+                                        <option value="1977">1977</option>
+                                        <option value="1978">1978</option>
+                                        <option value="1979">1979</option>
+                                        <option value="1980">1980</option>
+                                        <option value="1981">1981</option>
+                                        <option value="1982">1982</option>
+                                        <option value="1983">1983</option>
+                                        <option value="1984">1984</option>
+                                        <option value="1985">1985</option>
+                                        <option value="1986">1986</option>
+                                        <option value="1987">1987</option>
+                                        <option value="1988">1988</option>
+                                        <option value="1989">1989</option>
+                                        <option value="1990">1990</option>
+                                        <option value="1991">1991</option>
+                                        <option value="1992">1992</option>
+                                        <option value="1993">1993</option>
+                                        <option value="1994">1994</option>
+                                        <option value="1995">1995</option>
+                                        <option value="1996">1996</option>
+                                        <option value="1997">1997</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1999">1999</option>
+                                    </select>
+                                    <span class="fmTxt-1">년</span>
+                                    <select class="slt fw-4" title="월" name="gst_mm_1" id="gst_mm_1">
+                                        <option value="">선택</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <span class="fmTxt-1">월</span>
+                                    <select class="slt fw-4" title="일" name="gst_dd_1" id="gst_dd_1">
+                                        <option value="">선택</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                    <span class="fmTxt-1">일</span>
+                                </td>
+                                <th scope="row">연락처</th>
+                                <td class="fm">
+                                    <select class="slt fw-3" title="연락처 앞자리" name="gst_tel1_1" id="gst_tel1_1">
+                                        <option value="010">010</option>
+                                        <option value="011">011</option>
+                                        <option value="016">016</option>
+                                        <option value="017">017</option>
+                                        <option value="018">018</option>
+                                        <option value="019">019</option>
+                                    </select>
+                                    <span class="fmTxt-3">-</span>
+                                    <input type="text" class="ipt fw-3" title="연락처 중간자리" name="gst_tel2_1" id="gst_tel2_1" maxlength="4" style="ime-mode:disabled;">
+                                    <span class="fmTxt-3">-</span>
+                                    <input type="text" class="ipt fw-3" title="연락처 끝자리" name="gst_tel3_1" id="gst_tel3_1" maxlength="4" style="ime-mode:disabled;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">이메일</th>
+                                <td class="fm" colspan="3">
+                                    <input type="text" class="ipt fw-5" title="E-mail 주소" name="gst_email_1" id="gst_email_1" maxlength="30">
+                                    <span class="fmTxt-3">@</span>
+                                    <input type="text" class="ipt fw-5" title="E-mail 도메인" name="gst_email2_1" id="gst_email2_1" maxlength="30" style="width:144px;ime-mode:disabled;">
+                                    <select class="slt fw-6" title="직접입력" onchange="fnSetMailType('gst_email2_1', this.value);" id="gst_emaildomain_1" name="gst_emaildomain_1">
+                                        <option value="1" selected="">직접입력</option>
+                                        <option value="gmail.com">gmail.com</option>
+                                        <option value="hanmail.net">hanmail.net</option>
+                                        <option value="daum.net">daum.net</option>
+                                        <option value="naver.com">naver.com</option>
+                                        <option value="nate.com">nate.com</option>
+                                        <option value="hotmail.com">hotmail.com</option>
+                                        <option value="zum.com">zum.com</option>
+                                        <option value="yahoo.com">yahoo.com</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 결제 정보 // -->
+            <h3 class="title-3 fc-1">결제정보</h3>
+            <table class="tb-1 tbData">
+                <caption>결제정보</caption>
+                <colgroup>
+                    <col width="175px">
+                    <col width="*">
+                    <col width="175px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">카드회사</th>
+                        <td colspan="3" class="fm">
+                            <select class="slt fw-25" title="카드회사" id="card_cmpy_code" name="card_cmpy_code" onchange="fnCdCmp()">
+                                <option value="">카드사 선택</option>
+                                <option value="M0957">광주카드</option>
+                                <option value="M0964">기타</option>
+                                <option value="M0950">농협NH카드</option>
+                                <option value="M0944">롯데카드</option>
+                                <option value="M0946">비씨카드</option>
+                                <option value="M0953">산업은행카드</option>
+                                <option value="M0955">삼성카드</option>
+                                <option value="M0959">수협카드</option>
+                                <option value="M0942">신한카드</option>
+                                <option value="M0952">씨티카드</option>
+                                <option value="M0945">외환카드</option>
+                                <option value="M0949">우리카드</option>
+                                <option value="M0956">저축은행(체크카드)</option>
+                                <option value="M0958">전북은행카드</option>
+                                <option value="M0960">제주은행카드</option>
+                                <option value="M0948">하나(BC)카드</option>
+                                <option value="M0947">하나SK카드</option>
+                                <option value="M0954">한미카드</option>
+                                <option value="M0941">현대카드</option>
+                                <option value="M1384">American Express</option>
+                                <option value="M0963">JCB</option>
+                                <option value="M0943">KB카드</option>
+                                <option value="M0962">MASTER</option>
+                                <option value="M0951">NH비씨카드</option>
+                                <option value="M0961">VISA</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">카드번호</th>
+                        <td class="fm">
+                            <input type="text" class="ipt fw-10" title="첫번째 자리" id="card_no1" name="card_no1" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no2')">
+                            <span class="fmTxt-3">-</span>
+                            <input type="text" class="ipt fw-10" title="두번째 자리" id="card_no2" name="card_no2" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_no3')">
+                            <span class="fmTxt-3">-</span>
+                            <input type="password" class="ipt fw-10" title="세번째 자리" id="card_no3" name="card_no3" maxlength="4" autocomplete="new-password" style="ime-mode:disabled" onkeyup="nextF(this,'card_no4')">
+                            <span class="fmTxt-3">-</span>
+                            <input type="text" class="ipt fw-10" title="네번째 자리" id="card_no4" name="card_no4" maxlength="4" style="ime-mode:disabled" onkeyup="nextF(this,'card_termYY')">
+                        </td>
+                        <th scope="row">유효기간</th>
+                        <td class="fm">
+                            <select class="slt fw-4" title="년" name="card_termYY" id="card_termYY">
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                            </select>
+                            <span class="fmTxt-1">년</span>
+                            <select class="slt fw-4" title="월" name="card_termMM" id="card_termMM">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12" selected="">12</option>
+                            </select>
+                            <span class="fmTxt-1">월</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- // 결제 정보 -->
+
+            <!-- 결제 금액 // -->
+            <h3 class="title-3 fc-1">결제 금액</h3>
+            <table class="tb-1 tbData">
+                <caption>결제 금액</caption>
+                <colgroup>
+                    <col width="175px">
+                    <col width="240px">
+                    <col width="175px">
+                    <col width="240px">
+                    <col width="*">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">객실 가격</th><!-- 객실가격 -->
+                        <td colspan="3">150,000원</td>
+                        <td rowspan="4" class="totalPricefield">
+                            <dl class="totalPrice">
+                                <dt class="total">최종 결제 금액</dt>
+                                <dd class="total">
+                                    <em id="midTotal">165,000</em> 원</dd>
+                            </dl>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">추가 금액</th><!-- 옵션 -->
+                        <td>
+                            <span id="midOptpc">
+                                0원</span>
+                            <!-- <a href="#" onclick="fnShowOption2();return false;" class="btnD btn-4 fmMgL">객실 옵션 선택</a> -->
+                        </td>
+                        <td colspan="2">
+                            <div id="optionInfos"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">부가세</th><!-- 부가세 -->
+                        <td colspan="3" id="midVatpc">
+                            15,000원</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">최종 결제 금액</th><!-- 최종결제금액 -->
+                        <td colspan="3" id="lastTotal">
+                            165,000원</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- // 결제 금액 -->
+
+            <!-- // 옵션선택 및 요청사항 -->
+            <div id="room2-1" class="tabCont" style="display:block;">
+                <div class="cHead chw-3">
+                    <h2 class="title-3 fc-1 chwTit">요청사항</h2>
+                </div>
+
+                <div class="msgBox-1">
+                    별도의 요청 사항은 호텔의 상황에 따라 제공이 어려울 경우가 있으니 양해 부탁 드립니다.</div>
+
+                <table class="tb-1 tbData">
+                    <caption>객실1요청사항</caption>
+                    <colgroup>
+                        <col width="175px">
+                        <col width="*">
+                    </colgroup>
+                    <tbody>
+                        <!--  
 							<tr>
 								<th scope="row">도착예정시간</th>
 								<td class="fm">
@@ -463,82 +782,82 @@
 								</td>
 							</tr>
 							-->
-							<input type="hidden" name="arrivalTime_1" value="">
-							<tr>
-								<th scope="row">기타 남기실 말씀</th>
-								<td class="fm">
-									<textarea class="fw-full fh-1" title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="strCmt_1" id="strCmt_1" maxlength="200"></textarea>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				
-				<!-- 이용 약관 및 결제 취소 규정 동의 // -->
-				<div class="cHead chw-3 line">
-					<h3 class="title-3 fc-1 chwTit">이용 약관 및 결제 취소 규정 동의</h3>
-					<span class="fR chwChk">
-						<span class="chkFm ty-3 aR"><input type="checkbox" class="chk" id="chkAll" name="chkAll" value="Y"><span class="act"></span><label for="chkAll">전체동의</label></span>
-					</span>
-				</div>
-		
-				<!-- 개인정보 -->
-				<div class="cHead chw-5">
-					<h3 class="title-5 chwTit">개인정보 수집 항목 및 이용 동의</h3>
-					<span class="fR chwChk">
-						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree1" name="chkAgree1" value="Y"><span class="act"></span><label for="chkAgree1">동의(필수)</label></span>
-					</span>
-				</div>			
-				<div class="scroll sh-2">
-					<div class="agrCont">
-						<h6 class="agrTit-1">[개인정보 수집항목 및 이용목적]</h6>
-						<p class="agrTxt">서비스 이용에 필요한 고객 응대 및 각종 서비스 제공을 위해 아래와 같은 개인정보를 수집하고 있습니다.</p>
-						<ul class="agrList-2">
-							<li>1. 개인정보 수집 항목</li>
-							<li>- 이름, 성별, 연락처, 이메일 주소, 카드번호, 카드유효기간</li>
-							<li>2. 개인정보 수집 목적</li>
-							<li>- 서비스 이용에 따른 본인 식별, 서비스 이행을 위한 연락 및 안내, 고지사항 전달 등 원활한 양질의 서비스 제공을 위함</li>
-							<li>3. 개인정보 보유 및 이용 기간</li>
-							<li>- 원칙적으로 개인정보의 수집 목적 또는 제공받은 목적이 달성되면 지체 없이 파기합니다. 다만, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계 법률에 의해 보존할 필요가 있는 경우에는 대금결제 및 재화 등의 공급에 관한 기록은 5년간 보존합니다. 취소하신 예약 건에 대해서도 정보는 동일하게 5년간 보존합니다. </li>
-							<li>4. 동의를 거부할 권리 및 동의를 거부할 경우의 불이익</li>
-							<li>- 개인정보의 제공에 관한 동의는 원활한 서비스제공을 위함이고 거부할 경우 서비스 제공이 되지 않을 수 있습니다. </li>
-						</ul>
-						<h6 class="agrTit-1">[개인정보의 보유 및 이용 기간]</h6>
-						<ul class="agrList-2">
-							<li>원칙적으로 개인정보의 수집목적 또는 제공받은 목적이 달성되면 지체 없이 파기합니다.</li>
-							<li>불량회원 관리 및 소비자보호에 관한 법률 등 타 법률에 의해 보존해야 할 필요가 있는 경우에는 일정기간 보유합니다.</li>
-						</ul>
-					</div>
-				</div>
-                
-				<!-- 결제 취소 -->
-				<div class="cHead chw-5">
-					<h3 class="title-5 chwTit">결제 취소 규정 동의</h3>
-					<span class="fR chwChk">
-						<span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree2" name="chkAgree2" value="Y"><span class="act"></span><label for="chkAgree2">동의(필수)</label></span>
-					</span>
-				</div>			
-				<div class="scroll sh-2">
-					<div class="agrCont">
-						<h6 class="agrTit-1">결제 취소 규정 동의</h6>
-						<ul class="agrList-2">
-							<li>현재 입력하시는 신용카드 정보는 예약 보증을 위해 사용되며 객실 투숙 비용 지불과는 상관이 없습니다. 단, Hotdeal 및 취소 불가 예약의 경우 예약과 동시에 입력하신 신용카드로 객실료가 청구되며, 취소 및 환불은 불가능 합니다.</li>
-							<li>선결제 예약의 경우 체크인 시 동일한 결제 카드 지참을 부탁 드립니다.</li>
-							<li>사용할 수 없는 카드 번호 입력 시, 고객님의 예약이 사전 통보 없이 임의로 취소될 수 있음을 알려드립니다.</li>
-							<li>고객님의 예약 확정 이후, 투숙일 당일 취소나 투숙 하지 않을 경우 1박의 비용이 예약 보증된 신용카드로 청구될 수 있습니다.</li>
-							<!-- <li>패키지 예약 취소는 체크인 1일전까지 가능합니다.</li> -->
-						</ul>
-					</div>
-				</div>				
+                        <input type="hidden" name="arrivalTime_1" value="">
+                        <tr>
+                            <th scope="row">기타 남기실 말씀</th>
+                            <td class="fm">
+                                <textarea class="fw-full fh-1" title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="strCmt_1" id="strCmt_1" maxlength="200"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-				<div class="btnArea-1">
-					<a href="#" class="btnA btn-1" onclick="fnReservationSubmit();" id="submitBtn">확인</a>
-					<a href="#" class="btnA btn-2" onclick="fnReFormSubmit();">이전</a>
-				</div>
-			</form>
-		</div>
-        
-         <!-- Footer start -->
+            <!-- 이용 약관 및 결제 취소 규정 동의 // -->
+            <div class="cHead chw-3 line">
+                <h3 class="title-3 fc-1 chwTit">이용 약관 및 결제 취소 규정 동의</h3>
+                <span class="fR chwChk">
+                    <span class="chkFm ty-3 aR"><input type="checkbox" class="chk" id="chkAll" name="chkAll" value="Y"><span class="act"></span><label for="chkAll">전체동의</label></span>
+                </span>
+            </div>
+
+            <!-- 개인정보 -->
+            <div class="cHead chw-5">
+                <h3 class="title-5 chwTit">개인정보 수집 항목 및 이용 동의</h3>
+                <span class="fR chwChk">
+                    <span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree1" name="chkAgree1" value="Y"><span class="act"></span><label for="chkAgree1">동의(필수)</label></span>
+                </span>
+            </div>
+            <div class="scroll sh-2">
+                <div class="agrCont">
+                    <h6 class="agrTit-1">[개인정보 수집항목 및 이용목적]</h6>
+                    <p class="agrTxt">서비스 이용에 필요한 고객 응대 및 각종 서비스 제공을 위해 아래와 같은 개인정보를 수집하고 있습니다.</p>
+                    <ul class="agrList-2">
+                        <li>1. 개인정보 수집 항목</li>
+                        <li>- 이름, 성별, 연락처, 이메일 주소, 카드번호, 카드유효기간</li>
+                        <li>2. 개인정보 수집 목적</li>
+                        <li>- 서비스 이용에 따른 본인 식별, 서비스 이행을 위한 연락 및 안내, 고지사항 전달 등 원활한 양질의 서비스 제공을 위함</li>
+                        <li>3. 개인정보 보유 및 이용 기간</li>
+                        <li>- 원칙적으로 개인정보의 수집 목적 또는 제공받은 목적이 달성되면 지체 없이 파기합니다. 다만, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계 법률에 의해 보존할 필요가 있는 경우에는 대금결제 및 재화 등의 공급에 관한 기록은 5년간 보존합니다. 취소하신 예약 건에 대해서도 정보는 동일하게 5년간 보존합니다. </li>
+                        <li>4. 동의를 거부할 권리 및 동의를 거부할 경우의 불이익</li>
+                        <li>- 개인정보의 제공에 관한 동의는 원활한 서비스제공을 위함이고 거부할 경우 서비스 제공이 되지 않을 수 있습니다. </li>
+                    </ul>
+                    <h6 class="agrTit-1">[개인정보의 보유 및 이용 기간]</h6>
+                    <ul class="agrList-2">
+                        <li>원칙적으로 개인정보의 수집목적 또는 제공받은 목적이 달성되면 지체 없이 파기합니다.</li>
+                        <li>불량회원 관리 및 소비자보호에 관한 법률 등 타 법률에 의해 보존해야 할 필요가 있는 경우에는 일정기간 보유합니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 결제 취소 -->
+            <div class="cHead chw-5">
+                <h3 class="title-5 chwTit">결제 취소 규정 동의</h3>
+                <span class="fR chwChk">
+                    <span class="chkFm ty-3"><input type="checkbox" class="chk" id="chkAgree2" name="chkAgree2" value="Y"><span class="act"></span><label for="chkAgree2">동의(필수)</label></span>
+                </span>
+            </div>
+            <div class="scroll sh-2">
+                <div class="agrCont">
+                    <h6 class="agrTit-1">결제 취소 규정 동의</h6>
+                    <ul class="agrList-2">
+                        <li>현재 입력하시는 신용카드 정보는 예약 보증을 위해 사용되며 객실 투숙 비용 지불과는 상관이 없습니다. 단, Hotdeal 및 취소 불가 예약의 경우 예약과 동시에 입력하신 신용카드로 객실료가 청구되며, 취소 및 환불은 불가능 합니다.</li>
+                        <li>선결제 예약의 경우 체크인 시 동일한 결제 카드 지참을 부탁 드립니다.</li>
+                        <li>사용할 수 없는 카드 번호 입력 시, 고객님의 예약이 사전 통보 없이 임의로 취소될 수 있음을 알려드립니다.</li>
+                        <li>고객님의 예약 확정 이후, 투숙일 당일 취소나 투숙 하지 않을 경우 1박의 비용이 예약 보증된 신용카드로 청구될 수 있습니다.</li>
+                        <!-- <li>패키지 예약 취소는 체크인 1일전까지 가능합니다.</li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btnArea-1">
+                <a href="#" class="btnA btn-1" onclick="fnReservationSubmit();" id="submitBtn">확인</a>
+                <a href="#" class="btnA btn-2" onclick="fnReFormSubmit();">이전</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer start -->
     <footer class="main-footer clearfix">
         <div class="container">
             <!-- Footer info-->
@@ -591,13 +910,41 @@
         </div>
     </div>
     <!-- Copy end right-->
-
-    
-    </body>
-
     <script type="text/javascript">
-        var room = $_GET('room');
-        var 
-    
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var room = getParameterByName('room');
+        var checkin = getParameterByName('ci');
+        var checkout = getParameterByName('co');
+        var person = getParameterByName('adults');
+        var roomtype;
+        if (room == "싱글 (Single)"){
+            roomtype = "single";
+        }
+        if (room == "더블 (Double)"){
+            roomtype = "double";
+        }
+        if (room == "디럭스 (Delux)"){
+            roomtype = "delux";
+        }
+        if (room == "스위트 (Suite)"){
+            roomtype = "Suite";
+        }
+        document.getElementById("checkin").innerHTML = checkin;
+        document.getElementById("room").innerHTML = room;
+        document.getElementById("checkout").innerHTML = checkout;
+        document.getElementById("person").innerHTML = person;
+//        alert(room);
+
     </script>
+
+
+
+</body>
+
+
 </html>

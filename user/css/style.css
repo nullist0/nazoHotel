@@ -1601,6 +1601,10 @@ a:hover {
 
 /** SIDEBAR WIDGET AREA START **/
 
+.form-check {
+    margin-bottom: 100px;
+}
+
 .form-search {
     position: relative;
 }
