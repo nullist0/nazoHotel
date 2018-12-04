@@ -5,8 +5,8 @@ module.exports = {
     connect:function(){
         this.conn = mysql.createConnection({
             host     : 'localhost',
-            user     : 'root',
-            password : '1234',
+            user     : 'hotel',
+            password : 'hotel',
             database : 'hotel',
             insecureAuth : true
         });
