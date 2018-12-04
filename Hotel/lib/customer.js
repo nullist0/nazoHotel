@@ -35,8 +35,8 @@ var createCustomer = function(data, callback){
     var sql = `INSERT INTO customer `+
     `(first_name, last_name, gender, birthday, mobile_number, email, membership)`+
     ` VALUES(?,?,?,?,?,?,?)`;
-    var values = [customer.first_name, customer.last_name, customer.gender, customer.birthday, customer.mobile_number,
-         customer.email, customer.membership];
+    var values = [data.first_name, data.last_name, data.gender, data.birthday, data.mobile_number,
+         data.email, data.membership];
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
         callback(results);

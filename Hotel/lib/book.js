@@ -12,6 +12,22 @@ var findAllBook = function(callback){
  *
  * @param {function} callback
  */ 
+var findAllRoom = function(callback){
+    conn.getTable(`room`,callback);
+};
+
+/** 
+ *
+ * @param {function} callback
+ */ 
+var findAllCustomer = function(callback){
+    conn.getTable(`customer`,callback);
+};
+
+/** 
+ *
+ * @param {function} callback
+ */ 
 var findAllJoin = function(callback){
     conn.getTable(`(book natural left join customer) natural join room`, callback);
 };
@@ -29,7 +45,7 @@ var searchBook = function(data, callback){
     },data);
     const db = conn.connect();
 
-    var values = [book.check_in, book.check_out, room.room_type];
+    var values = [data.check_in, data.check_out, data.room_type];
     var sql = `SELECT * FROM Room WHERE room_id not in `+
     `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
 
@@ -60,9 +76,9 @@ var createBook = function(data){
 
     var sql = `INSERT INTO book(room_id, customer_id, check_in, check_out, book_price , optione_price, total_price) `+
     `VALUES(?,?,?,?,?,?,?)`;
-    var values = [book.room_id, book.customer_id, book.check_in, book.check_out,
-         room.room_price*(TO_DAYS(book.check_out)-TO_DAYS(book.check_in)), book.option_price,
-         room.room_price*(TO_DAYS(book.check_out)-TO_DAYS(book.check_in))+book.option_price];
+    var values = [data.room_id, data.customer_id, data.check_in, data.check_out,
+         data.room_price*(TO_DAYS(data.check_out)-TO_DAYS(data.check_in)), data.option_price,
+         data.room_price*(TO_DAYS(data.check_out)-TO_DAYS(data.check_in))+data.option_price];
     db.query(sql, values, function(error, results,fields){
         if(error) throw error;
         callback(results.insertid);
@@ -101,7 +117,7 @@ var findBook = function(data, callback){
     }, data);
     const db = conn.connect();
 
-    var values = [book.book_id, customer.first_name, customer.last_name, customer.mobile_number, customer.email];
+    var values = [data.book_id, data.first_name, data.last_name, data.mobile_number, data.email];
     var sql = `SELECT book_id, people_num, book_price, option_price, total_price, check_in, check_out`+
      `FROM book natural join customer WHERE book_id = ? and fisrt_name = ? and last_name = ? and mobile_number = ? and email = ?`;
 
@@ -118,7 +134,9 @@ var findBook = function(data, callback){
 
 module.exports = {
     find:{
-        all: findAllBook,
+        allBook: findAllBook,
+        allRoom: findAllRoom,
+        allCustomer: findAllCustomer,
         allJoin: findAllJoin,
         searchBook: searchBook,
         findBook: findBook
