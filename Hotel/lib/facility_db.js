@@ -39,7 +39,7 @@ module.exports = {
     addfacility:function(floor, type, m_staff, s_staff, callback){
         const db = this.connect();
     
-        var sql = 'insert into facility (floor, type, main_staff_id, sub_staff_id) VALUES(' + 'floor' + ', ' + 'type' + ', ' + 'm_staff' + ', ' + 's_staff' + ')';
+        var sql = 'insert into facility (floor, type, main_staff_id, sub_staff_id) VALUES(' + floor + ', ' + type + ', ' + m_staff + ', ' + s_staff + ')';
         db.query(sql, [id], function (error, results, fields){
             if(error) throw error;
             callback(results);
@@ -50,7 +50,7 @@ module.exports = {
     editfacility:function(target, inform, callback){
         const db = this.connect();
 
-        var where = 'set facility_id = ' + inform.facility_id;
+        var where = 'set facility_id = ' + target;
         var sql = 'update facility set floor=' + inform.floor + 'type=' + inform.type + 'main_staff_id =' + inform.m_staff + 'sub_staff_id=' + inform.s_staff + 'where = ' + where;
         db.query(sql, [id], function (error, results, fields){
             if(error) throw error;
@@ -73,7 +73,7 @@ module.exports = {
     editfix:function(target, inform, callback){
         const db = this.connect();
 
-        var where = 'set facility_id = ' + inform.facility_id;
+        var where = 'set facility_id = ' + target;
         var sql = 'update facility set facility_id=' + inform.facility_id + 'employee_id=' + inform.employee + 'fixed_time =' + inform.fixed_time + 'where = ' + where;
         db.query(sql, [id], function (error, results, fields){
             if(error) throw error;

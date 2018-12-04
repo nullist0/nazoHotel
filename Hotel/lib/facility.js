@@ -17,7 +17,7 @@ var addfacility = function(floor, type, m_staff, s_staff, callback){
     conn.addfacility(fllor, type, m_staff, s_staff, callback);
 };
 
-var editfacilityinform = function(all, callback){
+var editfacility = function(all, callback){
     target = all.facility_id;
     all = Object.assign({
         floor: null,
