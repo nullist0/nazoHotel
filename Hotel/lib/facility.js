@@ -5,30 +5,32 @@ var conn = require('./facility_db');
  * @param {fucntion} callback 
  */
 var findAllfacility = function(callback){
-    conn.getTable(`facility`, callback);
+    conn.getTable('facility', callback);
 };
 
-/**
- * 
- * @param {function} callback 
- */
-var findAllJoin = function(callback){
-    conn.getTable(`facility natural left join Take`, callback);
+var findfacilityList = function(callback){
+    var Column = 'facility, type'
+    conn.getColumn('use', Column, callback);
 };
+
+var addfacility = function(floor, type, m_staff, s_staff, callback){
+    conn.addfacility(fllor, type, m_staff, s_staff, callback);
+}
 
 /**
  * 
  * @param {boolean} orderAscending 
  * @param {function} callback 
  */
+
 var findAllOrderBy = function(orderAscending, callback){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Claim `;
+    var sql = 'SELECT * FROM Claim ';
     if(orderAscending)
-        sql += `ORDER BY deadline ASC`
+        sql += 'ORDER BY deadline ASC'
     else
-        sql += `ORDER BY deadline DESC`
+        sql += 'ORDER BY deadline DESC'
     
     db.query(sql, [id], function (error, results, fields){
         if(error) throw error;
@@ -54,21 +56,21 @@ var findBy = function(all, callback){
     const db = conn.connect();
 
     var values = [];
-    var sql = `SELECT * `+
-        `FROM Claim natural left join Take `+
-        `WHERE `;
+    var sql = 'SELECT * '+
+        'FROM Claim natural left join Take '+
+        'WHERE ';
     for(var key in all){
-        if(key != `asc` && all[key] != null){
-            sql += `${key} = ? `;
+        if(key != 'asc' && all[key] != null){
+            sql += '${key} = ? ';
             values.push(all[key]);
         }
     }
 
     if(all.asc != null){
         if(all.asc)
-            sql += `ORDER BY deadline ASC`;
+            sql += 'ORDER BY deadline ASC';
         else
-            sql += `ORDER BY deadline DESC`;
+            sql += 'ORDER BY deadline DESC';
     }
 
     db.query(sql, value, function (error, results, fields){
@@ -91,7 +93,7 @@ var createClaim = function(data){
         deadline: "NOW()"
     }, data);
 
-    var sql = `INSERT INTO Claim(room_id, customer_call, department, deadline) VALUES(?, ?, ?, ?)`;
+    var sql = 'INSERT INTO Claim(room_id, customer_call, department, deadline) VALUES(?, ?, ?, ?)';
     var values = [data.room_id, data.customer_call, data.department, data.deadline];
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
@@ -114,17 +116,17 @@ var updateClaim = function(data){
         deadline: null
     }, data);
 
-    var sql = `UPDATE Claim SET `;
+    var sql = 'UPDATE Claim SET ';
     var values = [];
     for(var name in data){
-        if(name != `claim_id` && data[name] != null){
-            sql += `${name} = ? `;
+        if(name != 'claim_id' && data[name] != null){
+            sql += '${name} = ? ';
             values.push(data[name]);
         }
     }
     values.push(data.claim_id);
 
-    sql += `WHERE claim_id = ?`;
+    sql += 'WHERE claim_id = ?';
 
     console.log(sql);
     console.log(values);
@@ -143,7 +145,7 @@ var updateClaim = function(data){
 var deleteClaim = function(id){
     const db = conn.connect();
 
-    var sql = `DELETE FROM Claim where claim_id = ?`;
+    var sql = 'DELETE FROM Claim where claim_id = ?';
     db.query(sql, [id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -159,11 +161,11 @@ var deleteClaim = function(id){
 var findFinished = function(finished, callback){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Claim natural join Take WHERE finish_time `;
+    var sql = 'SELECT * FROM Claim natural join Take WHERE finish_time ';
     if(finished)
-        sql += `is not null`
+        sql += 'is not null'
     else
-        sql += `is null`
+        sql += 'is null'
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -179,11 +181,11 @@ var findFinished = function(finished, callback){
 var findEmployeeSelected = function(selected, callback){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Claim natural left join Take WHERE employee_id `;
+    var sql = 'SELECT * FROM Claim natural left join Take WHERE employee_id ';
     if(selected)
-        sql += `is not null`;
+        sql += 'is not null';
     else
-        sql += `is null`;
+        sql += 'is null';
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
