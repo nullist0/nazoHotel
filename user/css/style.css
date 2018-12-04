@@ -1539,7 +1539,7 @@ footer ul {
 }
 
 .form-content-box .details {
-    padding: 50px 30px 60px 30px;
+    padding: 50px 40px 60px 40px;
     border-radius: 5px;
     background: #fff;
 }
@@ -2698,15 +2698,15 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 .filebox .upload-name { display: inline-block; width:560px; vertical-align: middle; border:solid 1px #aaa; background:#fff; box-sizing:border-box; padding:0 40px 0 8px; margin-right:3px; height:36px; line-height:34px; color:#000; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
 .filebox .btnDel { margin-left:-125px; }
 .fw-full { width:100%; }
-.fw-1 { width:130px; } /* Name 1 */
-.fw-2 { width:160px; } /* Name 2 */
-.fw-3 { width:70px; } /* Tel */
+.fw-1 { width:130px; border-radius: 5px; } /* Name 1 */
+.fw-2 { width:160px; border-radius: 5px; } /* Name 2 */
+.fw-3 { width:70px; border-radius: 5px; } /* Tel */
 .fw-4 { width:70px; } /* Day */
-.fw-5 { width:175px; } /* Email */
-.fw-6 { width:240px; } /* Email */
+.fw-5 { width:175px; border-radius: 5px; } /* Email */
+.fw-6 { width:240px; border-radius: 5px; } /* Email */
 .fw-7 { width:205px; } /* Address */
 .fw-8 { width:630px; } /* Address */
-.fw-10 { width:60px; } /* CardNum */
+.fw-10 { width:60px; border-radius: 5px; } /* CardNum */
 .fw-21 { width:80px; } /* í†µí™” */
 .fw-22 { width:150px; } /* ì˜ˆì•½ë²ˆí˜¸ */
 .fw-23 { width:180px; } /* ë°”ìš°ì²˜ */
@@ -2716,7 +2716,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 .fw-31 { width:280px; } /* Sel */
 .fw-32 { width:560px; } /* íŒŒì¼ ì°¾ê¸° */
 
-.fh-1 { height:80px; } /* ê¸°íƒ€ ë‚¨ê¸°ì‹¤ ë§ì”€ */
+.fh-1 { height:80px; border-radius: 5px;} /* ê¸°íƒ€ ë‚¨ê¸°ì‹¤ ë§ì”€ */
 .fh-2 { height:220px; } /* ìš”ì²­ ì‚¬í•­ ë‚´ìš© */
 .fh-3 { height:100px; } /* ì •ë³´ */
 .fh-4 { height:150px; } /* ì •ë³´ */
@@ -2943,9 +2943,9 @@ input[type=password]::-ms-reveal, input[type=password]::-ms-clear { display: non
 /********** BTN **********/
 .btnA{ box-sizing:border-box; vertical-align:middle; display:inline-block; text-align:center; margin-bottom: 50px;}
 
-.btn-1 { background-color:#404160; color:#fff; } /* í‚¤ì»¬ëŸ¬ */
+.btn-1 { background-color:#404160; color:#fff; border-radius: 5px; } /* í‚¤ì»¬ëŸ¬ */
 .btn-1:hover { background-color:#764234; }
-.btn-2 { background:#fff; border:solid 1px #ccc; color:#333; } /* íˆ¬ëª… */
+.btn-2 { background:#fff; border:solid 1px #ccc; color:#333; border-radius: 5px; } /* íˆ¬ëª… */
 .btn-2:hover { background-color:#f7f7f7; }
 
 .btnA { min-width:126px; height:60px; line-height:58px; font-size:15px; padding:0 32px; font-weight:bold; } /* precess */
