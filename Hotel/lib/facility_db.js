@@ -70,6 +70,10 @@ module.exports = {
         this.end();
     },
 
+    editfix:function(target, inform, callback){
+        
+    }
+
     end:function(){
         this.conn.end();
     }
