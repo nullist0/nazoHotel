@@ -921,6 +921,19 @@
         var checkin = getParameterByName('ci');
         var checkout = getParameterByName('co');
         var person = getParameterByName('adults');
+        var roomtype;
+        if (room == "싱글 (Single)"){
+            roomtype = "single";
+        }
+        if (room == "더블 (Double)"){
+            roomtype = "double";
+        }
+        if (room == "디럭스 (Delux)"){
+            roomtype = "delux";
+        }
+        if (room == "스위트 (Suite)"){
+            roomtype = "Suite";
+        }
         document.getElementById("checkin").innerHTML = checkin;
         document.getElementById("room").innerHTML = room;
         document.getElementById("checkout").innerHTML = checkout;
