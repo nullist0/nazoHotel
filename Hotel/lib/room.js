@@ -23,10 +23,9 @@ var findAllJoin = function(callback){
  */
 var findOneRoom = function(id, callback){
     const db = conn.connect();
-    var value = [id];
     var sql = `SELECT * FROM room WHERE room_id=?`;
 
-    db.query(sql, value, function(error, result, fields){
+    db.query(sql,[id], function(error, result, fields){
         if(error) throw error;
         callback(result);
     });
@@ -45,11 +44,15 @@ var createRoom = function(data){
     data = Object.assign({
         room_id: null,
         room_type: null,
-        room_price: null
+        room_price: null,
+        view: null,
+        equipment: null,
+        main_staff_id: null,
+        sub_staff_id: null
     }, data);
 
-    var sql = `INSERT INTO room(room_id, room_type, room_price) VALUES(?, ?, ?)`;
-    var values = [data.room_id, data.room_type, data.room_price];
+    var sql = `INSERT INTO room(room_id, room_type, room_price, view, equipment, main_staff_id, sub_staff_id) VALUES(?, ?, ?, ?, ?, ?, ?)`;
+    var values = [data.room_id, data.room_type, data.room_price, data.view, data.equipment, data.main_staff_id, data.sub_staff_id];
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
     });
@@ -66,7 +69,11 @@ var updateRoom = function(data){
     data = Object.assign({
         room_id: null,
         room_type: null,
-        room_price: null
+        room_price: null,
+        view: null,
+        equipment: null,
+        main_staff_id: null,
+        sub_staff_id: null
     }, data);
 
     var sql = `UPDATE room SET `;
