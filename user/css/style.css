@@ -1539,8 +1539,8 @@ footer ul {
 }
 
 .form-content-box .details {
-    padding: 50px 30px;
-    border-radius: 5px 5px 0 0;
+    padding: 50px 30px 60px 30px;
+    border-radius: 5px;
     background: #fff;
 }
 
