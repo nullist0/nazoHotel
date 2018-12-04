@@ -17,6 +17,24 @@ var findAllJoin = function(callback){
 };
 
 
+/**
+ * 
+ * @param {Object} data 
+ */
+var findOneRoom = function(id, callback){
+    const db = conn.connect();
+    var value = [id];
+    var sql = `SELECT * FROM room WHERE room_id=?`;
+
+    db.query(sql, value, function(error, result, fields){
+        if(error) throw error;
+        callback(result);
+    });
+    conn.end();
+
+};
+
+
 
 /**
  * 
@@ -62,9 +80,6 @@ var updateRoom = function(data){
     values.push(data.room_id);
 
     sql += `WHERE room_id = ?`;
-
-    console.log(sql);
-    console.log(values);
     
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
@@ -91,6 +106,7 @@ var deleteRoom= function(id){
 
 module.exports = {
     find:{
+        One: findOneRoom,
         all: findAllRoom,
         allJoin: findAllJoin,
     },
