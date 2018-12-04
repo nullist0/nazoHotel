@@ -36,7 +36,7 @@ module.exports = {
         this.end();
     },
 
-    addfacility:function(floor, type, m_staff, s_staff, callback){
+    createfacility:function(floor, type, m_staff, s_staff, callback){
         const db = this.connect();
     
         var sql = 'insert into facility (floor, type, main_staff_id, sub_staff_id) VALUES(' + floor + ', ' + type + ', ' + m_staff + ', ' + s_staff + ')';
@@ -47,7 +47,7 @@ module.exports = {
         this.end();
     },
     
-    editfacility:function(target, inform, callback){
+    updatefacility:function(target, inform, callback){
         const db = this.connect();
 
         var where = 'set facility_id = ' + target;
@@ -70,7 +70,7 @@ module.exports = {
         this.end();
     },
 
-    editfix:function(target, inform, callback){
+    updatefix:function(target, inform, callback){
         const db = this.connect();
 
         var where = 'set facility_id = ' + target;
@@ -82,7 +82,7 @@ module.exports = {
         this.end();
     },
 
-    addfex:function(fix_id, facility_id, employee_id, fixed_time, callback){
+    createfex:function(fix_id, facility_id, employee_id, fixed_time, callback){
         const db = this.connect();
     
         var sql = 'insert into fix (facility_id, employee_id, fixed_time) VALUES(' + facility_id + ', ' + employee_id + ', ' + fixed_time + ')';

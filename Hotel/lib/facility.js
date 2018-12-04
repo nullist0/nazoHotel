@@ -13,11 +13,11 @@ var findfacilityList = function(callback){
     conn.getColumn('use', Column, callback);
 };
 
-var addfacility = function(floor, type, m_staff, s_staff, callback){
-    conn.addfacility(floor, type, m_staff, s_staff, callback);
+var createfacility = function(floor, type, m_staff, s_staff, callback){
+    conn.createfacility(floor, type, m_staff, s_staff, callback);
 };
 
-var editfacility = function(all, callback){
+var updatefacility = function(all, callback){
     target = all.facility_id;
     all = Object.assign({
         floor: null,
@@ -25,7 +25,7 @@ var editfacility = function(all, callback){
         m_staff: null,
         s_staff: null,
     }, all);
-    conn.editfacility(target, all, callback);
+    conn.updatefacility(target, all, callback);
 };
 
 var delfacility = function(facility_id, callback){
@@ -37,7 +37,7 @@ module.exports = {
         all: findAllfacility,
         list: findfacilityList,
     },
-    add: addfacility,
-    edit: editfacility,
+    create: createfacility,
+    update: updatefacility,
     delete: delfacility
 };
