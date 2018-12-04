@@ -4260,7 +4260,8 @@ input[type=password]::-ms-clear {
 
 /* í‚¤ì»¬ëŸ¬ */
 .btn-1:hover {
-    background-color: #764234;
+    background-color: #5a5959;
+    color: #fff;
 }
 
 .btn-2 {
@@ -4272,6 +4273,7 @@ input[type=password]::-ms-clear {
 /* íˆ¬ëª… */
 .btn-2:hover {
     background-color: #f7f7f7;
+    color: #333;
 }
 
 .btnA {
