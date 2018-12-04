@@ -4257,7 +4257,7 @@ input[type=password]::-ms-clear {
     vertical-align: middle;
     display: inline-block;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .btn-1 {
