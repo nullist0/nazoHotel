@@ -4256,22 +4256,26 @@ input[type=password]::-ms-clear {
 .btn-1 {
     background-color: #404160;
     color: #fff;
+    border-radius: 5px; 
 }
 
 /* í‚¤ì»¬ëŸ¬ */
 .btn-1:hover {
-    background-color: #764234;
+    background-color: #5a5959;
+    color: #fff;
 }
 
 .btn-2 {
     background: #fff;
     border: solid 1px #ccc;
     color: #333;
+    border-radius: 5px; 
 }
 
 /* íˆ¬ëª… */
 .btn-2:hover {
     background-color: #f7f7f7;
+    color: #333;
 }
 
 .btnA {
