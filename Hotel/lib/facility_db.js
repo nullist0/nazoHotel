@@ -39,10 +39,10 @@ module.exports = {
     addfacility:function(floor, type, m_staff, s_staff, callback){
         const db = this.connect();
     
-        var sql = 'insert into facility(floor, type, main_staff_id, sub_staff_id) values (' + floor + ', ' + type + ', ' + m_staff + ', ' + s_staff + ')';
-        db.query(sql, [id], function (error, results, fields){
-            if(error) throw error;
-            callback(results);
+        var sql = 'insert into facility (floor, type, main_staff_id, sub_staff_id) VALUES(' + 'floor' + ', ' + 'type' + ', ' + 'm_staff' + ', ' + 's_staff' + ')';
+        conn.query(sql, function(err, rows, fields){
+            if(err) console.log(err);
+            console.log(rows.insertId); // insertId는 auto_increment설정해 놓았다.(고유한 식별자를 알아낼 수 있는 방법이다.)
         });
         this.end();
     },

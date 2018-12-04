@@ -15,7 +15,11 @@ var findfacilityList = function(callback){
 
 var addfacility = function(floor, type, m_staff, s_staff, callback){
     conn.addfacility(fllor, type, m_staff, s_staff, callback);
-}
+};
+
+var editfacilityinform = function(callback){
+    
+};
 
 /**
  * 
