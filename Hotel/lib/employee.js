@@ -38,37 +38,15 @@ var delEmployee = function(employee_id){
     conn.end();
 };
 
-
-
-
-
-
-
-
-
 /**
  * 
- * @param {function} callback 
+ * 직원 휴가 추가하기. 
  */
-var findAllJoin = function(callback){
-    conn.getTable(`Claim natural left join Take`, callback);
-};
-
-/**
- * 
- * @param {boolean} orderAscending 
- * @param {function} callback 
- */
-var findAllOrderBy = function(orderAscending, callback){
+var add_vac_Employee = function(employee_id, start_date, end_date, type){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Claim `;
-    if(orderAscending)
-        sql += `ORDER BY deadline ASC`
-    else
-        sql += `ORDER BY deadline DESC`
-    
-    db.query(sql, [id], function (error, results, fields){
+    var sql = `INSERT INTO vacation values(?, ?, ?, ?)`;
+    db.query(sql, [employee_id, start_date, end_date, type], function (error, results, fields){
         if(error) throw error;
         callback(results);
     });
@@ -77,39 +55,13 @@ var findAllOrderBy = function(orderAscending, callback){
 
 /**
  * 
- * @param {Object} all 
- * @param {function} callback 
+ * 직원 휴가 삭제하기. 
  */
-var findBy = function(all, callback){
-    all = Object.assign({
-        claim_id: null,
-        room_id: null,
-        customer_call: null,
-        department: null,
-        deadline: null,
-        asc: null
-    }, all);
+var del_vac_Employee = function(employee_id){
     const db = conn.connect();
 
-    var values = [];
-    var sql = `SELECT * `+
-        `FROM Claim natural left join Take `+
-        `WHERE `;
-    for(var key in all){
-        if(key != `asc` && all[key] != null){
-            sql += `${key} = ? `;
-            values.push(all[key]);
-        }
-    }
-
-    if(all.asc != null){
-        if(all.asc)
-            sql += `ORDER BY deadline ASC`;
-        else
-            sql += `ORDER BY deadline DESC`;
-    }
-    
-    db.query(sql, values, function (error, results, fields){
+    var sql = `DELETE FROM vacation WHERE employee_id = ?`;
+    db.query(sql, [employee_id], function (error, results, fields){
         if(error) throw error;
         callback(results);
     });
@@ -118,90 +70,12 @@ var findBy = function(all, callback){
 
 /**
  * 
- * @param {Object} data 
+ * 오늘 휴가 직원 파악. 
  */
-var createClaim = function(data){
-    const db = conn.connect();
-    data = Object.assign({
-        room_id: null,
-        customer_call: null,
-        department: "프론트",
-        deadline: "NOW()"
-    }, data);
-
-    var sql = `INSERT INTO Claim(room_id, customer_call, department, deadline) VALUES(?, ?, ?, ?)`;
-    var values = [data.room_id, data.customer_call, data.department, data.deadline];
-    db.query(sql, values, function (error, results, fields){
-        if(error) throw error;
-    });
-    conn.end();
-};
-
-/**
- * 
- * @param {Object} data 
- */
-var updateClaim = function(data){
+var vacEmployee = function(){
     const db = conn.connect();
 
-    data = Object.assign({
-        claim_id: null,
-        room_id: null,
-        customer_call: null,
-        department: null,
-        deadline: null
-    }, data);
-
-    var sql = `UPDATE Claim SET `;
-    var values = [];
-    for(var name in data){
-        if(name != `claim_id` && data[name] != null){
-            sql += `${name} = ? `;
-            values.push(data[name]);
-        }
-    }
-    values.push(data.claim_id);
-
-    sql += `WHERE claim_id = ?`;
-
-    console.log(sql);
-    console.log(values);
-    
-    db.query(sql, values, function (error, results, fields){
-        if(error) throw error;
-    });
-
-    conn.end();
-};
-
-/**
- * 
- * @param {number} id 
- */
-var deleteClaim = function(id){
-    const db = conn.connect();
-
-    var sql = `DELETE FROM Claim where claim_id = ?`;
-    db.query(sql, [id], function (error, results, fields){
-        if(error) throw error;
-        callback(results);
-    });
-    conn.end();
-};
-
-/**
- * 
- * @param {boolean} finished 
- * @param {function} callback 
- */
-var findFinished = function(finished, callback){
-    const db = conn.connect();
-
-    var sql = `SELECT * FROM Claim natural join Take WHERE finish_time `;
-    if(finished)
-        sql += `is not null`
-    else
-        sql += `is null`
+    var sql = `select employee_id, last_name, first_name FROM employee natural join vacation WHERE(vacation.start_date <= now() and now() <=vacation.end_date) `;
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -211,17 +85,13 @@ var findFinished = function(finished, callback){
 
 /**
  * 
- * @param {boolean} selected 
- * @param {function} callback 
+ * 오늘 휴가아닌 직원 파악. 
  */
-var findEmployeeSelected = function(selected, callback){
+var NvacEmployee = function(){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Claim natural left join Take WHERE employee_id `;
-    if(selected)
-        sql += `is not null`;
-    else
-        sql += `is null`;
+    var sql = `select employee_id, last_name, first_name from employee where employee_id not in 
+        (select employee_id FROM employee natural join vacation WHERE(vacation.start_date <= now() and now() <=vacation.end_date));`;
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -229,16 +99,37 @@ var findEmployeeSelected = function(selected, callback){
     conn.end();
 };
 
-module.exports = {
-    find:{
-        all: findAllClaim,
-        allJoin: findAllJoin,
-        allOrderBy: findAllOrderBy,
-        by: findBy,
-        finished: findFinished,
-        employeeSelected: findEmployeeSelected
-    },
-    create: createClaim,
-    update: updateClaim,
-    delete: deleteClaim
+/**
+ * 
+ * 직원 출근시간 찍기. 
+ */
+var enterEmployee = function(employee_id){
+    const db = conn.connect();
+
+    var sql = `insert into time_table values(?, now(), now(), null);`;
+    db.query(sql, [employee_id], function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
 };
+
+/**
+ * 
+ * 직원 퇴근시간 찍기. 
+ */
+var leaveEmployee = function(employee_id){
+    const db = conn.connect();
+
+    var sql = `update time_table set leave_time = now() where employee_id =?;`;
+    db.query(sql, [employee_id], function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
+
+
+
+
