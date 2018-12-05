@@ -63,7 +63,7 @@
                     <li>
                         <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>방목록</a>
                     </li>
-                    
+
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
                     <li>
                         <a href="facil_list.html"> <i class="menu-icon fa fa-tasks"></i>시설목록</a>
@@ -94,11 +94,50 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Home</h1>
+                        <h1>직원리스트</h1>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">직원 리스트 테이블</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>직원번호</th>
+                                            <th>이름</th>
+                                            <th>부서</th>
+                                            <th>핸드폰번호</th>
+                                            <th>담당객실</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>2017011830</th>
+                                            <th>김아무개</th>
+                                            <th>잔반처리기사단장</th>
+                                            <th>01028020192</th>
+                                            <th>205</th>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
@@ -114,8 +153,33 @@
     <script src="assets/js/widgets.js"></script>
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js">
+    </script>
+    <script src = "vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
         (function($) {
             "use strict";
 
@@ -132,7 +196,6 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-
     </script>
 
 </body>
