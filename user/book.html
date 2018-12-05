@@ -477,18 +477,18 @@
         var checkin = getParameterByName('ci');
         var checkout = getParameterByName('co');
         var person = getParameterByName('adults');
-        var roomtype;
+        var roomprc;
         if (room == "싱글 (Single)") {
-            roomtype = "single";
+            roomprc = 137755;
         }
         if (room == "더블 (Double)") {
-            roomtype = "double";
+            roomprc = 261079;
         }
         if (room == "디럭스 (Delux)") {
-            roomtype = "delux";
+            roomprc = 384402;
         }
         if (room == "스위트 (Suite)") {
-            roomtype = "Suite";
+            roomprc = 507725;
         }
         var date1 = new Date(checkin);
         var date2 = new Date(checkout);
@@ -503,8 +503,8 @@
         document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + date2.getMonth() + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
-        document.getElementById("roomprice").innerHTML = 150;
-        var mdTotal = 150 * date_diff_indays;
+        document.getElementById("roomprice").innerHTML = roomprc;
+        var mdTotal = roomprc * date_diff_indays * parseInt(person);
         document.getElementById("midOptpc").innerHTML = 0;
         var Vat = mdTotal / 10;
         document.getElementById("midVatpc").innerHTML = Vat;
