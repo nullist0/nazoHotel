@@ -8,7 +8,6 @@ var findAllClaim = function(callback){
     conn.getTable(`Claim`, callback);
 };
 
-
 /**
  * find all joined datas
  * @param {function} callback 
