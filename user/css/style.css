@@ -38,6 +38,8 @@ Version:    1.1.0
 
 /** GLOBAL CLASSES **/
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900');
+
 html,
 body {
     height: 100%;
@@ -1925,6 +1927,9 @@ a:hover {
 }
 
 /** Booking System **/
+.booking-heading-2 {
+    font-size: 130%;
+}
 
 .bootstrap-select .dropdown-toggle:focus {
     outline: 0 auto -webkit-focus-ring-color !important;
@@ -4293,3 +4298,12 @@ input[type=password]::-ms-clear {
 
 
 /* precess */
+.wizard{
+    background-color: rgb(200,200,200);
+    padding: 30px;
+    padding-bottom: 78px;
+}
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
