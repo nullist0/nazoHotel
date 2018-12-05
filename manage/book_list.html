@@ -49,9 +49,9 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>홈 </a>
+                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
                     </li>
-                    <h3 class="menu-title">직원관리</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
                         <a href="emp_list.html"> <i class="menu-icon fa fa-tasks"></i>직원리스트</a>
                     </li>
@@ -59,9 +59,9 @@
                         <a href="emp_state.html"> <i class="menu-icon fa fa-tasks"></i>직원상태</a>
                     </li>
 
-                    <h3 class="menu-title">방</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li>
-                        <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>방목록</a>
+                        <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>객실리스트</a>
                     </li>
                     
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -94,11 +94,56 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Home</h1>
+                        <h1>예약목록</h1>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">예약 목록 테이블</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>예약번호</th>
+                                            <th>객실ID</th>
+                                            <th>고객ID</th>
+                                            <th>체크인정보</th>
+                                            <th>체크아웃정보</th>
+                                            <th>예약가격</th>
+                                            <th>추가가격</th>
+                                            <th>총가격</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>110203131</th>
+                                            <th>301230121</th>
+                                            <th>123123</th>
+                                            <th>2018/12/24</th>
+                                            <th>2018/12/25</th>
+                                            <th>$250</th>
+                                            <th>$50</th>
+                                            <th>$300</th>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
@@ -114,8 +159,33 @@
     <script src="assets/js/widgets.js"></script>
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js">
+    </script>
+    <script src = "vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
         (function($) {
             "use strict";
 
@@ -132,7 +202,6 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-
     </script>
 
 </body>
