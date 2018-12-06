@@ -987,7 +987,9 @@ b {
 
 .main-title {
     text-align: center;
+    margin-top: 40px;
     margin-bottom: 50px;
+    font-size : 200%;
 }
 
 .main-title h1 {
@@ -1728,7 +1730,6 @@ a:hover {
 }
 
 /** CONTACT 3 AREA START **/
-
 .contact-3 .contact-info {
     margin-bottom: 50px;
 }
@@ -1737,6 +1738,47 @@ a:hover {
     margin: 0 0 30px;
     font-weight: 300;
     font-size: 27px;
+}
+
+.contact-3 .contact-info .contact-list {
+    margin: 0 0 50px;
+    padding: 0;
+}
+
+.contact-3 .contact-info .contact-list li {
+    list-style: none;
+    padding-left: 40px;
+    position: relative;
+    margin-bottom: 20px;
+    line-height: 22px;
+    color: #535353;
+}
+
+.contact-3 .contact-info .contact-list li i {
+    left: 0;
+    position: absolute;
+    top: 0;
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.contact-3 .contact-info .social-list {
+    margin: 0;
+    padding: 0;
+}
+
+.contact-3 .contact-info .social-list li {
+    font-size: 13px;
+}
+
+.contact-3 .contact-info .social-list li{
+    margin: 0;
+}
+
+.contact-3 .contact-info .social-list li a {
+    font-size: 16px;
+    float: left;
+    margin-right: 20px;
 }
 
 .contact-3 .contact-form form .input-text {
@@ -1752,6 +1794,10 @@ a:hover {
 
 .contact-3 .contact-form .form-group {
     margin-bottom: 20px;
+}
+
+.contact-3 textarea {
+    min-height: 200px;
 }
 
 /** CONTACT DEtAILS AREA START **/
@@ -3148,7 +3194,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 /* Tel */
 .fw-4 {
     width: 70px;
-    border-radius: 5px;
 }
 
 /* Day */
