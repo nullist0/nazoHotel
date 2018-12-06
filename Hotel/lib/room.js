@@ -48,6 +48,8 @@ var createRoom = function(data, callback){
         room_price: null,
         view: null,
         equipment: null,
+        isCheckout: false,
+        isClean: false,
         main_staff_id: null,
         sub_staff_id: null
     }, data);
@@ -74,6 +76,8 @@ var updateRoom = function(data, callback){
         room_price: null,
         view: null,
         equipment: null,
+        isCheckout: null,
+        isClean: null,
         main_staff_id: null,
         sub_staff_id: null
     }, data);

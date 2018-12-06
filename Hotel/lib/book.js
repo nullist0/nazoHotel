@@ -55,7 +55,9 @@ var createBook = function(data, callback){
         check_out: null,
         book_price: null,
         option_price: null,
-        total_price: null
+        total_price: null,
+        isCheckout: false,
+        isClean: false
     }, data);
     const db = conn.connect();
 
@@ -70,6 +72,9 @@ var createBook = function(data, callback){
     });
     conn.end();  
 };
+
+
+
 
 /**
  * 

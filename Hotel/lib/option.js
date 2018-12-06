@@ -14,7 +14,7 @@ var findAllOption = function(callback){
  * @param {function} callback
  */ 
 var findAllJoin = function(callback){
-    conn.getTable(`(Book natural left join Customer) natural join Room`, callback);
+    conn.getTable(`Option natural left join Option_Kind`, callback);
 };
 
 /**

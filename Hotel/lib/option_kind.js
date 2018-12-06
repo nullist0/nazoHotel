@@ -8,6 +8,14 @@ var findAllOption_Kind = function(callback){
     conn.getTable(`Option_Kind`,callback);
 };
 
+/** 
+ *
+ * @param {function} callback
+ */ 
+var findAllJoin = function(callback){
+    conn.getTable(`Option natural left join Option_Kind`, callback);
+};
+
 /**
  * 
  * @param {Object} all 
