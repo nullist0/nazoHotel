@@ -1,0 +1,10 @@
+INSERT INTO `Option` VALUES (1,'흡연 가능',null);
+INSERT INTO `Option` VALUES (1,'조식 뷔페',null);
+INSERT INTO `Option` VALUES (3,'조식 뷔페',null);
+INSERT INTO `Option` VALUES (4,'조식 뷔페',null);
+INSERT INTO `Option` VALUES (7,'석식 뷔페',null);
+INSERT INTO `Option` VALUES (7,'조식 뷔페',null);
+INSERT INTO `Option` VALUES (9,'오션 뷰',null);
+INSERT INTO `Option` VALUES (9,'조식 뷔페',null);
+INSERT INTO `Option` VALUES (9,'석식 뷔페',null);
+INSERT INTO `Option` VALUES (12,'흡연 가능',null);

@@ -1,0 +1,12 @@
+INSERT INTO `Customer` VALUES (1,'김','철수','남자','1997-05-09',01022334444,null,null,null,'dfndjnfjd@naver.com',0);
+INSERT INTO `Customer` VALUES (2,'이','영희','여자','1998-12-31',01033848383,null,null,null,'wsmmdnfks@gamil.com',0);
+INSERT INTO `Customer` VALUES (3,'김','재현','남자','1996-11-10',01038279483,null,null,null,'fkdksndj@gamil.com',0);
+INSERT INTO `Customer` VALUES (4,'이','유리','여자','1999-05-22',01093949474,null,null,null,'dhfhsb23@gamil.com',0);
+INSERT INTO `Customer` VALUES (5,'박','상이','여자','1996-12-23',01091025666,null,null,null,'qoekdjf44@gamil.com',0);
+INSERT INTO `Customer` VALUES (6,'최','서준','남자','1991-10-10',01073852637,null,null,null,'dkfjsisd234@gamil.com',0);
+INSERT INTO `Customer` VALUES (7,'이','평원','남자','1990-06-12',01026374826,null,null,null,'fflgkdk09@gamil.com',0);
+INSERT INTO `Customer` VALUES (8,'홍','진영','여자','1996-01-12',01078365853,null,null,null,'fkgkdmdk56@gamil.com',0);
+INSERT INTO `Customer` VALUES (9,'노','준호','남자','1999-02-09',01073847575,null,null,null,'dfhhdudi6643@gamil.com',0);
+INSERT INTO `Customer` VALUES (10,'박','슬기','여자','1988-06-29',01073742734,null,null,null,'ddjfj34342@gamil.com',0);
+INSERT INTO `Customer` VALUES (11,'백','승헌','남자','1987-08-11',01026374837,null,null,null,'fkgkdjk45@gamil.com',0);
+INSERT INTO `Customer` VALUES (12,'김','민우','남자','1999-10-08',01023423423,null,null,null,'djghkjs987@gamil.com',0);
