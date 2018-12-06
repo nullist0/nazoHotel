@@ -3720,7 +3720,6 @@ input[type=password]::-ms-clear {
     border-collapse: collapse;
     border-spacing: 0;
     table-layout: fixed;
-    border-spacing: 0;
     width: 100%;
     border-top: solid 2px #404160;
 }
