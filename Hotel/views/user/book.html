@@ -136,7 +136,7 @@
                 성인 <span id="person"></span>명</span>
         </div>
         <!-- // Search -->
-        <form action="#" method="get">
+        <form action="#" method="post">
 
             <!-- 예약자 정보 // -->
             <h3 class="title-3 fc-1">예약자 정보</h3>
@@ -513,16 +513,16 @@
         var person = getParameterByName('adults');
         var roomtype;
         if (room == "싱글 (Single)") {
-            roomtype = "single";
+            roomtype = 150000;
         }
         if (room == "더블 (Double)") {
-            roomtype = "double";
+            roomtype = 250000;
         }
         if (room == "디럭스 (Delux)") {
-            roomtype = "delux";
+            roomtype = 350000;
         }
         if (room == "스위트 (Suite)") {
-            roomtype = "Suite";
+            roomtype = 450000;
         }
         var date1 = new Date(checkin);
         var date2 = new Date(checkout);
@@ -537,8 +537,8 @@
         document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth()+1) + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
-        document.getElementById("roomprice").innerHTML = 150;
-        var mdTotal = 150 * date_diff_indays;
+        document.getElementById("roomprice").innerHTML = roomtype;
+        var mdTotal = roomtype * date_diff_indays * parseInt(person);
         document.getElementById("midOptpc").innerHTML = 0;
         var Vat = mdTotal / 10;
         document.getElementById("midVatpc").innerHTML = Vat;
