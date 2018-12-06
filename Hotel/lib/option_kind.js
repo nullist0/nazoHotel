@@ -1,0 +1,81 @@
+var conn = require('./db');
+
+/** 
+ *
+ * @param {function} callback
+ */ 
+var findAllOption_Kind = function(callback){
+    conn.getTable(`Option_Kind`,callback);
+};
+
+/**
+ * 
+ * @param {Object} all 
+ */
+var createOption_Kind = function(all, callback){
+    const db = conn.connect();
+    all = Object.assign({
+        option_name: null,
+        option_price_per_num: null
+    },all);
+
+    var sql = `INSERT INTO Option_Kind(option_name, option_price_per_num) VALUES(?, ?)`;
+    var values = [option_name, option_price_per_num];
+    db.query(sql, values, function(error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
+var deleteOption_kind = function(id, callback){
+    const db = conn.connect();
+    var sql = `DELETE FROM Option_Kind where option_name = ?`;
+    db.query(sql, [id], function(error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
+/**
+ * 
+ * @param {Object} all 
+ */
+var updateOption_Kind = function(all, callback){
+    const db = conn.connect();
+    all = Object.assign({
+        option_name: null,
+        option_price_per_num: null
+    },all);
+    
+    var sql = `UPDATE Option_Kind SET `;
+    var values = [];
+    for(var name in all){
+        if(name != `option_name` && data[name] != null){
+            sql += `${name} = ? `;
+            values.push(all[name]);
+        }
+    }
+    values.push(all.option_name);
+
+    sql += `WHERE option_name = ?`;
+    
+    db.query(sql, values, function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
+
+module.exports = {
+    find:{
+        all: findAllOption_Kind,
+        allJoin: findAllJoin,
+    },
+    create: createOption_Kind,
+    update: updateOption_Kind,
+    delete: deleteOption_kind
+};
+

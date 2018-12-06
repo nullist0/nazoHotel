@@ -5,7 +5,7 @@ var conn = require('./db');
  * @param {function} callback
  */ 
 var findAllRoom = function(callback){
-    conn.getTable(`room`,callback);
+    conn.getTable(`Room`,callback);
 };
 
 /** 
@@ -13,7 +13,7 @@ var findAllRoom = function(callback){
  * @param {function} callback
  */ 
 var findAllJoin = function(callback){
-    conn.getTable(`(book natural left join customer) natural join room`, callback);
+    conn.getTable(`(Book natural left join Customer) natural join Room`, callback);
 };
 
 
@@ -23,15 +23,16 @@ var findAllJoin = function(callback){
  */
 var findOneRoom = function(id, callback){
     const db = conn.connect();
-    var sql = `SELECT * FROM room WHERE room_id=?`;
+    var sql = `SELECT * FROM Room WHERE room_id=?`;
 
     db.query(sql,[id], function(error, result, fields){
         if(error) throw error;
         callback(result);
     });
     conn.end();
-
 };
+
+
 
 
 
@@ -39,7 +40,7 @@ var findOneRoom = function(id, callback){
  * 
  * @param {Object} data 
  */
-var createRoom = function(data){
+var createRoom = function(data, callback){
     const db = conn.connect();
     data = Object.assign({
         room_id: null,
@@ -51,10 +52,11 @@ var createRoom = function(data){
         sub_staff_id: null
     }, data);
 
-    var sql = `INSERT INTO room(room_id, room_type, room_price, view, equipment, main_staff_id, sub_staff_id) VALUES(?, ?, ?, ?, ?, ?, ?)`;
+    var sql = `INSERT INTO Room(room_id, room_type, room_price, view, equipment, main_staff_id, sub_staff_id) VALUES(?, ?, ?, ?, ?, ?, ?)`;
     var values = [data.room_id, data.room_type, data.room_price, data.view, data.equipment, data.main_staff_id, data.sub_staff_id];
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
+        callback(results);
     });
     conn.end();
 };
@@ -63,7 +65,7 @@ var createRoom = function(data){
  * 
  * @param {Object} data 
  */
-var updateRoom = function(data){
+var updateRoom = function(data, callback){
     const db = conn.connect();
 
     data = Object.assign({
@@ -76,7 +78,7 @@ var updateRoom = function(data){
         sub_staff_id: null
     }, data);
 
-    var sql = `UPDATE room SET `;
+    var sql = `UPDATE Room SET `;
     var values = [];
     for(var name in data){
         if(name != `room_id` && data[name] != null){
@@ -90,6 +92,7 @@ var updateRoom = function(data){
     
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
+        callback(results);
     });
 
     conn.end();
@@ -99,10 +102,10 @@ var updateRoom = function(data){
  * 
  * @param {number} id 
  */
-var deleteRoom= function(id){
+var deleteRoom= function(id, callback){
     const db = conn.connect();
 
-    var sql = `DELETE FROM room where room_id = ?`;
+    var sql = `DELETE FROM Room where room_id = ?`;
     db.query(sql, [id], function (error, results, fields){
         if(error) throw error;
         callback(results);

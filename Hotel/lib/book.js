@@ -5,7 +5,7 @@ var conn = require('./db');
  * @param {function} callback
  */ 
 var findAllBook = function(callback){
-    conn.getTable(`book`,callback);
+    conn.getTable(`Book`,callback);
 };
 
 
@@ -14,7 +14,7 @@ var findAllBook = function(callback){
  * @param {function} callback
  */ 
 var findAllJoin = function(callback){
-    conn.getTable(`(book natural left join customer) natural join room`, callback);
+    conn.getTable(`(Book natural left join Customer) natural join Room`, callback);
 };
 
 /** 
@@ -31,8 +31,8 @@ var searchBook = function(data, callback){
     const db = conn.connect();
 
     var values = [data.check_in, data.check_out, data.room_type];
-    var sql = `SELECT * FROM room WHERE room_id not in `+
-    `(SELECT distinct(room_id) FROM book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
+    var sql = `SELECT * FROM Room WHERE room_id not in `+
+    `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
 
     db.query(sql, values, function(error, result, fields){
         if(error) throw error;
@@ -46,7 +46,7 @@ var searchBook = function(data, callback){
 /** 
  * @param {object} data
  */ 
-var createBook = function(data){
+var createBook = function(data, callback){
     const db = conn.connect();
     data = Object.assign({
         room_id: null,
@@ -59,7 +59,7 @@ var createBook = function(data){
     }, data);
     const db = conn.connect();
 
-    var sql = `INSERT INTO book(room_id, customer_id, check_in, check_out, book_price , optione_price, total_price) `+
+    var sql = `INSERT INTO Book(room_id, customer_id, check_in, check_out, book_price , optione_price, total_price) `+
     `VALUES(?,?,?,?,?,?,?)`;
     var values = [data.room_id, data.customer_id, data.check_in, data.check_out,
          data.room_price*(TO_DAYS(data.check_out)-TO_DAYS(data.check_in)), data.option_price,
@@ -75,10 +75,10 @@ var createBook = function(data){
  * 
  * @param {number} id 
  */
-var deleteBook = function(id){
+var deleteBook = function(id, callback){
     const db = conn.connect();
 
-    var sql = `DELETE FROM book book_id = ?`;
+    var sql = `DELETE FROM Book book_id = ?`;
     db.query(sql, [id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -104,7 +104,7 @@ var findBook = function(data, callback){
 
     var values = [data.book_id, data.first_name, data.last_name, data.mobile_number, data.email];
     var sql = `SELECT book_id, people_num, book_price, option_price, total_price, check_in, check_out`+
-     `FROM book natural join customer WHERE book_id = ? and fisrt_name = ? and last_name = ? and mobile_number = ? and email = ?`;
+     `FROM Book natural join Customer WHERE book_id = ? and fisrt_name = ? and last_name = ? and mobile_number = ? and email = ?`;
 
      db.query(sql, values, function(error, results, fields){
          if(error) throw error;

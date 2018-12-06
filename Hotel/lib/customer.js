@@ -5,7 +5,7 @@ var conn = require('./db');
  * @param {function} callback
  */ 
 var findAllCustomer = function(callback){
-    conn.getTable(`customer`,callback);
+    conn.getTable(`Customer`,callback);
 };
 
 /** 
@@ -13,7 +13,7 @@ var findAllCustomer = function(callback){
  * @param {function} callback
  */ 
 var findAllJoin = function(callback){
-    conn.getTable(`(book natural left join customer) natural join room`, callback);
+    conn.getTable(`(Book natural left join Customer) natural join Room`, callback);
 };
 
 /** 
@@ -32,7 +32,7 @@ var createCustomer = function(data, callback){
     }, data);
     const db = conn.connect();
 
-    var sql = `INSERT INTO customer `+
+    var sql = `INSERT INTO Customer `+
     `(first_name, last_name, gender, birthday, mobile_number, email, membership)`+
     ` VALUES(?,?,?,?,?,?,?)`;
     var values = [data.first_name, data.last_name, data.gender, data.birthday, data.mobile_number,
@@ -48,10 +48,10 @@ var createCustomer = function(data, callback){
  * 
  * @param {number} id 
  */
-var deleteCustomer = function(id){//사실 굳이 안해도 될 것 같아요.지금 상황에서는
+var deleteCustomer = function(id, callback){
     const db = conn.connect();
 
-    var sql = `DELETE FROM customer where customer_id = ?`;
+    var sql = `DELETE FROM Customer where customer_id = ?`;
     db.query(sql, [id], function (error, results, fields){
         if(error) throw error;
         callback(results);
