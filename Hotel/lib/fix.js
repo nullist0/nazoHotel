@@ -1,4 +1,4 @@
-var conn = require('./fix_db')
+var conn = require('./db')
 
 var findAllfix = function(callback){
     conn.getTable(fix, callback);

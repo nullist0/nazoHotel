@@ -41,7 +41,9 @@ router.delete('/:id', function(req, res, next) {
 //TODO 직원 목록 가져오기
 router.get('/list', function(req, res, next) {
     employee.find.all(function(results){
-        //todo
+        res.render('manage/emp_list', {
+            employees: results
+        });
     });
 });
 
