@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -147,23 +147,31 @@
                             <div class="card-header">
                                 <strong class="card-title">직원 리스트 수정</strong>
                             </div>
-                            <div class="card-body row">
+                            <div class="card-body">
                                 <form action="#" method="post">
-                                    <label>직원번호:
-                                        <input class="form-control col" type="text" name="empid">
-                                    </label>
-                                    <label>이름:
-                                        <input class="form-control col" type="text" name="empname">
-                                    </label>
-                                    <label>부서:
-                                        <input class="form-control col" type="text" name="empdepart">
-                                    </label>
-                                    <label>핸드폰번호:
-                                        <input class="form-control col" type="text" name="emppn">
-                                    </label>
-                                    <label>담당객실:
-                                        <input class="form-control col" type="text" name="emproom">
-                                    </label>
+                                    <div class="table">
+                                       <div class="row">
+                                        <label class="col">직원번호:
+                                            <input class="form-control" type="text" name="empid">
+                                        </label>
+                                        <label class="col">이름:
+                                            <input class="form-control" type="text" name="empname">
+                                        </label>
+                                        <label>부서:
+                                            <input class="form-control" type="text" name="empdepart">
+                                        </label>
+                                        </div>
+                                        <div class="row">
+                                        <label class="col">핸드폰번호:
+                                            <input class="form-control" type="text" name="emppn">
+                                        </label>
+                                        <label class="col">담당객실:
+                                            <input class="form-control" type="text" name="emproom">
+                                        </label>
+                                        <button type="button col" class="modifybtn">수정</button>
+                                        </div>
+                                    </div>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -231,7 +239,6 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-
     </script>
 
 </body>
