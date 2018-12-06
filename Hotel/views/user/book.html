@@ -250,6 +250,7 @@
                                 <option value="1997">1997</option>
                                 <option value="1998">1998</option>
                                 <option value="1999">1999</option>
+                                <option value="1999">2000</option>
                             </select>
                             <span class="fmTxt-1">년</span>
                             <select class="slt fw-4" title="월" name="rsvBrthdyMT" id="rsvBrthdyMT">
@@ -396,6 +397,20 @@
                             <textarea class="fw-full fh-1" title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="strCmt_1" id="strCmt_1" maxlength="200"></textarea>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row">추가 옵션</th>
+                        <td class="add_option">
+                            <span class="fL chwChk">
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="chkAll" name="chkAll" value="Y"><span class="act"></span><label for="chkAll"> 조식 제공</label>
+                                </span>
+                                <br>
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="chkAll" name="chkAll" value="Y"><span class="act"></span><label for="chkAll"> 흡연 가능방</label>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
                 </table>
             </div>
 
@@ -498,9 +513,9 @@
             date1 = temp;
         }
         var date_diff_indays = diff(date1, date2);
-        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + date1.getMonth() + "월" + date1.getDate() + "일";
+        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + (date1.getMonth()+1) + "월" + date1.getDate() + "일";
         document.getElementById("room").innerHTML = room;
-        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + date2.getMonth() + "월" + date2.getDate() + "일";
+        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth()+1) + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
         document.getElementById("roomprice").innerHTML = 150;

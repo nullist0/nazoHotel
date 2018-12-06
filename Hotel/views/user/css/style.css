@@ -3148,6 +3148,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 /* Tel */
 .fw-4 {
     width: 70px;
+    border-radius: 5px;
 }
 
 /* Day */
