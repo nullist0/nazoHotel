@@ -145,33 +145,119 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
+                                <strong class="card-title">직원 리스트 추가</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">이름:
+                                                <input class="form-control" type="text" name="empname">
+                                            </label>
+                                            <label class="col">부서:
+                                                <input class="form-control" type="text" name="empdepart">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">핸드폰번호:
+                                                <input class="form-control" type="text" name="emppn">
+                                            </label>
+                                            <label class="col">담당객실:
+                                                <input class="form-control" type="text" name="emproom">
+                                            </label>
+                                            <label class="col">성별:
+                                                <input class="form-control" type="text" name="emsex">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">봉급:
+                                                <input class="form-control" type="text" name="empsal">
+                                            </label>
+                                            <label class="col">주소:
+                                                <input class="form-control" type="text" name="empadd">
+                                            </label>
+                                            <button type="button col" class="modifybtn">추가</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
                                 <strong class="card-title">직원 리스트 수정</strong>
                             </div>
                             <div class="card-body">
                                 <form action="#" method="post">
                                     <div class="table">
-                                       <div class="row">
-                                        <label class="col">직원번호:
-                                            <input class="form-control" type="text" name="empid">
-                                        </label>
-                                        <label class="col">이름:
-                                            <input class="form-control" type="text" name="empname">
-                                        </label>
-                                        <label class="col">부서:
-                                            <input class="form-control" type="text" name="empdepart">
-                                        </label>
+                                        <div class="row">
+                                            <label class="col">직원번호:
+                                                <input class="form-control" type="text" name="empid">
+                                            </label>
+                                            <label class="col">이름:
+                                                <input class="form-control" type="text" name="empname">
+                                            </label>
+                                            <label class="col">부서:
+                                                <input class="form-control" type="text" name="empdepart">
+                                            </label>
                                         </div>
                                         <div class="row">
-                                        <label class="col">핸드폰번호:
-                                            <input class="form-control" type="text" name="emppn">
-                                        </label>
-                                        <label class="col">담당객실:
-                                            <input class="form-control" type="text" name="emproom">
-                                        </label>
-                                        <button type="button col" class="modifybtn">수정</button>
+                                            <label class="col">핸드폰번호:
+                                                <input class="form-control" type="text" name="emppn">
+                                            </label>
+                                            <label class="col">담당객실:
+                                                <input class="form-control" type="text" name="emproom">
+                                            </label>
+                                            <label class="col">성별:
+                                                <input class="form-control" type="text" name="emsex">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">봉급:
+                                                <input class="form-control" type="text" name="empsal">
+                                            </label>
+                                            <label class="col">주소:
+                                                <input class="form-control" type="text" name="empadd">
+                                            </label>
+                                            <button type="button col" class="modifybtn">수정</button>
                                         </div>
                                     </div>
-                                    
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">직원 리스트 삭제</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col-10">직원번호:
+                                                <input class="form-control" type="text" name="empid">
+                                            </label>
+                                            <button type="button col-5" class="modifybtn">삭제</button>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -239,6 +325,7 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
+
     </script>
 
 </body>
