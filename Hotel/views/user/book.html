@@ -425,11 +425,18 @@
                     </tr>
                 </table>
             </div>
+            
+            <input type="hidden" id="hckin" value="">
+            <input type="hidden" id="hckout" value="">
+            <input type="hidden" id="hperson" value="">
+            <input type="hidden" id="hprice" value="">
+            
 
             <div class="btnArea-1">
                 <button action="#" class="btnA btn-1" type="submit" id="submitBtn">확인</button>
                 <a href="index.html" class="btnA btn-2">이전</a>
             </div>
+            
         </form>
     </div>
 
@@ -537,7 +544,11 @@
         document.getElementById("midVatpc").innerHTML = Vat;
         document.getElementById("lastTotal").innerHTML = Vat + mdTotal;
         document.getElementById("midTotal").innerHTML = Vat + mdTotal;
-        //        alert(room);
+        document.getElementById("hckin").value = checkin;
+        document.getElementById("hckout").value = checkout;
+        document.getElementById("hperson").value = parseInt(person);
+        document.getElementById("hprice").value = Vat + mdTotal;
+//                alert(room);
     </script>
 
 
