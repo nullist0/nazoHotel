@@ -347,7 +347,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">객실 가격</th><!-- 객실가격 -->
-                        <td colspan="3" id="roomprice"></td>  
+                        <td colspan="3" id="roomprice"></td>
                         <td rowspan="4" class="totalPricefield">
                             <dl class="totalPrice">
                                 <dt class="total">최종 결제 금액</dt>
@@ -425,18 +425,18 @@
                     </tr>
                 </table>
             </div>
-            
-            <input type="hidden" id="hckin" value="">
-            <input type="hidden" id="hckout" value="">
-            <input type="hidden" id="hperson" value="">
-            <input type="hidden" id="hprice" value="">
-            
+
+            <input type="hidden" id="hckin" value="123" name="ckin">
+            <input type="hidden" id="hckout" value="123" name="ckout">
+            <input type="hidden" id="hperson" value="" name="person">
+            <input type="hidden" id="hprice" value="" name="totalprice">
+
 
             <div class="btnArea-1">
                 <button action="#" class="btnA btn-1" type="submit" id="submitBtn">확인</button>
                 <a href="index.html" class="btnA btn-2">이전</a>
             </div>
-            
+
         </form>
     </div>
 
@@ -532,9 +532,9 @@
             date1 = temp;
         }
         var date_diff_indays = diff(date1, date2);
-        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + (date1.getMonth()+1) + "월" + date1.getDate() + "일";
+        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + (date1.getMonth() + 1) + "월" + date1.getDate() + "일";
         document.getElementById("room").innerHTML = room;
-        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth()+1) + "월" + date2.getDate() + "일";
+        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth() + 1) + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
         document.getElementById("roomprice").innerHTML = roomtype;
@@ -548,7 +548,8 @@
         document.getElementById("hckout").value = checkout;
         document.getElementById("hperson").value = parseInt(person);
         document.getElementById("hprice").value = Vat + mdTotal;
-//                alert(room);
+        //                alert(room);
+
     </script>
 
 
