@@ -32,12 +32,13 @@ CREATE TABLE `Employee`
 	`zip` int,
 	`email` varchar(255),
 	`gender` varchar(255),
-	`mobile_number` int,
+	`mobile_number` varchar(13),
 	`start_work` date,
 	`salary` int,
 	`responsible` int,
 	PRIMARY KEY(`employee_id`),
 	FOREIGN KEY(`department`) REFERENCES `Department`(`name`)
+	FOREIGN KEY(`responsible`) REFERENCES `Room`(`room_id`)
 );
 
 CREATE TABLE `Facility` 
