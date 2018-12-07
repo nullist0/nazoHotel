@@ -7264,6 +7264,7 @@ header .form-inline .search-form.close {
     width: 15%;
     height: 38px;
     margin-top: 24px;
+    margin-left: 25px;
     border-radius: 4px;
 }
 
