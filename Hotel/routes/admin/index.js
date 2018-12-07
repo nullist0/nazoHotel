@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
 
 //홈 화면
 router.get('/home', function(req, res, next) {
-    res.render('/manage/index')
+    res.render('manage/index')
 });
 
 module.exports = router;

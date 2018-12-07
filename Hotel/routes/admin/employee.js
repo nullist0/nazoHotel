@@ -4,15 +4,16 @@ var router = express.Router();
 
 //직원 생성
 router.post('/', function(req, res, next) {
-  employee.create(req.body, function(results){
-    res.redirect('/admin/employee/list');
-  });
+    console.log(req.body);
+    employee.create(req.body, function(results){
+        res.redirect('/admin/employee/list');
+    });
 });
 
 //직원 수정
-router.put('/:id', function(req, res, next) {
+router.put('/modify', function(req, res, next) {
     var data = Object.assign({
-        employee_id: req.body.id,
+        employee_id: req.body.employee_id,
         first_name: null, 
         last_name: null, 
         department: null, 
@@ -32,8 +33,8 @@ router.put('/:id', function(req, res, next) {
 });
 
 //직원 삭제
-router.delete('/:id', function(req, res, next) {
-    employee.delete(req.params.id, function(results){
+router.delete('/delete', function(req, res, next) {
+    employee.delete(req.body.employee_id, function(results){
         res.redirect('/admin/employee/list');
     });
 });
@@ -49,16 +50,18 @@ router.get('/list', function(req, res, next) {
 
 //직원 휴가/출퇴근 정보 가져오기
 router.get('/state', function(req, res, next) {
-  employee.vacation.find(function(results){
-    //todo
+  employee.find.join(function(results){
+    res.render('manage/emp_state', {
+        states: results
+    });
   });
 });
 
-//TODO 직원 휴가 정보 수정
-router.put('/state/:id', function(req, res, next) {
-    // employee.(function(results){
-    //     //todo
-    // });
+//TODO 직원 state 정보 수정
+router.put('/state/modify', function(req, res, next) {
+    employee.update(req.body, function(results){
+        res.redirect('/admin/employee/state');
+    });
 });
 
 module.exports = router;

@@ -29,7 +29,9 @@ var addEmployee = function(all, callback){
         responsible: null
     }, all);
 
-    var sql = `INSERT INTO employee values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    console.log(all);
+
+    var sql = `INSERT INTO Employee values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     var values = [all.first_name, all.last_name, all.department, 
         all.city, all.street, all.zip, all.email, all.gender, all.mobile_number, 
         all.start_work, all.salary, all.responsible]
@@ -83,7 +85,7 @@ var updateEmployee = function(data, callback){
 var delEmployee = function(employee_id, callback){
     const db = conn.connect();
 
-    var sql = `DELETE FROM employee WHERE employee_id = ?`;
+    var sql = `DELETE FROM Employee WHERE employee_id = ?`;
     db.query(sql, [employee_id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -105,7 +107,7 @@ var add_vac_Employee = function(all, callback){
 
     const db = conn.connect();
 
-    var sql = `INSERT INTO vacation values(?, ?, ?, ?)`;
+    var sql = `INSERT INTO Vacation values(?, ?, ?, ?)`;
     var values = [all.employee_id, all.start_date, all.end_date, all.type];
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
@@ -121,7 +123,7 @@ var add_vac_Employee = function(all, callback){
 var del_vac_Employee = function(employee_id, callback){
     const db = conn.connect();
 
-    var sql = `DELETE FROM vacation WHERE employee_id = ?`;
+    var sql = `DELETE FROM Vacation WHERE employee_id = ?`;
     db.query(sql, [employee_id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -143,7 +145,7 @@ var findVacation = function(isVacation, callback){
 var vacEmployee = function(callback){
     const db = conn.connect();
 
-    var sql = `select employee_id, last_name, first_name FROM employee natural join vacation WHERE(vacation.start_date <= now() and now() <=vacation.end_date) `;
+    var sql = `select employee_id, last_name, first_name FROM Employee natural join vacation WHERE(vacation.start_date <= now() and now() <=vacation.end_date) `;
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -158,13 +160,17 @@ var vacEmployee = function(callback){
 var NvacEmployee = function(callback){
     const db = conn.connect();
 
-    var sql = `select employee_id, last_name, first_name from employee where employee_id not in 
+    var sql = `select employee_id, last_name, first_name from employee where Employee_id not in 
         (select employee_id FROM employee natural join vacation WHERE(vacation.start_date <= now() and now() <=vacation.end_date));`;
     db.query(sql, function (error, results, fields){
         if(error) throw error;
         callback(results);
     });
     conn.end();
+};
+
+var findEmpTimeJoin = function(callback){
+    conn.getTable(`Time_table natural left join Employee`, callback);
 };
 
 /**
@@ -174,7 +180,7 @@ var NvacEmployee = function(callback){
 var enterEmployee = function(employee_id, callback){
     const db = conn.connect();
 
-    var sql = `insert into time_table values(?, now(), now(), null);`;
+    var sql = `insert into Time_table values(?, now(), null, null);`;
     db.query(sql, [employee_id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -189,7 +195,7 @@ var enterEmployee = function(employee_id, callback){
 var leaveEmployee = function(employee_id, callback){
     const db = conn.connect();
 
-    var sql = `update time_table set leave_time = now() where employee_id =?;`;
+    var sql = `update Time_table set leave_time = now() where employee_id =?;`;
     db.query(sql, [employee_id], function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -203,7 +209,8 @@ var findAllTimeTable = function(callback){
 
 module.exports = {
     find : {
-        all: findAllEmployee
+        all: findAllEmployee,
+        join: findEmpTimeJoin
     },
     vacation: {
         find: findVacation,

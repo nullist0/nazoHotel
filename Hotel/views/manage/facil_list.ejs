@@ -55,7 +55,7 @@
                     <li>
                         <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
 
@@ -65,7 +65,7 @@
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
-                    <li>
+                    <li class="active">
                         <a href="/admin/facility/list"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
                     </li>
                     <li>
@@ -85,7 +85,7 @@
     </aside><!-- /#left-panel -->
 
     <!-- Left Panel -->
-
+    
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
@@ -94,7 +94,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>직원 상태</h1>
+                        <h1>시설 목록</h1>
                     </div>
                 </div>
             </div>
@@ -102,49 +102,158 @@
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 상태 테이블</strong>
+                                <strong class="card-title">시설 목록 테이블</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>직원 번호</th>
-                                            <th>이름</th>
-                                            <th>주소</th>
-                                            <th>성별</th>
-                                            <th>출근 시간</th>
-                                            <th>퇴근 시간</th>
-                                            <th>봉급</th>
+                                            <th>시설 번호</th>
+                                            <th>시설 이름</th>
+                                            <th>설치된 층</th>
+                                            <th>종류</th>
+                                            <th>최근 점검 일자</th>
+                                            <th>예정 점검 일자</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>2017011830</th>
-                                            <th>김아무개</th>
-                                            <th>한양대학로 55</th>
-                                            <th>남자</th>
-                                            <th>08:00</th>
-                                            <th>17:00</th>
-                                            <th>23,081,000</th>
+                                            <th>000001</th>
+                                            <th>B-1</th>
+                                            <th>F1</th>
+                                            <th>보일러</th>
+                                            <th>2018-11-15</th>
+                                            <th>2018-12-15</th>
                                         </tr>
 
-                                        <% for(var i=0; i < states.length; i++){ %>
+                                        <% for(var i=0; i < facilities.length; i++){ %>
                                             <tr>
-                                                <th><%- states[i].employee_id%></th>
-                                                <th><%- states[i].name%></th>
-                                                <th><%- states[i].address%></th>
-                                                <th><%- states[i].enter_time%></th>
-                                                <th><%- states[i].leave_time%></th>
-                                                <th><%- states[i].salary%></th>
+                                                <th><%- facilities[i].employee_id%></th>
+                                                <th><%- facilities[i].first_name + facilities[i].last_name%></th>
+                                                <th><%- facilities[i].department%></th>
+                                                <th><%- facilities[i].mobile_number%></th>
+                                                <th><%- facilities[i].mobile_number%></th>
+                                                <th><%- facilities[i].responsible%></th>
                                             </tr>
                                         <% } %>
+                       
 
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 목록 추가</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">시설 이름:
+                                                <input class="form-control" type="text" name="facname">
+                                            </label>
+                                            <label class="col">설치된 층:
+                                                <input class="form-control" type="text" name="facfloor">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">종류:
+                                                <input class="form-control" type="text" name="fackind">
+                                            </label>
+                                            <label class="col">최근 점검 일자:
+                                                <input class="form-control" type="date" name="facrecent">
+                                            </label>
+                                            <label class="col">예정 점검 일자:
+                                                <input class="form-control" type="date" name="facnext">
+                                            </label>
+                                            <button type="button col" class="modifybtn">추가</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 목록 수정</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">                                            
+                                            <label class="col">시설 번호:
+                                                <input class="form-control" type="text" name="facid">
+                                            </label>
+                                            <label class="col">시설 이름:
+                                                <input class="form-control" type="text" name="facname">
+                                            </label>
+                                            <label class="col">설치된 층:
+                                                <input class="form-control" type="text" name="facfloor">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">종류:
+                                                <input class="form-control" type="text" name="fackind">
+                                            </label>
+                                            <label class="col">최근 점검 일자:
+                                                <input class="form-control" type="date" name="facrecent">
+                                            </label>
+                                            <label class="col">예정 점검 일자:
+                                                <input class="form-control" type="date" name="facnext">
+                                            </label>
+                                            <button type="button col" class="modifybtn">수정</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 리스트 삭제</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col-10">시설 번호:
+                                                <input class="form-control" type="text" name="facid">
+                                            </label>
+                                            <button type="button col-5" class="modifybtn">삭제</button>
+                                        </div>
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -153,8 +262,8 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-        
     </div><!-- /#right-panel -->
+
 
     <!-- Right Panel -->
 
@@ -185,9 +294,8 @@
     <script src="/manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="/manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="/manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js">
-        < script src = "/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js" >
-    </script>
+    <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -213,7 +321,6 @@
             });
         })(jQuery);
     </script>
-
 </body>
 
 </html>

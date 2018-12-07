@@ -1,0 +1,430 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>nazoHotel-Admin</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/manage/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/manage/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/manage/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/manage/vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="/manage/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+
+    <!-- Left Panel -->
+
+
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
+            </div>
+
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/admin/home"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
+                    </li>
+                    <h3 class="menu-title">직원</h3><!-- /.menu-title -->
+                    <li>
+                        <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
+                    </li>
+
+                    <h3 class="menu-title">객실</h3><!-- /.menu-title -->
+                    <li>
+                        <a href="/admin/room/monitoring"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                    </li>
+
+                    <h3 class="menu-title">시설</h3><!-- /.menu-title -->
+                    <li>
+                        <a href="/admin/facility/list"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/facility/fixlist"> <i class="menu-icon fa fa-tasks"></i>시설 수리 현황</a>
+                    </li>
+
+                    <h3 class="menu-title">관리</h3><!-- /.menu-title -->
+                    <li>
+                        <a href="/admin/book"> <i class="menu-icon fa fa-tasks"></i>예약 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/claim"> <i class="menu-icon fa fa-tasks"></i>고객 요청 사항</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>홈</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+            <div class="content mt-3">
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-1">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton1" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <div class="dropdown-menu-content">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">6328</span>
+                        </h4>
+                        <p class="text-light">연도별 직원 실적</p>
+
+                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                            <canvas id="widgetChart1"></canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-2">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton2" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                <div class="dropdown-menu-content">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">8468</span>
+                        </h4>
+                        <p class="text-light">연도별 고객 추이</p>
+
+                        <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                            <canvas id="widgetChart2"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-3">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton3" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                <div class="dropdown-menu-content">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">743</span>
+                        </h4>
+                        <p class="text-light">시설 정비 통계</p>
+
+                    </div>
+
+                    <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                        <canvas id="widgetChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-flat-color-4">
+                    <div class="card-body pb-0">
+                        <div class="dropdown float-right">
+                            <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton4" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                                <div class="dropdown-menu-content">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mb-0">
+                            <span class="count">1421</span>
+                        </h4>
+                        <p class="text-light">고객 요청사항</p>
+
+                        <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                            <canvas id="widgetChart4"></canvas>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--/.col-->
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="card-title mb-0">운영 현황</h4>
+                                <div class="small text-muted">December 2018</div>
+                            </div>
+                            <!--/.col-->
+                            <div class="col-sm-8 hidden-sm-down">
+                                <button type="button" class="btn btn-primary float-right bg-flat-color-1"><i class="fa fa-cloud-download"></i></button>
+                                <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
+                                        <label class="btn btn-outline-secondary">
+                                            <input type="radio" name="options" id="option1"> 일
+                                        </label>
+                                        <label class="btn btn-outline-secondary active">
+                                            <input type="radio" name="options" id="option2" checked=""> 월
+                                        </label>
+                                        <label class="btn btn-outline-secondary">
+                                            <input type="radio" name="options" id="option3"> 년
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.col-->
+
+
+                        </div>
+                        <!--/.row-->
+                        <div class="chart-wrapper mt-4">
+                            <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
+                        </div>
+
+                    </div>
+                    <div class="card-footer">
+                        <ul>
+                            <li>
+                                <div class="text-muted">방문</div>
+                                <strong>29.703 Users (40%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">특별</div>
+                                <strong>24.093 Users (20%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="text-muted">페이지</div>
+                                <strong>78.706 Views (60%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">신규</div>
+                                <strong>22.123 Users (80%)</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                            <li class="hidden-sm-down">
+                                <div class="text-muted">이탈률</div>
+                                <strong>40.15%</strong>
+                                <div class="progress progress-xs mt-2" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-xl-3 col-lg-6">
+                <section class="card">
+                    <div class="twt-feed blue-bg">
+                        <div class="corner-ribon black-ribon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                        <div class="fa fa-twitter wtt-mark"></div>
+
+                        <div class="media">
+                            <a href="#">
+                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="images/lee.png">
+                            </a>
+                            <div class="media-body">
+                                <h2 class="text-white display-6">Mr.Lee</h2>
+                                <p class="text-light">Project Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weather-category twt-category">
+                        <ul>
+                            <li class="active">
+                                <h5>750</h5>
+                                Tweets
+                            </li>
+                            <li>
+                                <h5>865</h5>
+                                Following
+                            </li>
+                            <li>
+                                <h5>3645</h5>
+                                Followers
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="twt-write col-sm-12">
+                        <textarea placeholder="Write your Tweet" rows="1" class="form-control t-text-area"></textarea>
+                    </div>                    
+                    <footer class="twt-footer">
+                        <a href="#"><i class="fa fa-camera"></i></a>
+                        <a href="#"><i class="fa fa-map-marker"></i></a>
+                        한양대학로
+                        <span class="pull-right">
+                            55
+                        </span>
+                    </footer>
+                </section>
+            </div>
+                
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">2017 수익</div>
+                                <div class="stat-digit">7,801만원</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">2018 신규 고객</div>
+                                <div class="stat-digit">961명</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">현재 직원 수</div>
+                                <div class="stat-digit">137명</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/manage/assets/js/main.js"></script>
+
+
+    <script src="/manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/manage/assets/js/dashboard.js"></script>
+    <script src="/manage/assets/js/widgets.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="/manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+
+    </script>
+
+</body>
+
+</html>

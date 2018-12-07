@@ -16,21 +16,25 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/manage/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="/manage/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/manage/vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="/manage/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="manage/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="manage/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="manage/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="manage/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="manage/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="manage/vendors/jqvmap/dist/jqvmap.min.css">
 
 
-    <link rel="stylesheet" href="/manage/assets/css/style.css">
+    <link rel="stylesheet" href="manage/assets/css/style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body>
+
+
+    <!-- Left Panel -->
+
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -39,8 +43,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="manage/images/white-logo.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -49,7 +53,7 @@
                         <a href="/admin/home"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
-                    <li class="active">
+                    <li>
                         <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
@@ -65,7 +69,7 @@
                     <li>
                         <a href="/admin/facility/list"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/admin/facility/fixlist"> <i class="menu-icon fa fa-tasks"></i>시설 수리 현황</a>
                     </li>
 
@@ -91,7 +95,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>직원 목록</h1>
+                        <h1>시설 수리 현황</h1>
                     </div>
                 </div>
             </div>
@@ -103,29 +107,27 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 목록 테이블</strong>
+                                <strong class="card-title">시설 수리 현황</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>직원 번호</th>
-                                            <th>이름</th>
-                                            <th>부서</th>
-                                            <th>핸드폰 번호</th>
-                                            <th>담당 객실</th>
+                                            <th>수리 번호</th>
+                                            <th>시설 번호</th>
+                                            <th>수리 일자</th>
+                                            <th>수리 직원</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>2017011830</th>
-                                            <th>김아무개</th>
-                                            <th>잔반처리기사단장</th>
-                                            <th>01028020192</th>
-                                            <th>205</th>
+                                            <th>2018001</th>
+                                            <th>000001</th>
+                                            <th>2018-11-15</th>
+                                            <th>이평원</th>
                                         </tr>
 
-                                        <% for(var i=0; i < employees.length; i++){ %>
+                                        <!-- <% for(var i=0; i < employees.length; i++){ %>
                                             <tr>
                                                 <th><%- employees[i].employee_id%></th>
                                                 <th><%- employees[i].first_name + employees[i].last_name%></th>
@@ -133,8 +135,9 @@
                                                 <th><%- employees[i].mobile_number%></th>
                                                 <th><%- employees[i].responsible%></th>
                                             </tr>
-                                        <% } %>
-                                        
+                                        <% } %> -->
+                       
+
                                     </tbody>
                                 </table>
                             </div>
@@ -145,55 +148,38 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-
+         
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 목록 추가</strong>
+                                <strong class="card-title">시설 수리 현황 추가</strong>
                             </div>
                             <div class="card-body">
-                                <form action="/admin/employee" method="post">
+                                <form action="#" method="post">
                                     <div class="table">
                                         <div class="row">
-                                            <label class="col">이름:
-                                                <input class="form-control" type="text" name="name">
+                                            <label class="col">시설 번호:
+                                                <input class="form-control" type="text" name="fixfac">
                                             </label>
-                                            <label class="col">부서:
-                                                <input class="form-control" type="text" name="department">
+                                            <label class="col">수리 일자:
+                                                <input class="form-control" type="date" name="fixdate">
                                             </label>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col">핸드폰 번호:
-                                                <input class="form-control" type="text" name="mobile_number">
-                                            </label>
-                                            <label class="col">담당 객실:
-                                                <input class="form-control" type="text" name="responsible">
-                                            </label>
-                                            <label class="col">성별:
-                                                <input class="form-control" type="text" name="gender">
-                                            </label>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col">봉급:
-                                                <input class="form-control" type="text" name="salary">
-                                            </label>
-                                            <label class="col">주소:
-                                                <input class="form-control" type="text" name="address">
+                                            <label class="col">수리 직원:
+                                                <input class="form-control" type="text" name="fixemp">
                                             </label>
                                             <button type="button col" class="modifybtn">추가</button>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>    
         
         <div class="content mt-3">
             <div class="animated fadeIn">
@@ -201,50 +187,31 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 목록 수정</strong>
+                                <strong class="card-title">시설 수리 현황 수정</strong>
                             </div>
                             <div class="card-body">
-                                <form action="/admin/employee/modify" method="post">
+                                <form action="#" method="post">
                                     <div class="table">
-                                        <div class="row">
-                                            <label class="col">직원 번호:
-                                                <input class="form-control" type="text" name="employee_id">
+                                        <div class="row">                                    
+                                            <label class="col">시설 번호:
+                                                <input class="form-control" type="text" name="fixid">
                                             </label>
-                                            <label class="col">이름:
-                                                <input class="form-control" type="text" name="name">
+                                            <label class="col">시설 번호:
+                                                <input class="form-control" type="text" name="fixfac">
                                             </label>
-                                            <label class="col">부서:
-                                                <input class="form-control" type="text" name="department">
+                                            <label class="col">수리 일자:
+                                                <input class="form-control" type="text" name="fixdate">
                                             </label>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col">핸드폰 번호:
-                                                <input class="form-control" type="text" name="mobile_number">
-                                            </label>
-                                            <label class="col">담당 객실:
-                                                <input class="form-control" type="text" name="responsible">
-                                            </label>
-                                            <label class="col">성별:
-                                                <input class="form-control" type="text" name="gender">
-                                            </label>
-                                        </div>
-                                        <div class="row">
-                                            <label class="col">봉급:
-                                                <input class="form-control" type="text" name="salary">
-                                            </label>
-                                            <label class="col">주소:
-                                                <input class="form-control" type="text" name="address">
+                                            <label class="col">수리 직원:
+                                                <input class="form-control" type="text" name="fixemp">
                                             </label>
                                             <button type="button col" class="modifybtn">수정</button>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -255,14 +222,14 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 리스트 삭제</strong>
+                                <strong class="card-title">시설 수리 현황 삭제</strong>
                             </div>
                             <div class="card-body">
-                                <form action="/admin/employee/delete" method="post">
+                                <form action="#" method="post">
                                     <div class="table">
                                         <div class="row">
-                                            <label class="col-10">직원번호:
-                                                <input class="form-control" type="text" name="employee_id">
+                                            <label class="col-10">수리 번호:
+                                                <input class="form-control" type="text" name="fixid">
                                             </label>
                                             <button type="button col-5" class="modifybtn">삭제</button>
                                         </div>
@@ -279,37 +246,39 @@
         </div><!-- .content -->
     </div><!-- /#right-panel -->
 
+
     <!-- Right Panel -->
 
-    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/manage/assets/js/main.js"></script>
+    <script src="manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="manage/assets/js/main.js"></script>
 
 
-    <script src="/manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="/manage/assets/js/dashboard.js"></script>
-    <script src="/manage/assets/js/widgets.js"></script>
-    <script src="/manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="/manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/manage/assets/js/main.js"></script>
+    <script src="manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="manage/assets/js/dashboard.js"></script>
+    <script src="manage/assets/js/widgets.js"></script>
+    <script src="manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="manage/assets/js/main.js"></script>
 
 
-    <script src="/manage/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="/manage/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/manage/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/manage/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="/manage/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="/manage/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="/manage/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="/manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="/manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="/manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js"></script>
-    <script src="/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="manage/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="manage/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="manage/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="manage/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="manage/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="manage/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="manage/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="manage/assets/js/init-scripts/data-table/datatables-init.js">
+    </script>
+    <script src = "manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -334,7 +303,6 @@
                 normalizeFunction: 'polynomial'
             });
         })(jQuery);
-
     </script>
 
 </body>

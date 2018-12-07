@@ -40,8 +40,8 @@ app.use('/admin', adminIndexRouter);
 app.use('/admin/book', adminBookRouter);
 app.use('/admin/claim', adminClaimRouter);
 
-app.use('/admin/employee', adminEmployeeRouter);
 app.use('/admin/facility', adminFacilityRouter);
+app.use('/admin/employee', adminEmployeeRouter);
 app.use('/admin/room', adminRoomRouter);
 
 // catch 404 and forward to error handler

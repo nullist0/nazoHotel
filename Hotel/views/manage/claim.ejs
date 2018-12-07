@@ -55,7 +55,7 @@
                     <li>
                         <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
 
@@ -76,7 +76,7 @@
                     <li>
                         <a href="/admin/book"> <i class="menu-icon fa fa-tasks"></i>예약 목록</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="/admin/claim"> <i class="menu-icon fa fa-tasks"></i>고객 요청 사항</a>
                     </li>
                 </ul>
@@ -94,7 +94,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>직원 상태</h1>
+                        <h1>고객 요청 사항</h1>
                     </div>
                 </div>
             </div>
@@ -106,42 +106,30 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">직원 상태 테이블</strong>
+                                <strong class="card-title">고객 요청 사항 테이블</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>직원 번호</th>
-                                            <th>이름</th>
-                                            <th>주소</th>
-                                            <th>성별</th>
-                                            <th>출근 시간</th>
-                                            <th>퇴근 시간</th>
-                                            <th>봉급</th>
+                                            <th>요청 번호</th>
+                                            <th>고객 객실 번호</th>
+                                            <th>고객 요청 사항</th>
+                                            <th>담당 부서</th>
+                                            <th>담당 직원</th>
+                                            <th colspan="2">수행 일시</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>2017011830</th>
-                                            <th>김아무개</th>
-                                            <th>한양대학로 55</th>
-                                            <th>남자</th>
-                                            <th>08:00</th>
-                                            <th>17:00</th>
-                                            <th>23,081,000</th>
+                                            <th>C00001</th>
+                                            <th>305</th>
+                                            <th>모닝콜</th>
+                                            <th>프론트</th>
+                                            <th>최서준</th>
+                                            <th>2018-12-05</th>                                            
+                                            <th>오전 07:00</th>
                                         </tr>
-
-                                        <% for(var i=0; i < states.length; i++){ %>
-                                            <tr>
-                                                <th><%- states[i].employee_id%></th>
-                                                <th><%- states[i].name%></th>
-                                                <th><%- states[i].address%></th>
-                                                <th><%- states[i].enter_time%></th>
-                                                <th><%- states[i].leave_time%></th>
-                                                <th><%- states[i].salary%></th>
-                                            </tr>
-                                        <% } %>
 
                                     </tbody>
                                 </table>
@@ -153,8 +141,125 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+         
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 추가</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">고객 객실 번호:
+                                                <input class="form-control" type="text" name="claroom">
+                                            </label>
+                                            <label class="col">고객 요청 사항:
+                                                <input class="form-control" type="text" name="clarequest">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">담당 부서:
+                                                <input class="form-control" type="text" name="cladep">
+                                            </label>                                            
+                                            <label class="col">담당 직원:
+                                                <input class="form-control" type="text" name="claemp">
+                                            </label>
+                                            <label class="col">수행 일:
+                                                <input class="form-control" type="date" name="cladate">
+                                            </label>
+                                            <label class="col">수행 시간:
+                                                <input class="form-control" type="time" name="cladate">
+                                            </label>
+                                            <button type="button col" class="modifybtn">추가</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
         
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 수정</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">요청 번호:
+                                                <input class="form-control" type="text" name="claid">
+                                            </label>
+                                            <label class="col">고객 객실 번호:
+                                                <input class="form-control" type="text" name="claroom">
+                                            </label>
+                                            <label class="col">고객 요청 사항:
+                                                <input class="form-control" type="text" name="clarequest">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">담당 부서:
+                                                <input class="form-control" type="text" name="cladep">
+                                            </label>                                            
+                                            <label class="col">담당 직원:
+                                                <input class="form-control" type="text" name="claemp">
+                                            </label>
+                                            <label class="col">수행 일:
+                                                <input class="form-control" type="date" name="cladate">
+                                            </label>
+                                            <label class="col">수행 시간:
+                                                <input class="form-control" type="time" name="cladate">
+                                            </label>
+                                            <button type="button col" class="modifybtn">수정</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 삭제</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col-10">요청 번호:
+                                                <input class="form-control" type="text" name="claid">
+                                            </label>
+                                            <button type="button col-5" class="modifybtn">삭제</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
     </div><!-- /#right-panel -->
+
 
     <!-- Right Panel -->
 
@@ -186,8 +291,8 @@
     <script src="/manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="/manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
     <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js">
-        < script src = "/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js" >
     </script>
+    <script src = "/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

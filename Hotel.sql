@@ -24,12 +24,9 @@ CREATE TABLE `Customer`
 CREATE TABLE `Employee` 
 (
 	`employee_id` int AUTO_INCREMENT,
-	`first_name` varchar(255),
-	`last_name` varchar(255),
+	`name` varchar(255),
 	`department` varchar(255),
-	`city` varchar(255),
-	`street` varchar(255),
-	`zip` int,
+	`address` varchar(255),
 	`email` varchar(255),
 	`gender` varchar(255),
 	`mobile_number` varchar(13),
@@ -44,6 +41,7 @@ CREATE TABLE `Employee`
 CREATE TABLE `Facility` 
 (
 	`facility_id` int AUTO_INCREMENT,
+	`name` varchar(255),
 	`floor` int,
 	`type` varchar(255),
 	`main_staff_id` int,

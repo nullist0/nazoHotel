@@ -5,7 +5,9 @@ var router = express.Router();
 //TODO 방목록 가져오기
 router.get('/monitoring', function(req, res, next) {
   room.find.all(function(results){
-    //todo
+    res.render('manage/room_list',{
+        rooms: results
+    });
   });
 });
 

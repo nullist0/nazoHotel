@@ -5,7 +5,9 @@ var router = express.Router();
 //TODO 예약목록 가져오기
 router.get('/', function(req, res, next) {
     book.find.all(function(results){
-        //todo
+        res.render('manage/book_list',{
+            books: results
+        });
     });
 });
 

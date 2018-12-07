@@ -9,7 +9,7 @@ var findAllfacility = function(callback){
 };
 
 var findfacilityList = function(callback){
-    var Column = 'facility, type';
+    var Column = 'facility_id, type';
     conn.getColumn('use', Column, callback);
 };
 
