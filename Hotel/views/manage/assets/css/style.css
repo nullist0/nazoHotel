@@ -7266,6 +7266,7 @@ header .form-inline .search-form.close {
     margin-top: 24px;
     margin-left: 15px;
     border-radius: 4px;
+    color:dimgray;
 }
 
 .card{

@@ -117,7 +117,7 @@
                                             <th>고객 요청 사항</th>
                                             <th>담당 부서</th>
                                             <th>담당 직원</th>
-                                            <th>업무 수행 날짜</th>
+                                            <th colspan="2">수행 일시</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,7 +127,8 @@
                                             <th>모닝콜</th>
                                             <th>프론트</th>
                                             <th>최서준</th>
-                                            <th>05.12.2018</th>
+                                            <th>2018-12-05</th>                                            
+                                            <th>오전 07:00</th>
                                         </tr>
 
                                     </tbody>
@@ -140,7 +141,125 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+         
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 추가</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">고객 객실 번호:
+                                                <input class="form-control" type="text" name="claroom">
+                                            </label>
+                                            <label class="col">고객 요청 사항:
+                                                <input class="form-control" type="text" name="clarequest">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">담당 부서:
+                                                <input class="form-control" type="text" name="cladep">
+                                            </label>                                            
+                                            <label class="col">담당 직원:
+                                                <input class="form-control" type="text" name="claemp">
+                                            </label>
+                                            <label class="col">수행 일:
+                                                <input class="form-control" type="date" name="cladate">
+                                            </label>
+                                            <label class="col">수행 시간:
+                                                <input class="form-control" type="time" name="cladate">
+                                            </label>
+                                            <button type="button col" class="modifybtn">추가</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 수정</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">요청 번호:
+                                                <input class="form-control" type="text" name="claid">
+                                            </label>
+                                            <label class="col">고객 객실 번호:
+                                                <input class="form-control" type="text" name="claroom">
+                                            </label>
+                                            <label class="col">고객 요청 사항:
+                                                <input class="form-control" type="text" name="clarequest">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">담당 부서:
+                                                <input class="form-control" type="text" name="cladep">
+                                            </label>                                            
+                                            <label class="col">담당 직원:
+                                                <input class="form-control" type="text" name="claemp">
+                                            </label>
+                                            <label class="col">수행 일:
+                                                <input class="form-control" type="date" name="cladate">
+                                            </label>
+                                            <label class="col">수행 시간:
+                                                <input class="form-control" type="time" name="cladate">
+                                            </label>
+                                            <button type="button col" class="modifybtn">수정</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 삭제</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col-10">요청 번호:
+                                                <input class="form-control" type="text" name="claid">
+                                            </label>
+                                            <button type="button col-5" class="modifybtn">삭제</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
     </div><!-- /#right-panel -->
+
 
     <!-- Right Panel -->
 
