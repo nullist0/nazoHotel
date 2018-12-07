@@ -133,7 +133,19 @@
                                             <th>2012512412</th>
                                             <th>2013542147</th>
                                         </tr>
-
+                                        <% for(var i=0; i < rooms.length; i++){ %>
+                                            <tr>
+                                                <th><%- rooms[i].room_id%></th>
+                                                <th><%- rooms[i].type%></th>
+                                                <th><%- rooms[i].view%></th>
+                                                <th><%- rooms[i].room_price%>원</th>
+                                                <th><%- rooms[i].is_checkout ? 'O' : 'X'%></th>
+                                                <th><%- rooms[i].is_clean ? 'O' : 'X'%></th>
+                                                <th><%- rooms[i].main_staff_id%></th>
+                                                <th><%- rooms[i].sub_staff_id%></th>
+                                            </tr>
+                                        <% } %>
+                                        
                                     </tbody>
                                 </table>
                             </div>

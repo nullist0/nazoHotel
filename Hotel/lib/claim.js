@@ -12,8 +12,12 @@ var findAllClaim = function(callback){
  * find all joined datas
  * @param {function} callback 
  */
-var findAllJoin = function(callback){
+var findAllClaimJoinTake = function(callback){
     conn.getTable(`Claim natural left join Take`, callback);
+};
+
+var findAllJoin = function(callback){
+    conn.getTable(`(Claim natural left join Take) natural left join Employee`, callback);
 };
 
 /**
@@ -197,6 +201,7 @@ module.exports = {
     find:{
         all: findAllClaim,
         allJoin: findAllJoin,
+        allJoinTake: findAllClaimJoinTake,
         allOrderBy: findAllOrderBy,
         by: findBy,
         finished: findFinished,

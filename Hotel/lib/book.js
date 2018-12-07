@@ -8,7 +8,6 @@ var findAllBook = function(callback){
     conn.getTable(`Book`,callback);
 };
 
-
 /** 
  *
  * @param {function} callback
@@ -19,35 +18,8 @@ var findAllJoin = function(callback){
 
 /** 
  * @param {object} data
- * @param {function} callback
- */ 
-var searchBook = function(data, callback){
-    data = Object.assign({
-        check_in: null,
-        check_out: null,
-        people_num: null,
-        room_type: null
-    },data);
-    const db = conn.connect();
-
-    var values = [data.check_in, data.check_out, data.room_type];
-    var sql = `SELECT * FROM Room WHERE room_id not in `+
-    `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
-
-    db.query(sql, values, function(error, result, fields){
-        if(error) throw error;
-        callback(result);
-    });
-    conn.end();
-};
-
-
-
-/** 
- * @param {object} data
  */ 
 var createBook = function(data, callback){
-    const db = conn.connect();
     data = Object.assign({
         room_id: null,
         customer_id: null,
@@ -136,7 +108,6 @@ var deleteBook = function(id, callback){
  * @param {function} callback 
  */
 var findBook = function(data, callback){
-    const db = conn.connect();
     data = Object.assign({
         book_id: null,
         first_name: null,
@@ -148,7 +119,7 @@ var findBook = function(data, callback){
 
     var values = [data.book_id, data.first_name, data.last_name, data.mobile_number, data.email];
     var sql = `SELECT book_id, people_num, book_price, option_price, total_price, check_in, check_out`+
-     `FROM Book natural join Customer WHERE book_id = ? and fisrt_name = ? and last_name = ? and mobile_number = ? and email = ?`;
+     `FROM Book natural join Customer WHERE book_id = ? and first_name = ? and last_name = ? and mobile_number = ? and email = ?`;
 
      db.query(sql, values, function(error, results, fields){
          if(error) throw error;
@@ -165,8 +136,7 @@ module.exports = {
     find:{
         all: findAllBook,
         allJoin: findAllJoin,
-        searchBook: searchBook,
-        findBook: findBook
+        book: findBook
     },
     create: createBook,
     update: updateBook,

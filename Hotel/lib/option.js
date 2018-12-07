@@ -24,12 +24,13 @@ var findAllJoin = function(callback){
 var createOption = function(all, callback){
     const db = conn.connect();
     all = Object.assign({
+        book_id: null,
         option_name: null,
         apply_num: null
     },all);
 
-    var sql = `INSERT INTO Option_Kind(option_name, apply_num) VALUES(?, ?)`;
-    var values = [option_name, apply_num];
+    var sql = `INSERT INTO Option(book_id, option_name, apply_num) VALUES(?, ?, ?)`;
+    var values = [book_id, option_name, apply_num];
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
         callback(results);
@@ -45,6 +46,7 @@ var updateOption = function(data, callback){
     const db = conn.connect();
 
     data = Object.assign({
+        book_id: null,
         option_name: null,
         apply_num: null
     }, data);
@@ -72,10 +74,9 @@ var updateOption = function(data, callback){
 
 
 
-
 var deleteOption = function(id, callback){
     const db = conn.connect();
-    var sql = `DELETE FROM Option where option_name = ?`;
+    var sql = `DELETE FROM Option where book_id = ?`;
     db.query(sql, [id], function(error, results, fields){
         if(error) throw error;
         callback(results);

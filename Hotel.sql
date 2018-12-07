@@ -58,6 +58,8 @@ CREATE TABLE `Room`
 	`room_price` int,
 	`view` varchar(255),
 	`equipment` varchar(255),
+    `is_checkout` boolean,
+    `is_clean` boolean,
 	`main_staff_id` int,
 	`sub_staff_id`int,
 	PRIMARY KEY(`room_id`),
@@ -124,7 +126,7 @@ CREATE TABLE `Option`
 	`option_name` varchar(255),
 	`apply_num` int,
 	PRIMARY KEY(`book_id`,`option_name`),
-	FOREIGN KEY(`book_id`) REFERENCES `Book`(`book_id`),
+	FOREIGN KEY(`book_id`) REFERENCES `Book`(`book_id`) ON DELETE CASCADE,
 	FOREIGN KEY(`option_name`) REFERENCES `Option_Kind`(`option_name`)
 );
 

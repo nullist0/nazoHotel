@@ -1,4 +1,4 @@
-var conn = require('./emp_db');
+var conn = require('./db');
 
 /**
  * 
@@ -6,6 +6,42 @@ var conn = require('./emp_db');
  */
 var findAllEmployee = function(callback){
     conn.getTable(`Employee`, callback);
+};
+
+var findBy = function(all, callback){
+    all = Object.assign({
+        employee_id: null,
+        first_name: null, 
+        last_name: null, 
+        department: null, 
+        city: null, 
+        street: null, 
+        zip: null, 
+        email: null,
+        gender: null, 
+        mobile_number: null,
+        start_work: null, 
+        salary: null, 
+        responsible: null
+    }, all);
+    const db = conn.connect();
+
+    var values = [];
+    var sql = `SELECT * `+
+        `FROM Employee `+
+        `WHERE `;
+    for(var key in all){
+        if(all[key] != null){
+            sql += `${key} = ? `;
+            values.push(all[key]);
+        }
+    }
+    
+    db.query(sql, values, function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
 };
 
 /**
@@ -210,7 +246,8 @@ var findAllTimeTable = function(callback){
 module.exports = {
     find : {
         all: findAllEmployee,
-        join: findEmpTimeJoin
+        join: findEmpTimeJoin,
+        by: findBy
     },
     vacation: {
         find: findVacation,

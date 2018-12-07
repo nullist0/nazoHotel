@@ -4,7 +4,7 @@ var router = express.Router();
 
 //TODO 요청사항목록 가져오기
 router.get('/', function(req, res, next) {
-  claim.find.all(function(results){
+  claim.find.allJoin(function(results){
     res.render('manage/claim',{
         claims: results
     });

@@ -16,15 +16,15 @@
     <link rel="apple-touch-icon" href="apple-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link rel="stylesheet" href="manage/vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="manage/vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="manage/vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="manage/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="manage/vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="manage/vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/manage/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/manage/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/manage/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/manage/vendors/jqvmap/dist/jqvmap.min.css">
 
 
-    <link rel="stylesheet" href="manage/assets/css/style.css">
+    <link rel="stylesheet" href="/manage/assets/css/style.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -43,8 +43,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="manage/images/white-logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="#"><img src="manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -127,16 +127,15 @@
                                             <th>이평원</th>
                                         </tr>
 
-                                        <!-- <% for(var i=0; i < employees.length; i++){ %>
+                                        <% for(var i=0; i < fixes.length; i++){ %>
                                             <tr>
-                                                <th><%- employees[i].employee_id%></th>
-                                                <th><%- employees[i].first_name + employees[i].last_name%></th>
-                                                <th><%- employees[i].department%></th>
-                                                <th><%- employees[i].mobile_number%></th>
-                                                <th><%- employees[i].responsible%></th>
+                                                <th><%- fixes[i].fix_id%></th>
+                                                <th><%- fixes[i].facility_id%></th>
+                                                <th><%- fixes[i].fixed_time%></th>
+                                                <th><%- fixes[i].name%></th>
                                             </tr>
-                                        <% } %> -->
-                       
+                                        <% } %>
+
 
                                     </tbody>
                                 </table>
@@ -249,36 +248,36 @@
 
     <!-- Right Panel -->
 
-    <script src="manage/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="manage/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="manage/assets/js/main.js"></script>
+    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/manage/assets/js/main.js"></script>
 
 
-    <script src="manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="manage/assets/js/dashboard.js"></script>
-    <script src="manage/assets/js/widgets.js"></script>
-    <script src="manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="manage/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="manage/vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="manage/assets/js/main.js"></script>
+    <script src="/manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/manage/assets/js/dashboard.js"></script>
+    <script src="/manage/assets/js/widgets.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="/manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/manage/assets/js/main.js"></script>
 
 
-    <script src="manage/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="manage/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="manage/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="manage/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="manage/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="manage/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="manage/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="manage/assets/js/init-scripts/data-table/datatables-init.js">
+    <script src="/manage/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/manage/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="/manage/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="/manage/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="/manage/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js">
     </script>
-    <script src = "manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src = "/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

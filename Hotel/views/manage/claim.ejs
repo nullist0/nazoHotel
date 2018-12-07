@@ -117,7 +117,8 @@
                                             <th>고객 요청 사항</th>
                                             <th>담당 부서</th>
                                             <th>담당 직원</th>
-                                            <th colspan="2">수행 일시</th>
+                                            <th>수행 일시</th>
+                                            <th>완료 일시</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,9 +128,22 @@
                                             <th>모닝콜</th>
                                             <th>프론트</th>
                                             <th>최서준</th>
-                                            <th>2018-12-05</th>                                            
-                                            <th>오전 07:00</th>
+                                            <th>2018-12-05 오전 07:00</th>
+                                            <th>2018-12-05 오전 07:12</th>
                                         </tr>
+
+                                        <% for(var i=0; i < claims.length; i++){ %>
+                                            <tr>
+                                                <th><%- claims[i].claim_id%></th>
+                                                <th><%- claims[i].room_id%></th>
+                                                <th><%- claims[i].customer_call%></th>
+                                                <th><%- claims[i].department%></th>
+                                                <th><%- claims[i].name%></th>
+                                                <th><%- claims[i].deadline%></th>
+                                                <th><%- claims[i].finish_time%></th>
+                                            </tr>
+                                        <% } %>
+                                        
 
                                     </tbody>
                                 </table>

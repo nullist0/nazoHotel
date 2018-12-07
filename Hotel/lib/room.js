@@ -33,7 +33,29 @@ var findOneRoom = function(id, callback){
 };
 
 
+/** 
+ * @param {object} data
+ * @param {function} callback
+ */ 
+var searchBook = function(data, callback){
+    data = Object.assign({
+        check_in: null,
+        check_out: null,
+        people_num: null,
+        room_type: null
+    },data);
+    const db = conn.connect();
 
+    var values = [data.check_in, data.check_out, data.room_type];
+    var sql = `SELECT * FROM Room WHERE room_id not in `+
+    `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
+
+    db.query(sql, values, function(error, result, fields){
+        if(error) throw error;
+        callback(result);
+    });
+    conn.end();
+};
 
 
 /**
@@ -48,14 +70,18 @@ var createRoom = function(data, callback){
         room_price: null,
         view: null,
         equipment: null,
-        isCheckout: false,
-        isClean: false,
+        is_checkout: false,
+        is_clean: false,
         main_staff_id: null,
         sub_staff_id: null
     }, data);
+    var q = [];
+    for(var l in data){
+        q.push('?');
+    }
 
-    var sql = `INSERT INTO Room(room_id, room_type, room_price, view, equipment, main_staff_id, sub_staff_id) VALUES(?, ?, ?, ?, ?, ?, ?)`;
-    var values = [data.room_id, data.room_type, data.room_price, data.view, data.equipment, data.main_staff_id, data.sub_staff_id];
+    var sql = `INSERT INTO Room(${data.keys.join(', ')}) VALUES(${q.join(', ')})`;
+    var values = data.values;
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -123,6 +149,7 @@ module.exports = {
         One: findOneRoom,
         all: findAllRoom,
         allJoin: findAllJoin,
+        forBook: searchBook
     },
     create: createRoom,
     update: updateRoom,
