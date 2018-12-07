@@ -62,6 +62,8 @@ CREATE TABLE `Room`
 	`equipment` varchar(255),
 	`main_staff_id` int,
 	`sub_staff_id`int,
+	`isCheckout` boolean,
+  	`isClean` boolean,
 	PRIMARY KEY(`room_id`),
 	FOREIGN KEY(`main_staff_id`) REFERENCES `Employee`(`employee_id`),
 	FOREIGN KEY(`sub_staff_id`) REFERENCES `Employee`(`employee_id`)
