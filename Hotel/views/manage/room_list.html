@@ -112,26 +112,26 @@
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>객실ID</th>
-                                            <th>방번호</th>
+                                            <th>객실번호</th>
                                             <th>객실유형</th>
-                                            <th>객실크기</th>
+                                            <th>뷰</th>
                                             <th>객실가격</th>
                                             <th>체크아웃유무</th>
                                             <th>청소유무</th>
-                                            <th>담당직원ID</th>
+                                            <th>주담당직원ID</th>
+                                            <th>부담당직원ID</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>31023413643</th>
                                             <th>304</th>
                                             <th>더블</th>
-                                            <th>26m2</th>
-                                            <th>$234.45</th>
+                                            <th>오션뷰</th>
+                                            <th>200000원</th>
                                             <th>O</th>
                                             <th>X</th>
                                             <th>2012512412</th>
+                                            <th>2013542147</th>
                                         </tr>
 
                                     </tbody>
@@ -157,7 +157,7 @@
                                     <form action="#" method="post">
                                         <div class="table">
                                             <div class="row">
-                                                <label class="col">방번호:
+                                                <label class="col">객실번호:
                                                     <input class="form-control" type="text" name="roomnumber">
                                                 </label>
                                                 <label class="col">객실유형:
@@ -165,7 +165,7 @@
                                                 </label>
                                             </div>
                                             <div class="row">
-                                                <label class="col">객실크기:
+                                                <label class="col">뷰:
                                                     <input class="form-control" type="text" name="roomsize">
                                                 </label>
                                                 <label class="col">객실가격:
@@ -179,7 +179,10 @@
                                                 <label class="col">청소유무:
                                                     <input class="form-control" type="text" name="isclean">
                                                 </label>
-                                                <label class="col">담당직원ID:
+                                                <label class="col">주담당직원ID:
+                                                    <input class="form-control" type="text" name="stf_incharge">
+                                                </label>
+                                                <label class="col">부담당직원ID:
                                                     <input class="form-control" type="text" name="stf_incharge">
                                                 </label>
                                                 <button type="button col" class="modifybtn">추가</button>
@@ -203,7 +206,7 @@
                                     <form action="#" method="post">
                                         <div class="table">
                                             <div class="row">
-                                                <label class="col">방번호:
+                                                <label class="col">객실번호:
                                                     <input class="form-control" type="text" name="roomnumber">
                                                 </label>
                                                 <label class="col">객실유형:
@@ -211,7 +214,7 @@
                                                 </label>
                                             </div>
                                             <div class="row">
-                                                <label class="col">객실크기:
+                                                <label class="col">뷰:
                                                     <input class="form-control" type="text" name="roomsize">
                                                 </label>
                                                 <label class="col">객실가격:
@@ -225,7 +228,10 @@
                                                 <label class="col">청소유무:
                                                     <input class="form-control" type="text" name="isclean">
                                                 </label>
-                                                <label class="col">담당직원ID:
+                                                <label class="col">주담당직원ID:
+                                                    <input class="form-control" type="text" name="stf_incharge">
+                                                </label>
+                                                <label class="col">부담당직원ID:
                                                     <input class="form-control" type="text" name="stf_incharge">
                                                 </label>
                                                 <button type="button col" class="modifybtn">수정</button>
@@ -254,7 +260,7 @@
                                     <form action="#" method="post">
                                         <div class="table">
                                             <div class="row">
-                                                <label class="col-10">객실ID:
+                                                <label class="col-10">객실번호:
                                                     <input class="form-control" type="text" name="roomid">
                                                 </label>
                                                 <button type="button col-5" class="modifybtn">삭제</button>
