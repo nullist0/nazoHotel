@@ -73,6 +73,45 @@ var createBook = function(data, callback){
     conn.end();  
 };
 
+/**
+ * 
+ * @param {Object} data 
+ */
+var updateBook = function(data, callback){
+    const db = conn.connect();
+
+    data = Object.assign({
+        room_id: null,
+        customer_id: null,
+        check_in: null,
+        check_out: null,
+        book_price: null,
+        option_price: null,
+        total_price: null,
+        isCheckout: false,
+        isClean: false
+    }, data);
+
+    var sql = `UPDATE Book SET `;
+    var values = [];
+    for(var name in data){
+        if(name != `BooK_id` && data[name] != null){
+            sql += `${name} = ? `;
+            values.push(data[name]);
+        }
+    }
+    values.push(data.Book_id);
+
+    sql += `WHERE Book_id = ?`;
+    
+    db.query(sql, values, function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+
+    conn.end();
+};
+
 
 
 
@@ -130,5 +169,6 @@ module.exports = {
         findBook: findBook
     },
     create: createBook,
+    update: updateBook,
     delete: deleteBook
 };

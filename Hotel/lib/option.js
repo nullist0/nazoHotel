@@ -37,6 +37,42 @@ var createOption = function(all, callback){
     conn.end();
 };
 
+/**
+ * 
+ * @param {Object} data 
+ */
+var updateOption = function(data, callback){
+    const db = conn.connect();
+
+    data = Object.assign({
+        option_name: null,
+        apply_num: null
+    }, data);
+
+    var sql = `UPDATE Option SET `;
+    var values = [];
+    for(var name in data){
+        if(name != `option_name` && data[name] != null){
+            sql += `${name} = ? `;
+            values.push(data[name]);
+        }
+    }
+    values.push(data.option_name);
+
+    sql += `WHERE option_name = ?`;
+    
+    db.query(sql, values, function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+
+    conn.end();
+};
+
+
+
+
+
 var deleteOption = function(id, callback){
     const db = conn.connect();
     var sql = `DELETE FROM Option where option_name = ?`;
@@ -55,5 +91,6 @@ module.exports = {
         allJoin: findAllJoin,
     },
     create: createOption,
+    update: updateOption,
     delete: deleteOption
 };
