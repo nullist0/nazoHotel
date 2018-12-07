@@ -102,7 +102,6 @@
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
-
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -126,12 +125,123 @@
                                             <th>B-1</th>
                                             <th>F1</th>
                                             <th>보일러</th>
-                                            <th>15.11.2018</th>
-                                            <th>15.12.2018</th>
+                                            <th>2018-11-15</th>
+                                            <th>2018-12-15</th>
                                         </tr>
 
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 리스트 추가</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">시설 이름:
+                                                <input class="form-control" type="text" name="facname">
+                                            </label>
+                                            <label class="col">설치된 층:
+                                                <input class="form-control" type="text" name="facfloor">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">종류:
+                                                <input class="form-control" type="text" name="fackind">
+                                            </label>
+                                            <label class="col">최근 점검 일자:
+                                                <input class="form-control" type="date" name="facrecent">
+                                            </label>
+                                            <label class="col">예정 점검 일자:
+                                                <input class="form-control" type="date" name="facnext">
+                                            </label>
+                                            <button type="button col" class="modifybtn">추가</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 리스트 수정</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">                                            
+                                            <label class="col">시설 번호:
+                                                <input class="form-control" type="text" name="facid">
+                                            </label>
+                                            <label class="col">시설 이름:
+                                                <input class="form-control" type="text" name="facname">
+                                            </label>
+                                            <label class="col">설치된 층:
+                                                <input class="form-control" type="text" name="facfloor">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">종류:
+                                                <input class="form-control" type="text" name="fackind">
+                                            </label>
+                                            <label class="col">최근 점검 일자:
+                                                <input class="form-control" type="date" name="facrecent">
+                                            </label>
+                                            <label class="col">예정 점검 일자:
+                                                <input class="form-control" type="date" name="facnext">
+                                            </label>
+                                            <button type="button col" class="modifybtn">수정</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+        
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">시설 리스트 삭제</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col-10">시설 번호:
+                                                <input class="form-control" type="text" name="facid">
+                                            </label>
+                                            <button type="button col-5" class="modifybtn">삭제</button>
+                                        </div>
+                                    </div>
+
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -172,8 +282,7 @@
     <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="assets/js/init-scripts/data-table/datatables-init.js">
-    </script>
+    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
     <script src = "vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
