@@ -136,7 +136,7 @@
                 성인 <span id="person"></span>명</span>
         </div>
         <!-- // Search -->
-        <form action="#" method="get">
+        <form action="#" method="post">
 
             <!-- 예약자 정보 // -->
             <h3 class="title-3 fc-1">예약자 정보</h3>
@@ -250,6 +250,7 @@
                                 <option value="1997">1997</option>
                                 <option value="1998">1998</option>
                                 <option value="1999">1999</option>
+                                <option value="1999">2000</option>
                             </select>
                             <span class="fmTxt-1">년</span>
                             <select class="slt fw-4" title="월" name="rsvBrthdyMT" id="rsvBrthdyMT">
@@ -346,7 +347,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">객실 가격</th><!-- 객실가격 -->
-                        <td colspan="3" id="roomprice"></td>  
+                        <td colspan="3" id="roomprice"></td>
                         <td rowspan="4" class="totalPricefield">
                             <dl class="totalPrice">
                                 <dt class="total">최종 결제 금액</dt>
@@ -392,17 +393,51 @@
                 <table class="tb-1 tbData">
                     <tr>
                         <th scope="row">기타 남기실 말씀</th>
-                        <td class="fm">
+<!--                        <td class="fm">-->
+                        <th colspan="3">
                             <textarea class="fw-full fh-1" title="기타 남기실 말씀" placeholder="내용을 입력해 주세요." name="strCmt_1" id="strCmt_1" maxlength="200"></textarea>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row">추가 옵션</th>
+                        <td class="add_option">
+                            <span class="fL chwChk">
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="option0" name="option[0]" value="Y"><span class="act"></span><label for="chkAll"> 흡연 가능 객실</label>
+                                </span>
+                                <br><br>
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="option1" name="option[1]" value="Y"><span class="act"></span><label for="chkAll"> 오션 뷰 객실</label>
+                                </span>
+                                <br><br>
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="option2" name="option[2]" value="Y"><span class="act"></span><label for="chkAll"> 수영장 이용</label>
+                                </span>
+                                <br><br>
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="option3" name="option[3]" value="Y"><span class="act"></span><label for="chkAll"> 조식 뷔페</label>
+                                </span>
+                                <br><br>
+                                <span class="chkFm ty-3 aR">
+                                    <input type="checkbox" class="chk" id="option4" name="option[4]" value="Y"><span class="act"></span><label for="chkAll"> 석식 뷔페</label>
+                                </span>
+                            </span>
                         </td>
                     </tr>
                 </table>
             </div>
 
+            <input type="hidden" id="hckin" value="123" name="ckin">
+            <input type="hidden" id="hckout" value="123" name="ckout">
+            <input type="hidden" id="hperson" value="" name="person">
+            <input type="hidden" id="hprice" value="" name="totalprice">
+
+
             <div class="btnArea-1">
                 <button action="#" class="btnA btn-1" type="submit" id="submitBtn">확인</button>
                 <a href="index.html" class="btnA btn-2">이전</a>
             </div>
+
         </form>
     </div>
 
@@ -479,16 +514,16 @@
         var person = getParameterByName('adults');
         var roomtype;
         if (room == "싱글 (Single)") {
-            roomtype = "single";
+            roomtype = 150000;
         }
         if (room == "더블 (Double)") {
-            roomtype = "double";
+            roomtype = 250000;
         }
         if (room == "디럭스 (Delux)") {
-            roomtype = "delux";
+            roomtype = 350000;
         }
         if (room == "스위트 (Suite)") {
-            roomtype = "Suite";
+            roomtype = 450000;
         }
         var date1 = new Date(checkin);
         var date2 = new Date(checkout);
@@ -498,19 +533,24 @@
             date1 = temp;
         }
         var date_diff_indays = diff(date1, date2);
-        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + date1.getMonth() + "월" + date1.getDate() + "일";
+        document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + (date1.getMonth() + 1) + "월" + date1.getDate() + "일";
         document.getElementById("room").innerHTML = room;
-        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + date2.getMonth() + "월" + date2.getDate() + "일";
+        document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth() + 1) + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
-        document.getElementById("roomprice").innerHTML = 150;
-        var mdTotal = 150 * date_diff_indays;
+        document.getElementById("roomprice").innerHTML = roomtype;
+        var mdTotal = roomtype * date_diff_indays * parseInt(person);
         document.getElementById("midOptpc").innerHTML = 0;
         var Vat = mdTotal / 10;
         document.getElementById("midVatpc").innerHTML = Vat;
         document.getElementById("lastTotal").innerHTML = Vat + mdTotal;
         document.getElementById("midTotal").innerHTML = Vat + mdTotal;
-        //        alert(room);
+        document.getElementById("hckin").value = checkin;
+        document.getElementById("hckout").value = checkout;
+        document.getElementById("hperson").value = parseInt(person);
+        document.getElementById("hprice").value = Vat + mdTotal;
+        //                alert(room);
+
     </script>
 
 

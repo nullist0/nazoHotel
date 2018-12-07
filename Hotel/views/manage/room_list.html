@@ -48,36 +48,36 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li>
                         <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
-                        <a href="emp_list.html"> <i class="menu-icon fa fa-tasks"></i>직원리스트</a>
+                        <a href="emp_list.html"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
-                        <a href="emp_state.html"> <i class="menu-icon fa fa-tasks"></i>직원상태</a>
+                        <a href="emp_state.html"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
-                    <li>
-                        <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>객실리스트</a>
+                    <li class="active">
+                        <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
                     </li>
                     
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
                     <li>
-                        <a href="facil_list.html"> <i class="menu-icon fa fa-tasks"></i>시설목록</a>
+                        <a href="facil_list.html"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
                     </li>
                     <li>
-                        <a href="facil_fix.html"> <i class="menu-icon fa fa-tasks"></i>요청사항</a>
+                        <a href="facil_fix.html"> <i class="menu-icon fa fa-tasks"></i>시설 수리 현황</a>
                     </li>
 
                     <h3 class="menu-title">관리</h3><!-- /.menu-title -->
                     <li>
-                        <a href="book_list.html"> <i class="menu-icon fa fa-tasks"></i>예약목록</a>
+                        <a href="book_list.html"> <i class="menu-icon fa fa-tasks"></i>예약 목록</a>
                     </li>
                     <li>
-                        <a href="claim.html"> <i class="menu-icon fa fa-tasks"></i>요청사항</a>
+                        <a href="claim.html"> <i class="menu-icon fa fa-tasks"></i>고객 요청 사항</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -94,7 +94,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>객실리스트</h1>
+                        <h1>객실 목록</h1>
                     </div>
                 </div>
             </div>
@@ -106,32 +106,32 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">객실 리스트 테이블</strong>
+                                <strong class="card-title">객실 목록 테이블</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>객실ID</th>
-                                            <th>방번호</th>
-                                            <th>객실유형</th>
-                                            <th>객실크기</th>
-                                            <th>객실가격</th>
-                                            <th>체크아웃유무</th>
-                                            <th>청소유무</th>
-                                            <th>담당직원ID</th>
+                                            <th>객실 번호</th>
+                                            <th>객실 유형</th>
+                                            <th>뷰</th>
+                                            <th>객실 가격</th>
+                                            <th>체크아웃 유무</th>
+                                            <th>청소 유무</th>
+                                            <th>주담당 직원번호</th>
+                                            <th>부담당 직원번호</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>31023413643</th>
                                             <th>304</th>
                                             <th>더블</th>
-                                            <th>26m2</th>
-                                            <th>$234.45</th>
+                                            <th>오션뷰</th>
+                                            <th>200000원</th>
                                             <th>O</th>
                                             <th>X</th>
                                             <th>2012512412</th>
+                                            <th>2013542147</th>
                                         </tr>
 
                                     </tbody>
@@ -144,6 +144,146 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+        
+        <div class="content mt-3">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">객실 목록 추가</strong>
+                                </div>
+                                <div class="card-body">
+                                    <form action="#" method="post">
+                                        <div class="table">
+                                            
+                                            <div class="row">
+                                                <label class="col">객실 번호:
+                                                    <input class="form-control" type="text" name="room_id">
+                                                </label>
+                                                <label class="col">객실 유형:
+                                                    <input class="form-control" type="text" name="room_type">
+                                                </label>
+                                                <label class="col">뷰:
+                                                    <input class="form-control" type="text" name="view">
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <label class="col">객실 가격:
+                                                    <input class="form-control" type="text" name="room_price">
+                                                </label>
+                                                <label class="col">체크아웃 유무:
+                                                    <input class="form-control" type="text" name="ischeckout">
+                                                </label>
+                                                <label class="col">청소 유무:
+                                                    <input class="form-control" type="text" name="isclean">
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <label class="col">주담당 직원번호:
+                                                    <input class="form-control" type="text" name="main_staff_id">
+                                                </label>
+                                                <label class="col">부담당 직원번호:
+                                                    <input class="form-control" type="text" name="sub_staff_id">
+                                                </label>
+                                                <button type="button col" class="modifybtn">추가</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content mt-3">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">객실 목록 수정</strong>
+                                </div>
+                                <div class="card-body">
+                                    <form action="#" method="post">
+                                        <div class="table">
+                                            <div class="row">
+                                                <label class="col">객실 번호:
+                                                    <input class="form-control" type="text" name="room_id">
+                                                </label>
+                                                <label class="col">객실 유형:
+                                                    <input class="form-control" type="text" name="room_type">
+                                                </label>
+                                                <label class="col">뷰:
+                                                    <input class="form-control" type="text" name="view">
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <label class="col">객실 가격:
+                                                    <input class="form-control" type="text" name="room_price">
+                                                </label>
+                                                <label class="col">체크아웃 유무:
+                                                    <input class="form-control" type="text" name="ischeckout">
+                                                </label>
+                                                <label class="col">청소 유무:
+                                                    <input class="form-control" type="text" name="isclean">
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="row">
+                                                <label class="col">주담당 직원번호:
+                                                    <input class="form-control" type="text" name="main_staff_id">
+                                                </label>
+                                                <label class="col">부담당 직원번호:
+                                                    <input class="form-control" type="text" name="sub_staff_id">
+                                                </label>
+                                                <button type="button col" class="modifybtn">수정</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div><!-- .animated -->
+            </div><!-- .content -->
+
+            <div class="content mt-3">
+                <div class="animated fadeIn">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title">객실 목록 삭제</strong>
+                                </div>
+                                <div class="card-body">
+                                    <form action="#" method="post">
+                                        <div class="table">
+                                            <div class="row">
+                                                <label class="col-10">객실번호:
+                                                    <input class="form-control" type="text" name="room_id">
+                                                </label>
+                                                <button type="button col-5" class="modifybtn">삭제</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div><!-- .animated -->
+            </div><!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
