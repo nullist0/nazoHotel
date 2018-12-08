@@ -1228,7 +1228,6 @@ footer ul {
     margin-bottom: 20px;
     letter-spacing: 0.5px;
     position: relative;
-    padding-left: 40px;
 }
 
 .footer-info .main-title-2 h1 {
@@ -1239,6 +1238,7 @@ footer ul {
     margin-bottom: 30px;
     width: 100%;
     float: left;
+    text-align: center;
 }
 
 .footer-info .personal-info li i {
