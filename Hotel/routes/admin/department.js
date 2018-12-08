@@ -4,7 +4,6 @@ var router = express.Router();
 
 //부서 생성
 router.post('/', function(req, res, next) {
-    console.log(req.body);
     department.create(req.body, function(results){
         res.redirect('/admin/employee/dept');
     });

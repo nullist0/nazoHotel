@@ -12,15 +12,19 @@ var bookRouter = require('./routes/book');
 
 //admin
 var adminIndexRouter = require('./routes/admin/index');
-var adminBookRouter = require('./routes/admin/book');
+
 var adminEmployeeRouter = require('./routes/admin/employee');
 var adminEmployeeStateRouter = require('./routes/admin/emp_state');
 var adminDeptRouter = require('./routes/admin/department');
 
 var adminFacilityRouter = require('./routes/admin/facility');
+var adminFixRouter = require('./routes/admin/fix');
+
 var adminRoomRouter = require('./routes/admin/room');
 var adminOptionRouter = require('./routes/admin/option');
+
 var adminClaimRouter = require('./routes/admin/claim');
+var adminBookRouter = require('./routes/admin/book');
 
 var app = express();
 
@@ -46,22 +50,33 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
+app.use("/admin/*", function(req, res, next){
+  for(var key in req.body){
+    if(req.body[key] == '')
+      req.body[key] = null;
+  }
+  next();
+});
+
 //customer
 app.use('/', indexRouter);
 app.use('/book', bookRouter);
 
 //admin
 app.use('/admin', adminIndexRouter);
-app.use('/admin/book', adminBookRouter);
-app.use('/admin/claim', adminClaimRouter);
-
-app.use('/admin/facility', adminFacilityRouter);
-app.use('/admin/room', adminRoomRouter);
-app.use('/admin/option', adminOptionRouter);
 
 app.use('/admin/employee', adminEmployeeRouter);
 app.use('/admin/employee/state', adminEmployeeStateRouter);
 app.use('/admin/employee/dept', adminDeptRouter);
+
+app.use('/admin/facility', adminFacilityRouter);
+app.use('/admin/facility/fixlist', adminFixRouter);
+
+app.use('/admin/room', adminRoomRouter);
+app.use('/admin/option', adminOptionRouter);
+
+app.use('/admin/book', adminBookRouter);
+app.use('/admin/claim', adminClaimRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,5 @@
 var express = require('express');
 var employee = require("../../lib/employee.js");
-var department = require("../../lib/department.js");
 var router = express.Router();
 
 //직원 생성

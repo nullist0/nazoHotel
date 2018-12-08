@@ -91,7 +91,7 @@ var createClaim = function(data){
     data = Object.assign({
         room_id: null,
         customer_call: null,
-        department: "프론트",
+        department: null,
         deadline: "NOW()"
     }, data);
 

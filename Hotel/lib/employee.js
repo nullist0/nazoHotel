@@ -94,7 +94,7 @@ var updateEmployee = function(data, callback){
     var sql = `UPDATE Employee SET `;
     var values = [];
     for(var name in data){
-        if(name != `employee_id` && data[name] != null && data[name] != ''){
+        if(name != `employee_id` && data[name] != null){
             sql += `${name} = ? `;
             values.push(data[name]);
         }
