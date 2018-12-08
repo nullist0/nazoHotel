@@ -79,7 +79,7 @@ CREATE TABLE `Claim`
 	`room_id` int,
 	`customer_call` varchar(255),
 	`department` varchar(255),
-	`deadline` varchar(255),
+	`deadline` datetime,
 	PRIMARY KEY(`claim_id`),
 	FOREIGN KEY(`room_id`) REFERENCES `Room`(`room_id`)
 );
@@ -135,7 +135,7 @@ CREATE TABLE `Take`
 	`employee_id` int,
 	`finish_time` datetime,
 	PRIMARY KEY(`claim_id`, `employee_id`),
-	FOREIGN KEY(`claim_id`) REFERENCES `Claim`(`claim_id`),
+	FOREIGN KEY(`claim_id`) REFERENCES `Claim`(`claim_id`) ON DELETE CASCADE,
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`)
 );
 

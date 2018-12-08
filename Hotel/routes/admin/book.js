@@ -1,4 +1,5 @@
 var express = require('express');
+var moment = require('moment');
 var book = require('../../lib/book.js')
 var router = express.Router();
 
@@ -29,7 +30,8 @@ router.delete('/', function(req, res, next) {
 router.get('/', function(req, res, next) {
     book.find.all(function(results){
         res.render('manage/book_list',{
-            books: results
+            books: results,
+            moment: moment
         });
     });
 });

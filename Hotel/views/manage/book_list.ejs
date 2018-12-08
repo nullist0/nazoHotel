@@ -136,8 +136,8 @@
                                                 <th><%- books[i].book_id%></th>
                                                 <th><%- books[i].room_id%></th>
                                                 <th><%- books[i].customer_id%></th>
-                                                <th><%- books[i].check_in%></th>
-                                                <th><%- books[i].check_out%></th>
+                                                <th><%- moment(new Date(books[i].check_in)).format('YYYY-MM-DD hh:mm') %></th>
+                                                <th><%- moment(new Date(books[i].check_out)).format('YYYY-MM-DD hh:mm') %></th>
                                                 <th><%- books[i].options%></th>
                                                 <th><%- books[i].book_price%></th>
                                                 <th><%- books[i].option_price%></th>
@@ -159,7 +159,7 @@
         <div class="content mt-3">
                 <div class="animated fadeIn">
                     <div class="row">
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
                                     <strong class="card-title">예약 목록 추가</strong>
@@ -206,7 +206,7 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
             <div class="content mt-3">
                 <div class="animated fadeIn">
@@ -217,28 +217,20 @@
                                     <strong class="card-title">예약 목록 수정</strong>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="post">
+                                    <form action="/admin/book" method="post">
+                                        <input type="hidden" name="_method" value="PUT"/>
                                         <div class="table">
                                             <div class="row">
                                                 <label class="col">예약 번호:
                                                     <input class="form-control" type="text" name="book_id">
                                                 </label>
-                                                <label class="col">객실 번호:
-                                                    <input class="form-control" type="text" name="room_id">
-                                                </label>
-                                                <label class="col">고객 번호:
-                                                    <input class="form-control" type="text" name="customer_id">
-                                                </label>
                                             </div>
                                             <div class="row">
                                                 <label class="col">체크인:
-                                                    <input class="form-control" type="text" name="check_in">
+                                                    <input class="form-control" type="date" name="check_in">
                                                 </label>
                                                 <label class="col">체크아웃:
-                                                    <input class="form-control" type="text" name="check_out">
-                                                </label>
-                                                <label class="col">추가옵션 정보:
-                                                    <input class="form-control" type="text" name="option_name">
+                                                    <input class="form-control" type="date" name="check_out">
                                                 </label>
                                             </div>
                                             <div class="row">

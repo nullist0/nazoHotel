@@ -122,7 +122,7 @@
                                             <th>고객 요청 사항</th>
                                             <th>담당 부서</th>
                                             <th>담당 직원</th>
-                                            <th>수행 일시</th>
+                                            <th>수행 예정 일시</th>
                                             <th>완료 일시</th>
                                         </tr>
                                     </thead>
@@ -136,7 +136,7 @@
                                             <th>2018-12-05 오전 07:00</th>
                                             <th>2018-12-05 오전 07:12</th>
                                         </tr>
-
+                                        
                                         <% for(var i=0; i < claims.length; i++){ %>
                                             <tr>
                                                 <th><%- claims[i].claim_id%></th>
@@ -144,8 +144,12 @@
                                                 <th><%- claims[i].customer_call%></th>
                                                 <th><%- claims[i].department%></th>
                                                 <th><%- claims[i].name%></th>
-                                                <th><%- claims[i].deadline%></th>
-                                                <th><%- claims[i].finish_time%></th>
+                                                <th><%- moment(new Date(claims[i].deadline)).format('YYYY-MM-DD hh:mm') %></th>
+                                                <% if(claims[i].finish_time != null){ %>
+                                                <th><%- moment(new Date(claims[i].finish_time)).format('YYYY-MM-DD hh:mm')%></th>
+                                                <% }else{ %>
+                                                <th><%- '미정' %></th>
+                                                <% } %>
                                             </tr>
                                         <% } %>
                                         
@@ -184,14 +188,11 @@
                                             <label class="col">담당 부서:
                                                 <input class="form-control" type="text" name="department">
                                             </label>
-                                            <label class="col">담당 직원:
-                                                <input class="form-control" type="text" name="name">
-                                            </label>
-                                            <label class="col">수행 일:
+                                            <label class="col">수행 예정 일:
                                                 <input class="form-control" type="date" name="deadline">
                                             </label>
-                                            <label class="col">수행 시간:
-                                                <input class="form-control" type="time" name="finish_time">
+                                            <label class="col">수행 예정 시간:
+                                                <input class="form-control" type="time" name="deadline_time">
                                             </label>
                                             <button type="button col" class="modifybtn">추가</button>
                                         </div>
@@ -230,15 +231,12 @@
                                         <div class="row">
                                             <label class="col">담당 부서:
                                                 <input class="form-control" type="text" name="department">
-                                            </label>                                            
-                                            <label class="col">담당 직원:
-                                                <input class="form-control" type="text" name="name">
                                             </label>
-                                            <label class="col">수행 일:
+                                            <label class="col">수행 예정 일:
                                                 <input class="form-control" type="date" name="deadline">
                                             </label>
-                                            <label class="col">수행 시간:
-                                                <input class="form-control" type="time" name="finish_time">
+                                            <label class="col">수행 예정 시간:
+                                                <input class="form-control" type="time" name="deadline_time">
                                             </label>
                                             <button type="button col" class="modifybtn">수정</button>
                                         </div>
@@ -250,7 +248,66 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 담당 직원배정</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/claim/take" method="post">
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">요청 번호:
+                                                <input class="form-control" type="text" name="claim_id">
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="col">담당 직원번호:
+                                                <input class="form-control" type="text" name="employee_id">
+                                            </label>
+                                            <button type="button col" class="modifybtn">배정</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
         
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">고객 요청 사항 완료</strong>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/claim/take" method="post">
+                                    <input type="hidden" name="_method" value="PUT"/>
+                                    <div class="table">
+                                        <div class="row">
+                                            <label class="col">요청 번호:
+                                                <input class="form-control" type="text" name="claim_id">
+                                            </label>
+                                            <button type="button col" class="modifybtn">완료</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+
         <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">

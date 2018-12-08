@@ -77,16 +77,21 @@ var updateBook = function(data, callback){
     }, data);
 
     var sql = `UPDATE Book SET `;
+    var sets = [];
     var values = [];
     for(var name in proto){
         if(name != `book_id` && data[name] != null){
-            sql += `${name} = ? `;
+            sets.push(`${name} = ? `);
             values.push(data[name]);
         }
     }
     values.push(parseInt(data.book_id));
 
+    sql += sets.join(', ') + ' ';
     sql += `WHERE book_id = ?`;
+
+    console.log(sql);
+    console.log(values);
     
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;

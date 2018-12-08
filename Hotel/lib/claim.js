@@ -17,7 +17,7 @@ var findAllClaimJoinTake = function(callback){
 };
 
 var findAllJoin = function(callback){
-    conn.getTable(`(Claim natural left join Take) natural left join Employee`, callback);
+    conn.getTable(`(Claim natural left join Take) left join Employee USING(employee_id)`, callback);
 };
 
 /**
@@ -86,7 +86,7 @@ var findBy = function(all, callback){
  * create claim row
  * @param {Object} data 
  */
-var createClaim = function(data){
+var createClaim = function(data, callback){
     const db = conn.connect();
     data = Object.assign({
         room_id: null,
@@ -99,6 +99,7 @@ var createClaim = function(data){
     var values = [data.room_id, data.customer_call, data.department, data.deadline];
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
+        callback(results);
     });
     conn.end();
 };
@@ -107,9 +108,15 @@ var createClaim = function(data){
  * update claim row
  * @param {Object} data 
  */
-var updateClaim = function(data){
+var updateClaim = function(data, callback){
     const db = conn.connect();
-
+    const proto = {
+        claim_id: null,
+        room_id: null,
+        customer_call: null,
+        department: null,
+        deadline: null
+    };
     data = Object.assign({
         claim_id: null,
         room_id: null,
@@ -119,22 +126,25 @@ var updateClaim = function(data){
     }, data);
 
     var sql = `UPDATE Claim SET `;
+    var sets = [];
     var values = [];
-    for(var name in data){
+    for(var name in proto){
         if(name != `claim_id` && data[name] != null){
-            sql += `${name} = ? `;
+            sets.push(`${name} = ? `);
             values.push(data[name]);
         }
     }
-    values.push(data.claim_id);
+    values.push(parseInt(data.claim_id));
 
+    sql += sets.join(', ') + ' ';
     sql += `WHERE claim_id = ?`;
 
-    // console.log(sql);
-    // console.log(values);
+    console.log(sql);
+    console.log(values);
     
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
+        callback(results);
     });
 
     conn.end();
