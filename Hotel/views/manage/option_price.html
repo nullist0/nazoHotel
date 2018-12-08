@@ -58,7 +58,7 @@
                     <li>
                         <a href="emp_state.html"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="dept_list.html"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
                     </li>
 
@@ -66,8 +66,8 @@
                     <li>
                         <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
                     </li>
-                    <li>
-                        <a href="option_price.html"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
+                    <li class="active">
+                        <a href="option_price.html"> <i class="menu-icon fa fa-tasks"></i>옵션 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -100,7 +100,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>부서 목록</h1>
+                        <h1>옵션 목록</h1>
                     </div>
                 </div>
             </div>
@@ -112,20 +112,20 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">부서 목록 테이블</strong>
+                                <strong class="card-title">옵션 목록 테이블</strong>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>부서 이름</th>
-                                            <th>인원 수</th>
+                                            <th>옵션 이름</th>
+                                            <th>추가 가격</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>프론트</th>
-                                            <th>9</th>
+                                            <th>흡연 가능 객실</th>
+                                            <th>0</th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -144,17 +144,17 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">부서 목록 추가</strong>
+                                <strong class="card-title">옵션 목록 추가</strong>
                             </div>
                             <div class="card-body">
                                 <form action="#" method="post">
                                     <div class="table">
                                         <div class="row">
-                                            <label class="col">부서 이름:
-                                                <input class="form-control" type="text" name="deptname">
+                                            <label class="col">옵션 이름:
+                                                <input class="form-control" type="text" name="optname">
                                             </label>
-                                            <label class="col">인원 수:
-                                                <input class="form-control" type="text" name="deptnum">
+                                            <label class="col">추가 가격:
+                                                <input class="form-control" type="text" name="optprice">
                                             </label>
                                             <button type="button col" class="modifybtn">추가</button>
                                         </div>
@@ -174,17 +174,17 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">부서 목록 수정</strong>
+                                <strong class="card-title">옵션 목록 수정</strong>
                             </div>
                             <div class="card-body">
                                 <form action="#" method="post">
                                     <div class="table">
                                         <div class="row">
-                                            <label class="col">부서 이름:
-                                                <input class="form-control" type="text" name="deptname">
+                                            <label class="col">옵션 이름:
+                                                <input class="form-control" type="text" name="optname">
                                             </label>
-                                            <label class="col">인원 수:
-                                                <input class="form-control" type="text" name="deptnum">
+                                            <label class="col">추가 가격:
+                                                <input class="form-control" type="text" name="optprice">
                                             </label>
                                             <button type="button col" class="modifybtn">수정</button>
                                         </div>
@@ -212,8 +212,8 @@
                                 <form action="#" method="post">
                                     <div class="table">
                                         <div class="row">
-                                            <label class="col-10">부서 이름:
-                                                <input class="form-control" type="text" name="deptname">
+                                            <label class="col-10">옵션 이름:
+                                                <input class="form-control" type="text" name="optname">
                                             </label>
                                             <button type="button col-5" class="modifybtn">삭제</button>
                                         </div>
