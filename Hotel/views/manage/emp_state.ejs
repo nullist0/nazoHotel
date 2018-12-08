@@ -53,15 +53,21 @@
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
-                        <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                        <a href="/admin/employee"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li class="active">
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
+                    </li>
+                    <li>
+                        <a href="/admin/employee/dept"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
                     </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li>
                         <a href="/admin/room/monitoring"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/room/option"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -83,7 +89,6 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
-
     <!-- Left Panel -->
 
     <!-- Right Panel -->
@@ -122,24 +127,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>2017011830</th>
-                                            <th>김아무개</th>
-                                            <th>한양대학로 55</th>
-                                            <th>남자</th>
-                                            <th>08:00</th>
-                                            <th>17:00</th>
-                                            <th>23,081,000</th>
-                                        </tr>
 
                                         <% for(var i=0; i < states.length; i++){ %>
                                             <tr>
                                                 <th><%- states[i].employee_id%></th>
                                                 <th><%- states[i].name%></th>
                                                 <th><%- states[i].address%></th>
+                                                <th><%- states[i].gender%></th>
                                                 <th><%- states[i].enter_time%></th>
                                                 <th><%- states[i].leave_time%></th>
-                                                <th><%- states[i].salary%></th>
+                                                <th><%- states[i].salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")%></th>
                                             </tr>
                                         <% } %>
 

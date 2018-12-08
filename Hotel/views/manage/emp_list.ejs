@@ -50,15 +50,21 @@
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li class="active">
-                        <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                        <a href="/admin/employee"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
+                    </li>
+                    <li>
+                        <a href="/admin/employee/dept"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
                     </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li>
                         <a href="/admin/room/monitoring"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/room/option"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -117,18 +123,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>2017011830</th>
-                                            <th>김아무개</th>
-                                            <th>잔반처리기사단장</th>
-                                            <th>01028020192</th>
-                                            <th>205</th>
-                                        </tr>
 
                                         <% for(var i=0; i < employees.length; i++){ %>
                                             <tr>
                                                 <th><%- employees[i].employee_id%></th>
-                                                <th><%- employees[i].first_name + employees[i].last_name%></th>
+                                                <th><%- employees[i].name%></th>
                                                 <th><%- employees[i].department%></th>
                                                 <th><%- employees[i].mobile_number%></th>
                                                 <th><%- employees[i].responsible%></th>
@@ -204,7 +203,8 @@
                                 <strong class="card-title">직원 목록 수정</strong>
                             </div>
                             <div class="card-body">
-                                <form action="/admin/employee/modify" method="post">
+                                <form action="/admin/employee" method="post">
+                                    <input type="hidden" name="_method" value="PUT"/>
                                     <div class="table">
                                         <div class="row">
                                             <label class="col">직원 번호:
@@ -258,7 +258,8 @@
                                 <strong class="card-title">직원 리스트 삭제</strong>
                             </div>
                             <div class="card-body">
-                                <form action="/admin/employee/delete" method="post">
+                                <form action="/admin/employee" method="post">
+                                    <input type="hidden" name="_method" value="DELETE"/>
                                     <div class="table">
                                         <div class="row">
                                             <label class="col-10">직원번호:

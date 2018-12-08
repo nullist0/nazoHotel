@@ -14,6 +14,7 @@ var bookRouter = require('./routes/book');
 var adminIndexRouter = require('./routes/admin/index');
 var adminBookRouter = require('./routes/admin/book');
 var adminEmployeeRouter = require('./routes/admin/employee');
+var adminEmployeeStateRouter = require('./routes/admin/emp_state');
 var adminDeptRouter = require('./routes/admin/department');
 
 var adminFacilityRouter = require('./routes/admin/facility');
@@ -57,6 +58,7 @@ app.use('/admin/facility', adminFacilityRouter);
 app.use('/admin/room', adminRoomRouter);
 
 app.use('/admin/employee', adminEmployeeRouter);
+app.use('/admin/employee/state', adminEmployeeStateRouter);
 app.use('/admin/employee/dept', adminDeptRouter);
 
 // catch 404 and forward to error handler

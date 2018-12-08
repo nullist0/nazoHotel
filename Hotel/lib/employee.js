@@ -11,12 +11,9 @@ var findAllEmployee = function(callback){
 var findBy = function(all, callback){
     all = Object.assign({
         employee_id: null,
-        first_name: null, 
-        last_name: null, 
+        name: null,
         department: null, 
-        city: null, 
-        street: null, 
-        zip: null, 
+        address: null,
         email: null,
         gender: null, 
         mobile_number: null,
@@ -51,12 +48,9 @@ var findBy = function(all, callback){
 var addEmployee = function(all, callback){
     const db = conn.connect();
     all = Object.assign({
-        first_name: null, 
-        last_name: null, 
+        name: null,
         department: null, 
-        city: null, 
-        street: null, 
-        zip: null, 
+        address: null,
         email: null,
         gender: null, 
         mobile_number: null,
@@ -65,12 +59,16 @@ var addEmployee = function(all, callback){
         responsible: null
     }, all);
 
-    console.log(all);
+    var cols = [];
+    var values = [];
+    var qs = [];
+    for(var key in all){
+        cols.push(key);
+        values.push(all[key]);
+        qs.push('?');
+    }
 
-    var sql = `INSERT INTO Employee values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-    var values = [all.first_name, all.last_name, all.department, 
-        all.city, all.street, all.zip, all.email, all.gender, all.mobile_number, 
-        all.start_work, all.salary, all.responsible]
+    var sql = `INSERT INTO Employee(${cols.join(', ')}) values(${qs.join(', ')})`;
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
         callback(results);
@@ -82,12 +80,9 @@ var updateEmployee = function(data, callback){
     const db = conn.connect();
     data = Object.assign({
         employee_id: null,
-        first_name: null, 
-        last_name: null, 
+        name: null, 
         department: null, 
-        city: null, 
-        street: null, 
-        zip: null, 
+        address: null,
         email: null,
         gender: null, 
         mobile_number: null,
@@ -95,15 +90,16 @@ var updateEmployee = function(data, callback){
         salary: null, 
         responsible: null
     }, data);
+
     var sql = `UPDATE Employee SET `;
     var values = [];
     for(var name in data){
-        if(name != `employee_id` && data[name] != null){
+        if(name != `employee_id` && data[name] != null && data[name] != ''){
             sql += `${name} = ? `;
             values.push(data[name]);
         }
     }
-    values.push(data.employee_id);
+    values.push(parseInt(data.employee_id, 10));
 
     sql += `WHERE employee_id = ?`;
 
@@ -206,7 +202,7 @@ var NvacEmployee = function(callback){
 };
 
 var findEmpTimeJoin = function(callback){
-    conn.getTable(`Time_table natural left join Employee`, callback);
+    conn.getTable(`Employee natural left join (SELECT * FROM Time_table ORDER BY date DESC) as TTime`, callback);
 };
 
 /**
