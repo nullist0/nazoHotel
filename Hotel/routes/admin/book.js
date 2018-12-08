@@ -7,21 +7,21 @@ var router = express.Router();
 //예약 생성
 router.post('/', function(req, res, next) {
     book.create(req.body, function(results){
-        res.redirect('/admin/employee/dept');
+        res.redirect('/admin/book');
     });
 });
 
 //예약 수정
 router.put('/', function(req, res, next) {
     book.update(req.body, function(results){
-        res.redirect('/admin/employee/dept');
+        res.redirect('/admin/book');
     });
 });
 
 //예약 삭제
 router.delete('/', function(req, res, next) {
-    book.delete(req.body.name, function(results){
-        res.redirect('/admin/employee/dept');
+    book.delete(req.body.book_id, function(results){
+        res.redirect('/admin/book');
     });
 });
 

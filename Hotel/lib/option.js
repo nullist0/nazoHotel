@@ -5,7 +5,7 @@ var conn = require('./db');
  * @param {function} callback
  */ 
 var findAllOption = function(callback){
-    conn.getTable(`Option`,callback);
+    conn.getTable('`Option`',callback);
 };
 
 
@@ -14,14 +14,14 @@ var findAllOption = function(callback){
  * @param {function} callback
  */ 
 var findAllJoin = function(callback){
-    conn.getTable(`Option natural left join Option_Kind`, callback);
+    conn.getTable('`Option` natural left join Option_Kind', callback);
 };
 
 var findOfBook = function(book_id, callback){
     const db = conn.connect();
 
-    var sql = `SELECT * FROM Option WHERE book_id = ?`;
-    var values = [book_id];
+    var sql = 'SELECT * FROM `Option` WHERE book_id = ?';
+    var values = [parseInt(book_id, 10)];
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
         callback(results);
@@ -39,7 +39,7 @@ var createOption = function(allList, callback){
     var sql = [];
     var values = [];
     for(var all in allList){
-        sql.push(`INSERT INTO Option(book_id, option_name, apply_num) VALUES(?, ?, ?)`);
+        sql.push('INSERT INTO `Option`(book_id, option_name, apply_num) VALUES(?, ?, ?)');
         values.push([all.book_id, all.option_name, all.apply_num]);
     }
     sql = sql.join(';');
@@ -64,7 +64,7 @@ var updateOption = function(data, callback){
         apply_num: null
     }, data);
 
-    var sql = `UPDATE Option SET `;
+    var sql = 'UPDATE `Option` SET ';
     var values = [];
     for(var name in data){
         if(name != `option_name` && data[name] != null){
@@ -89,7 +89,7 @@ var updateOption = function(data, callback){
 
 var deleteOption = function(id, callback){
     const db = conn.connect();
-    var sql = `DELETE FROM Option where book_id = ?`;
+    var sql = 'DELETE FROM `Option` where book_id = ?';
     db.query(sql, [id], function(error, results, fields){
         if(error) throw error;
         callback(results);

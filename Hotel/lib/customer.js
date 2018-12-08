@@ -59,11 +59,25 @@ var deleteCustomer = function(id, callback){
 };
 
 
+var findCustomer = function(customer_id, callback){
+    const db = conn.connect();
+
+    var sql = `SELECT * `+
+        `FROM Customer `+
+        `WHERE customer_id = ? `;
+
+     db.query(sql, [customer_id], function(error, results, fields){
+         if(error) throw error;
+         callback(results);
+     });
+     conn.end();
+};
 
 module.exports = {
     find:{
         all: findAllCustomer,
         allJoin: findAllJoin,
+        one: findCustomer
     },
     create: createCustomer,
     delete: deleteCustomer

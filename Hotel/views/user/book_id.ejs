@@ -117,7 +117,7 @@
         <div class="container">
             <section>
                 <div class="wizard">
-                    <form id="contact_form" action="index.html" enctype="multipart/form-data" method="get">
+                    <form id="contact_form" action="/home" enctype="multipart/form-data" method="get">
                         <div class="tab-content">
                             <div class="tab-pane active" role="tabpanel" id="complete">
                                 <div class="booling-details-box booling-details-box-2 mrg-btm-30">
@@ -157,23 +157,23 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                            <h4>예약번호:</h4><span id="bookid"> <%- books[0].book_id %> </span>
+                                            <h4>예약번호:</h4><span id="bookid"> <%- book.book_id %> </span>
 
                                             <ul>
                                                 <li>
-                                                    이름:<span id="name"> <%- books[0].first_name + books[0].last_name %> </span>
+                                                    이름:<span id="name"> <%- customer.first_name + ' ' + customer.last_name %> </span>
                                                 </li>
                                                 <li>
-                                                    체크인:<span id="checkin"><%- books[0].check_in %></span>
+                                                    체크인:<span id="checkin"><%- book.check_in %></span>
                                                 </li>
                                                 <li>
-                                                    체크아웃:<span id="checkout"><%- books[0].check_out %></span>
+                                                    체크아웃:<span id="checkout"><%- book.check_out %></span>
                                                 </li>
                                                 <li>
-                                                    객실:<span id="roomtype"><%- books[0].room_id %></span>
+                                                    객실:<span id="roomtype"><%- book.room_id %></span>
                                                 </li>
                                                 <li>
-                                                    인원:<span id="person"><%- books[0].people_num %></span>
+                                                    인원:<span id="person"><%- book.people_num %></span>
                                                 </li>
                                             </ul>
 
@@ -187,7 +187,7 @@
                                             </div>
 
                                             <div class="price">
-                                                Total:<span id="totalprice"><%- books[0].total_price %></span>
+                                                Total:<span id="totalprice"><%- book.total_price %></span>
                                             </div>
                                         </div>
                                     </div>
@@ -197,15 +197,15 @@
                                 <ul class="list-inline pull-right">
                                     <button type="submit" class="btn search-button btn-theme next-step">확인</button>
                                 </ul>
-                                <ul class="list-inline pull-right">
-                                    <form action="#" method="post">
-                                        <input type="hidden" id="cbookid" name="bookid" value="">
-                                        <button type="submit" class="btn search-button btn-theme next-step cancle">예약취소</button>
-                                    </form>
-                                </ul>
                             </div>
                         </div>
                     </form>
+                    <ul class="list-inline pull-right">
+                        <%- `<form action="/book/${book.book_id}" method="post">` %>
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <button type="submit" class="btn search-button btn-theme next-step cancle">예약취소</button>
+                        </form>
+                    </ul>
                 </div>
             </section>
         </div>

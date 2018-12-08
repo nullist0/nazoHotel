@@ -9,6 +9,7 @@ var methodOverride = require('method-override');
 //customer
 var indexRouter = require('./routes/index');
 var bookRouter = require('./routes/book');
+var searchRouter = require('./routes/search');
 
 //admin
 var adminIndexRouter = require('./routes/admin/index');
@@ -50,7 +51,7 @@ app.use(methodOverride(function(req, res){
   }
 }));
 
-app.use("/admin/*", function(req, res, next){
+app.use("*", function(req, res, next){
   for(var key in req.body){
     if(req.body[key] == '')
       req.body[key] = null;
@@ -61,6 +62,7 @@ app.use("/admin/*", function(req, res, next){
 //customer
 app.use('/', indexRouter);
 app.use('/book', bookRouter);
+app.use('/search', searchRouter);
 
 //admin
 app.use('/admin', adminIndexRouter);

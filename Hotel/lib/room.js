@@ -1,5 +1,4 @@
 var conn = require('./db');
-
 /** 
  *
  * @param {function} callback
@@ -45,10 +44,11 @@ var searchBook = function(data, callback){
         room_type: null
     },data);
     const db = conn.connect();
+    console.log(data);
 
-    var values = [data.check_in, data.check_out, data.room_type];
+    var values = [data.check_in, data.check_out, data.check_in, data.check_out, data.room_type];
     var sql = `SELECT * FROM Room WHERE room_id not in `+
-    `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out. between ? and ?)) and room_type = ? LIMIT 1`;
+    `(SELECT distinct(room_id) FROM Book WHERE (check_in between ? and ?) or (check_out between ? and ?)) and room_type = ? LIMIT 1`;
 
     db.query(sql, values, function(error, result, fields){
         if(error) throw error;

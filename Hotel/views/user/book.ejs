@@ -127,16 +127,17 @@
         <!-- Search -->
         <div class="search ty2">
             <span>· 호텔 : </span><strong class="item">나조호텔</strong>
-            <span>· 객실 : </span><span class="item" id="room" style="padding-right:15px;"></span><br>
+            <span>· 객실 : </span><span class="item" id="room" style="padding-right:15px;"><%- book.room_id %></span><br>
             <span class="item" style="padding-right:15px;">· 투숙 기간 :
-                <span id="checkin"></span> - <span id="checkout"></span> (<span id="diff"></span>박)
+                <span id="checkin"><%- book.check_in %></span>- <span id="checkout"> <%- book.check_out %> </span> (<span id="diff"> <%- diffDays %> </span>박)
             </span>
             <span class="item">
                 · 인원 정보 :
-                성인 <span id="person"></span>명</span>
+                성인 <span id="person"> 1 </span>명</span>
         </div>
         <!-- // Search -->
-        <form action="#" method="post">
+        <%- `<form action="/book/${id}" method="post">` %>
+            <input type="hidden" name="_method" value="PUT"/>
 
             <!-- 예약자 정보 // -->
             <h3 class="title-3 fc-1">예약자 정보</h3>
@@ -155,10 +156,10 @@
                             <input type="text" class="ipt fw-1" placeholder="성" title="성" name="rsvLastNm" id="rsvLastNm" value="" maxlength="2"> <input type="text" class="ipt fw-2" placeholder="이름" title="이름" name="rsvFirstNm" id="rsvFirstNm" value="" maxlength="5">
                             <span class="radG fmMgL">
                                 <span class="radFm">
-                                    <input type="radio" class="rad" id="rsvGender1" name="rsvGender" value="M0541"><span class="act"></span><label for="rsvGender1">남</label>
+                                    <input type="radio" class="rad" id="rsvGender1" name="rsvGender" value="남"><span class="act"></span><label for="rsvGender1">남</label>
                                 </span>
                                 <span class="radFm">
-                                    <input type="radio" class="rad" id="rsvGender2" name="rsvGender" value="M0542"><span class="act"></span><label for="rsvGender2">여</label>
+                                    <input type="radio" class="rad" id="rsvGender2" name="rsvGender" value="여"><span class="act"></span><label for="rsvGender2">여</label>
                                 </span>
                             </span>
                         </td>
@@ -347,12 +348,12 @@
                 <tbody>
                     <tr>
                         <th scope="row">객실 가격</th><!-- 객실가격 -->
-                        <td colspan="3" id="roomprice"></td>
+                        <td colspan="3" id="roomprice"> <%- book.room_price %> </td>
                         <td rowspan="4" class="totalPricefield">
                             <dl class="totalPrice">
                                 <dt class="total">최종 결제 금액</dt>
                                 <dd class="total">
-                                    <em id="midTotal"></em> 원</dd>
+                                    <em id="midTotal"> <%- book.room_price * diffDays %> </em> 원</dd>
                             </dl>
                         </td>
                     </tr>
@@ -402,6 +403,13 @@
                         <th scope="row">추가 옵션</th>
                         <td class="add_option">
                             <span class="fL chwChk">
+                                <% var i = 0%>
+                                <% while(i < options.length){ %>
+                                    <span class="chkFm ty-3 aR">
+                                        <%- `<input type="checkbox" class="chk" id="option${i}" name="option[${i}]" value="Y"><span class="act"></span><label for="chkAll">${options[i].option_name}</label>` %>
+                                    </span>
+                                    <% i++; %>
+                                <% } %>
                                 <span class="chkFm ty-3 aR">
                                     <input type="checkbox" class="chk" id="option0" name="option[0]" value="Y"><span class="act"></span><label for="chkAll"> 흡연 가능 객실</label>
                                 </span>
@@ -427,17 +435,16 @@
                 </table>
             </div>
 
-            <input type="hidden" id="hckin" value="123" name="ckin">
-            <input type="hidden" id="hckout" value="123" name="ckout">
-            <input type="hidden" id="hperson" value="" name="person">
-            <input type="hidden" id="hprice" value="" name="totalprice">
-
-
             <div class="btnArea-1">
                 <button action="#" class="btnA btn-1" type="submit" id="submitBtn">확인</button>
-                <a href="/home" class="btnA btn-2">이전</a>
             </div>
 
+        </form>
+        <%- `<form action="/book/${id}" method="POST">` %>
+            <input type="hidden" name="_method" value="DELETE"/>
+            <div class="btnArea-1">
+                <button action="#" class="btnA btn-2" type="submit" id="submitBtn">취소</button>
+            </div>
         </form>
     </div>
 
@@ -508,23 +515,12 @@
             return Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
         }
 
-        var room = getParameterByName('room');
-        var checkin = getParameterByName('ci');
-        var checkout = getParameterByName('co');
-        var person = getParameterByName('adults');
-        var roomtype;
-        if (room == "싱글 (Single)") {
-            roomtype = 150000;
-        }
-        if (room == "더블 (Double)") {
-            roomtype = 250000;
-        }
-        if (room == "디럭스 (Delux)") {
-            roomtype = 350000;
-        }
-        if (room == "스위트 (Suite)") {
-            roomtype = 450000;
-        }
+        var room = document.getElementById("room").innerHTML;
+        var checkin = document.getElementById("checkin").innerHTML;
+        var checkout = document.getElementById("checkout").innerHTML;
+        var person = document.getElementById("person").innerHTML;
+        var roomtype = document.getElementById("roomprice").innerHTML;
+        roomtype = parseInt(roomtype, 10);
         var date1 = new Date(checkin);
         var date2 = new Date(checkout);
         if (date1 > date2) {
@@ -534,7 +530,7 @@
         }
         var date_diff_indays = diff(date1, date2);
         document.getElementById("checkin").innerHTML = date1.getFullYear() + "년" + (date1.getMonth() + 1) + "월" + date1.getDate() + "일";
-        document.getElementById("room").innerHTML = room;
+        //document.getElementById("room").innerHTML = room;
         document.getElementById("checkout").innerHTML = date2.getFullYear() + "년" + (date2.getMonth() + 1) + "월" + date2.getDate() + "일";
         document.getElementById("person").innerHTML = person;
         document.getElementById("diff").innerHTML = date_diff_indays;
