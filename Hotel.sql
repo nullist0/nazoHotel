@@ -21,6 +21,13 @@ CREATE TABLE `Customer`
 	PRIMARY KEY(`customer_id`)
 );
 
+CREATE TABLE `Option_Kind` 
+(
+	`option_name` varchar(255),
+	`option_price_per_num` int,
+	PRIMARY KEY(`option_name`)
+);
+
 CREATE TABLE `Employee` 
 (
 	`employee_id` int AUTO_INCREMENT,
@@ -35,7 +42,22 @@ CREATE TABLE `Employee`
 	`responsible` int,
 	PRIMARY KEY(`employee_id`),
 	FOREIGN KEY(`department`) REFERENCES `Department`(`name`)
-	FOREIGN KEY(`responsible`) REFERENCES `Room`(`room_id`)
+);
+
+CREATE TABLE `Room` 
+(
+	`room_id` int,
+	`room_type` varchar(255),
+	`room_price` int,
+	`view` varchar(255),
+	`equipment` varchar(255),
+	`main_staff_id` int,
+	`sub_staff_id`int,
+    `is_checkout` boolean,
+    `is_clean` boolean,
+	PRIMARY KEY(`room_id`),
+	FOREIGN KEY(`main_staff_id`) REFERENCES `Employee`(`employee_id`),
+	FOREIGN KEY(`sub_staff_id`) REFERENCES `Employee`(`employee_id`)
 );
 
 CREATE TABLE `Facility` 
@@ -47,22 +69,6 @@ CREATE TABLE `Facility`
 	`main_staff_id` int,
 	`sub_staff_id` int,
 	PRIMARY KEY(`facility_id`),
-	FOREIGN KEY(`main_staff_id`) REFERENCES `Employee`(`employee_id`),
-	FOREIGN KEY(`sub_staff_id`) REFERENCES `Employee`(`employee_id`)
-);
-
-CREATE TABLE `Room` 
-(
-	`room_id` int,
-	`room_type` varchar(255),
-	`room_price` int,
-	`view` varchar(255),
-	`equipment` varchar(255),
-    `is_checkout` boolean,
-    `is_clean` boolean,
-	`main_staff_id` int,
-	`sub_staff_id`int,
-	PRIMARY KEY(`room_id`),
 	FOREIGN KEY(`main_staff_id`) REFERENCES `Employee`(`employee_id`),
 	FOREIGN KEY(`sub_staff_id`) REFERENCES `Employee`(`employee_id`)
 );
@@ -111,13 +117,6 @@ CREATE TABLE `Book`
 	PRIMARY KEY(`book_id`),
 	FOREIGN KEY(`room_id`) REFERENCES `Room`(`room_id`),
 	FOREIGN KEY(`customer_id`) REFERENCES `Customer`(`customer_id`)
-);
-
-CREATE TABLE `Option_Kind` 
-(
-	`option_name` varchar(255),
-	`option_price_per_num` int,
-	PRIMARY KEY(`option_name`)
 );
 
 CREATE TABLE `Option` 

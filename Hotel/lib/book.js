@@ -27,20 +27,23 @@ var createBook = function(data, callback){
         check_out: null,
         book_price: null,
         option_price: null,
-        total_price: null,
-        isCheckout: false,
-        isClean: false
+        total_price: null
     }, data);
     const db = conn.connect();
+
+    var date1 = new Date(data.check_in);
+    var date2 = new Date(data.check_out);
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
     var sql = `INSERT INTO Book(room_id, customer_id, check_in, check_out, book_price , optione_price, total_price) `+
     `VALUES(?,?,?,?,?,?,?)`;
     var values = [data.room_id, data.customer_id, data.check_in, data.check_out,
-         data.room_price*(TO_DAYS(data.check_out)-TO_DAYS(data.check_in)), data.option_price,
-         data.room_price*(TO_DAYS(data.check_out)-TO_DAYS(data.check_in))+data.option_price];
+         data.room_price*diffDays, data.option_price,
+         data.room_price*diffDays+data.option_price];
     db.query(sql, values, function(error, results,fields){
         if(error) throw error;
-        callback(results.insertid);
+        callback(results);
     });
     conn.end();  
 };
@@ -117,9 +120,16 @@ var findBook = function(data, callback){
     }, data);
     const db = conn.connect();
 
-    var values = [data.book_id, data.first_name, data.last_name, data.mobile_number, data.email];
-    var sql = `SELECT book_id, people_num, book_price, option_price, total_price, check_in, check_out`+
-     `FROM Book natural join Customer WHERE book_id = ? and first_name = ? and last_name = ? and mobile_number = ? and email = ?`;
+    var values = [];
+    var sql = `SELECT * `+
+        `FROM Book `+
+        `WHERE `;
+    for(var key in all){
+        if(all[key] != null){
+            sql += `${key} = ? `;
+            values.push(all[key]);
+        }
+    }
 
      db.query(sql, values, function(error, results, fields){
          if(error) throw error;

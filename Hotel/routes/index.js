@@ -16,8 +16,6 @@ router.get('/room*', function(req, res, next) {
 
 //예약정보 검색
 router.get('/search', function(req, res, next) {
-    console.log("hi");
-    // res.send("hi")
     res.render('user/search');
 });
 

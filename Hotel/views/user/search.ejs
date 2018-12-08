@@ -82,9 +82,9 @@
                         <div class="details">
                             <h3>예약번호로 조회</h3>
                             <!-- Form start-->
-                            <form action="book_id.html" method="POST">
+                            <form action="/book/search/id" method="POST">
                                 <div class="form-group">
-                                    <input type="tel" name="reserv_number" class="input-text" placeholder="예약 번호">
+                                    <input type="tel" name="book_id" class="input-text" placeholder="예약 번호">
                                 </div>
                                 <div class="mb-0">
                                     <button type="submit" class="btn-md btn-info btn-block">확인</button>
@@ -102,22 +102,22 @@
                         <div class="details">
                             <h3>개인정보로 조회</h3>
                             <!-- Form start-->
-                            <form action="book_id.html" method="POST">
+                            <form action="/book/search/data" method="POST">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <input type="text" name="firstname" class="input-text" placeholder="성">
+                                            <input type="text" name="first_name" class="input-text" placeholder="성">
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <input type="text" name="secondname" class="input-text" placeholder="이름">
+                                            <input type="text" name="last_name" class="input-text" placeholder="이름">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" name="phone_number" class="input-text" placeholder="전화번호">
+                                    <input type="tel" name="mobile_number" class="input-text" placeholder="전화번호">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="emailaddress" class="input-text" placeholder="이메일 주소">
+                                    <input type="email" name="email" class="input-text" placeholder="이메일 주소">
                                 </div>
                                 <div class="mb-0">
                                     <button type="submit" class="btn-md btn-info btn-block">확인</button>

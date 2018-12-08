@@ -30,7 +30,6 @@ var createCustomer = function(data, callback){
         email: null,
         membership: 0
     }, data);
-    const db = conn.connect();
 
     var sql = `INSERT INTO Customer `+
     `(first_name, last_name, gender, birthday, mobile_number, email, membership)`+

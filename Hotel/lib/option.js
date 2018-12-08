@@ -17,20 +17,33 @@ var findAllJoin = function(callback){
     conn.getTable(`Option natural left join Option_Kind`, callback);
 };
 
+var findOfBook = function(book_id, callback){
+    const db = conn.connect();
+
+    var sql = `SELECT * FROM Option WHERE book_id = ?`;
+    var values = [book_id];
+    db.query(sql, values, function(error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
 /**
  * 
  * @param {Object} all 
  */
-var createOption = function(all, callback){
-    const db = conn.connect();
-    all = Object.assign({
-        book_id: null,
-        option_name: null,
-        apply_num: null
-    },all);
+var createOption = function(allList, callback){
+    const db = conn.connectMulitiple();
 
-    var sql = `INSERT INTO Option(book_id, option_name, apply_num) VALUES(?, ?, ?)`;
-    var values = [book_id, option_name, apply_num];
+    var sql = [];
+    var values = [];
+    for(var all in allList){
+        sql.push(`INSERT INTO Option(book_id, option_name, apply_num) VALUES(?, ?, ?)`);
+        values.push([all.book_id, all.option_name, all.apply_num]);
+    }
+    sql = sql.join(';');
+
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
         callback(results);
@@ -90,6 +103,7 @@ module.exports = {
     find:{
         all: findAllOption,
         allJoin: findAllJoin,
+        ofBook: findOfBook
     },
     create: createOption,
     update: updateOption,

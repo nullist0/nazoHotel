@@ -13,6 +13,18 @@ module.exports = {
         this.conn.connect();
         return this.conn;
     },
+    connectMulitiple:function(){
+        this.conn = mysql.createConnection({
+            host     : 'localhost',
+            user     : 'root',
+            password : '1234',
+            database : 'hotel',
+            insecureAuth : true,
+            multipleStatements: true
+        });
+        this.conn.connect();
+        return this.conn;
+    },
     getTable:function(table, callback){
         const db = this.connect();
     
