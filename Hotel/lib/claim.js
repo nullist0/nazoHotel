@@ -140,11 +140,7 @@ var updateClaim = function(data){
     conn.end();
 };
 
-/**
- * delete claim row
- * @param {number} id 
- */
-var deleteClaim = function(id){
+var deleteClaim = function(id, callback){
     const db = conn.connect();
 
     var sql = `DELETE FROM Claim where claim_id = ?`;

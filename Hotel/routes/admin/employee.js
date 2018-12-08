@@ -1,5 +1,6 @@
 var express = require('express');
 var employee = require("../../lib/employee.js");
+var department = require("../../lib/department.js");
 var router = express.Router();
 
 //직원 생성
@@ -39,11 +40,20 @@ router.delete('/delete', function(req, res, next) {
     });
 });
 
-//TODO 직원 목록 가져오기
+//직원 목록 가져오기
 router.get('/list', function(req, res, next) {
     employee.find.all(function(results){
         res.render('manage/emp_list', {
             employees: results
+        });
+    });
+});
+
+//직원 목록 가져오기
+router.get('/dept', function(req, res, next) {
+    department.find.all(function(departments){
+        res.render('manage/dept_list', {
+            depts: departments
         });
     });
 });
