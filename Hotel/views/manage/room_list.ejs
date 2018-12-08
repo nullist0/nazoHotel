@@ -13,8 +13,8 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
@@ -53,15 +53,21 @@
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
-                        <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                        <a href="/admin/employee"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
+                    <li>
+                        <a href="/admin/employee/dept"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
+                    </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li class="active">
-                        <a href="/admin/room/monitoring"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                        <a href="/admin/room"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/option"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -83,6 +89,7 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
+
 
     <!-- Left Panel -->
 
@@ -123,16 +130,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>304</th>
-                                            <th>더블</th>
-                                            <th>오션뷰</th>
-                                            <th>200000원</th>
-                                            <th>O</th>
-                                            <th>X</th>
-                                            <th>2012512412</th>
-                                            <th>2013542147</th>
-                                        </tr>
                                         <% for(var i=0; i < rooms.length; i++){ %>
                                             <tr>
                                                 <th><%- rooms[i].room_id%></th>
@@ -166,7 +163,7 @@
                                     <strong class="card-title">객실 목록 추가</strong>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="post">
+                                    <form action="/admin/room" method="post">
                                         <div class="table">
                                             
                                             <div class="row">
@@ -186,10 +183,10 @@
                                                     <input class="form-control" type="text" name="room_price">
                                                 </label>
                                                 <label class="col">체크아웃 유무:
-                                                    <input class="form-control" type="text" name="ischeckout">
+                                                    <input class="form-control" type="text" name="is_checkout">
                                                 </label>
                                                 <label class="col">청소 유무:
-                                                    <input class="form-control" type="text" name="isclean">
+                                                    <input class="form-control" type="text" name="is_clean">
                                                 </label>
                                             </div>
                                             
@@ -221,7 +218,8 @@
                                     <strong class="card-title">객실 목록 수정</strong>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="post">
+                                    <form action="/admin/room" method="post">
+                                        <input type="hidden" name="_method" value="PUT"/>
                                         <div class="table">
                                             <div class="row">
                                                 <label class="col">객실 번호:
@@ -277,7 +275,8 @@
                                     <strong class="card-title">객실 목록 삭제</strong>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#" method="post">
+                                    <form action="/admin/room" method="post">
+                                        <input type="hidden" name="_method" value="DELETE"/>
                                         <div class="table">
                                             <div class="row">
                                                 <label class="col-10">객실번호:

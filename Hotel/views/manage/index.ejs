@@ -13,8 +13,8 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
@@ -35,7 +35,6 @@
 
     <!-- Left Panel -->
 
-
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
 
@@ -49,20 +48,26 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <li class="active">
                         <a href="/admin/home"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
-                        <a href="/admin/employee/list"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                        <a href="/admin/employee"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
                         <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
+                    <li>
+                        <a href="/admin/employee/dept"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
+                    </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li>
-                        <a href="/admin/room/monitoring"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                        <a href="/admin/room"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                    </li>
+                    <li>
+                        <a href="/admin/option"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
@@ -84,7 +89,6 @@
             </div><!-- /.navbar-collapse -->
         </nav>
     </aside><!-- /#left-panel -->
-
 
     <!-- Right Panel -->
 

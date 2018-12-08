@@ -98,8 +98,8 @@ CREATE TABLE `Time_table`
 (
 	`employee_id` int,
 	`date` date,
-	`enter_time` datetime,
-	`leave_time` datetime,
+	`enter_time` time,
+	`leave_time` time,
 	PRIMARY KEY(`employee_id`, `date`),
 	FOREIGN KEY(`employee_id`) REFERENCES `Employee`(`employee_id`)
 );

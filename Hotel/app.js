@@ -19,6 +19,7 @@ var adminDeptRouter = require('./routes/admin/department');
 
 var adminFacilityRouter = require('./routes/admin/facility');
 var adminRoomRouter = require('./routes/admin/room');
+var adminOptionRouter = require('./routes/admin/option');
 var adminClaimRouter = require('./routes/admin/claim');
 
 var app = express();
@@ -56,6 +57,7 @@ app.use('/admin/claim', adminClaimRouter);
 
 app.use('/admin/facility', adminFacilityRouter);
 app.use('/admin/room', adminRoomRouter);
+app.use('/admin/option', adminOptionRouter);
 
 app.use('/admin/employee', adminEmployeeRouter);
 app.use('/admin/employee/state', adminEmployeeStateRouter);

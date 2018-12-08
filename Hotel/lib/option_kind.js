@@ -28,7 +28,7 @@ var createOption_Kind = function(all, callback){
     },all);
 
     var sql = `INSERT INTO Option_Kind(option_name, option_price_per_num) VALUES(?, ?)`;
-    var values = [option_name, option_price_per_num];
+    var values = [all.option_name, all.option_price_per_num];
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
         callback(results);
@@ -54,21 +54,13 @@ var updateOption_Kind = function(all, callback){
     const db = conn.connect();
     all = Object.assign({
         option_name: null,
-        option_price_per_num: null
+        option_price_per_num: '0'
     },all);
-    
-    var sql = `UPDATE Option_Kind SET `;
-    var values = [];
-    for(var name in all){
-        if(name != `option_name` && data[name] != null){
-            sql += `${name} = ? `;
-            values.push(all[name]);
-        }
-    }
-    values.push(all.option_name);
+    all.option_price_per_num = parseInt(all.option_price_per_num);
 
-    sql += `WHERE option_name = ?`;
-    
+    var sql = `UPDATE Option_Kind SET option_price_per_num = ? WHERE option_name = ?`;
+    var values = [all.option_price_per_num, all.option_name];
+
     db.query(sql, values, function (error, results, fields){
         if(error) throw error;
         callback(results);

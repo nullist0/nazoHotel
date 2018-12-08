@@ -13,18 +13,18 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
 
-    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="vendors/selectFX/css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="vendors/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/manage/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="/manage/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/manage/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/manage/vendors/jqvmap/dist/jqvmap.min.css">
 
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/manage/assets/css/style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
 
@@ -42,48 +42,48 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="images/white-logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="#"><img src="images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="#"><img src="/manage/images/white-logo.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
+                        <a href="/admin/home"> <i class="menu-icon fa fa-dashboard"></i>홈</a>
                     </li>
                     <h3 class="menu-title">직원</h3><!-- /.menu-title -->
                     <li>
-                        <a href="emp_list.html"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
+                        <a href="/admin/employee"> <i class="menu-icon fa fa-tasks"></i>직원 목록</a>
                     </li>
                     <li>
-                        <a href="emp_state.html"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
+                        <a href="/admin/employee/state"> <i class="menu-icon fa fa-tasks"></i>직원 상태</a>
                     </li>
                     <li>
-                        <a href="dept_list.html"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
+                        <a href="/admin/employee/dept"> <i class="menu-icon fa fa-tasks"></i>부서 목록</a>
                     </li>
 
                     <h3 class="menu-title">객실</h3><!-- /.menu-title -->
                     <li>
-                        <a href="room_list.html"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
+                        <a href="/admin/room"> <i class="menu-icon fa fa-tasks"></i>객실 목록</a>
                     </li>
                     <li class="active">
-                        <a href="option_list.html"> <i class="menu-icon fa fa-tasks"></i>옵션 목록</a>
+                        <a href="/admin/option"> <i class="menu-icon fa fa-tasks"></i>옵션 가격 목록</a>
                     </li>
 
                     <h3 class="menu-title">시설</h3><!-- /.menu-title -->
                     <li>
-                        <a href="facil_list.html"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
+                        <a href="/admin/facility/list"> <i class="menu-icon fa fa-tasks"></i>시설 목록</a>
                     </li>
                     <li>
-                        <a href="facil_fix.html"> <i class="menu-icon fa fa-tasks"></i>시설 수리 현황</a>
+                        <a href="/admin/facility/fixlist"> <i class="menu-icon fa fa-tasks"></i>시설 수리 현황</a>
                     </li>
 
                     <h3 class="menu-title">관리</h3><!-- /.menu-title -->
                     <li>
-                        <a href="book_list.html"> <i class="menu-icon fa fa-tasks"></i>예약 목록</a>
+                        <a href="/admin/book"> <i class="menu-icon fa fa-tasks"></i>예약 목록</a>
                     </li>
                     <li>
-                        <a href="claim.html"> <i class="menu-icon fa fa-tasks"></i>고객 요청 사항</a>
+                        <a href="/admin/claim"> <i class="menu-icon fa fa-tasks"></i>고객 요청 사항</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -123,10 +123,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>흡연 가능 객실</th>
-                                            <th>0</th>
-                                        </tr>
+                                        <% for(var i=0; i < options.length; i++){ %>
+                                            <tr>
+                                                <th><%- options[i].option_name %></th>
+                                                <th><%- options[i].option_price_per_num %></th>
+                                            </tr>
+                                        <% } %>
                                     </tbody>
                                 </table>
                             </div>
@@ -147,14 +149,14 @@
                                 <strong class="card-title">옵션 목록 추가</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/option" method="post">
                                     <div class="table">
                                         <div class="row">
                                             <label class="col">옵션 이름:
-                                                <input class="form-control" type="text" name="optname">
+                                                <input class="form-control" type="text" name="option_name">
                                             </label>
                                             <label class="col">추가 가격:
-                                                <input class="form-control" type="text" name="optprice">
+                                                <input class="form-control" type="text" name="option_price_per_num">
                                             </label>
                                             <button type="button col" class="modifybtn">추가</button>
                                         </div>
@@ -177,14 +179,15 @@
                                 <strong class="card-title">옵션 목록 수정</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/option" method="post">
+                                    <input type="hidden" name="_method" value="PUT"/>
                                     <div class="table">
                                         <div class="row">
                                             <label class="col">옵션 이름:
-                                                <input class="form-control" type="text" name="optname">
+                                                <input class="form-control" type="text" name="option_name">
                                             </label>
                                             <label class="col">추가 가격:
-                                                <input class="form-control" type="text" name="optprice">
+                                                <input class="form-control" type="text" name="option_price_per_num">
                                             </label>
                                             <button type="button col" class="modifybtn">수정</button>
                                         </div>
@@ -209,11 +212,12 @@
                                 <strong class="card-title">부서 목록 삭제</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/option" method="post">
+                                    <input type="hidden" name="_method" value="DELETE"/>
                                     <div class="table">
                                         <div class="row">
                                             <label class="col-10">옵션 이름:
-                                                <input class="form-control" type="text" name="optname">
+                                                <input class="form-control" type="text" name="option_name">
                                             </label>
                                             <button type="button col-5" class="modifybtn">삭제</button>
                                         </div>
@@ -232,35 +236,35 @@
 
     <!-- Right Panel -->
 
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/manage/assets/js/main.js"></script>
 
 
-    <script src="vendors/chart.js/dist/Chart.bundle.min.js"></script>
-    <script src="assets/js/dashboard.js"></script>
-    <script src="assets/js/widgets.js"></script>
-    <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="/manage/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="/manage/assets/js/dashboard.js"></script>
+    <script src="/manage/assets/js/widgets.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="/manage/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="/manage/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="/manage/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/manage/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/manage/assets/js/main.js"></script>
 
 
-    <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="vendors/jszip/dist/jszip.min.js"></script>
-    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <script src="assets/js/init-scripts/data-table/datatables-init.js"></script>
-    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="/manage/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/manage/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="/manage/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="/manage/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="/manage/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="/manage/vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <script src="/manage/assets/js/init-scripts/data-table/datatables-init.js"></script>
+    <script src="/manage/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
