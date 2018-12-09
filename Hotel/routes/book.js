@@ -34,7 +34,7 @@ router.get('/more/:book_id', function(req, res, next) {
         var date1 = new Date(data.check_in);
         var date2 = new Date(data.check_out);
         var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-        var diffDay = Math.ceil(timeDiff / (1000 * 3600 * 24));    
+        var diffDay = Math.ceil(timeDiff / (1000 * 3600 * 24));
         option_kind.find.all(function(option){
             console.log({
                 id: data.book_id,
@@ -82,6 +82,8 @@ router.put('/:book_id', function(req, res, next) {
 router.get('/:book_id', function(req, res, next) {
     book.find.book(req.params, function(books){
         var book = books[0];
+        book.check_in = moment(new Date(book.check_in)).format('YYYY년 MM월 DD일');
+        book.check_out = moment(new Date(book.check_out)).format('YYYY년 MM월 DD일');
         customer.find.one(book.customer_id, function(customers){
             var customer = customers[0];
             option.find.ofBook(req.params.book_id, function(options){
