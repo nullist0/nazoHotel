@@ -114,6 +114,7 @@ CREATE TABLE `Book`
 	`book_price` int,
 	`option_price` int,
 	`total_price` int,
+	`people_num` int,
 	PRIMARY KEY(`book_id`),
 	FOREIGN KEY(`room_id`) REFERENCES `Room`(`room_id`),
 	FOREIGN KEY(`customer_id`) REFERENCES `Customer`(`customer_id`)

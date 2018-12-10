@@ -133,7 +133,7 @@
                                         <% for(var i=0; i < rooms.length; i++){ %>
                                             <tr>
                                                 <th><%- rooms[i].room_id%></th>
-                                                <th><%- rooms[i].type%></th>
+                                                <th><%- rooms[i].room_type%></th>
                                                 <th><%- rooms[i].view%></th>
                                                 <th><%- rooms[i].room_price%>원</th>
                                                 <th><%- rooms[i].is_checkout ? 'O' : 'X'%></th>
@@ -238,10 +238,10 @@
                                                     <input class="form-control" type="text" name="room_price">
                                                 </label>
                                                 <label class="col">체크아웃 유무:
-                                                    <input class="form-control" type="text" name="ischeckout">
+                                                    <input class="form-control" type="text" name="is_checkout">
                                                 </label>
                                                 <label class="col">청소 유무:
-                                                    <input class="form-control" type="text" name="isclean">
+                                                    <input class="form-control" type="text" name="is_clean">
                                                 </label>
                                             </div>
                                             

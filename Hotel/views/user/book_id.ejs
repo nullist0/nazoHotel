@@ -66,7 +66,7 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a href="index.html" class="logo">
+                                <a href="/home" class="logo">
                                     <img src="/user/img/logos/white-logo.png" alt="logo">
                                 </a>
                             </div>
@@ -170,7 +170,7 @@
                                                     체크아웃:<span id="checkout"><%- book.check_out %></span>
                                                 </li>
                                                 <li>
-                                                    객실:<span id="roomtype"><%- book.room_id %></span>
+                                                    객실:<span id="roomtype"><%- room.room_type %></span>
                                                 </li>
                                                 <li>
                                                     인원:<span id="person"><%- book.people_num %></span>
@@ -180,8 +180,10 @@
                                             <div class="your-address">
                                                 <strong>요청사항:</strong>
                                                 <address id="claim">
-                                                    <% for(var option in options){ %>
-                                                        <%- option.option_name %> : <%- option.apply_num %></br>
+                                                    <% var i = 0; %>
+                                                    <% while(i < options.length){ %>
+                                                        <%- options[i].option_name %></br>
+                                                        <% i++; %>
                                                     <% } %>
                                                 </address>
                                             </div>

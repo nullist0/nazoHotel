@@ -26,6 +26,7 @@ var createBook = function(data, callback){
         check_in: null,
         check_out: null,
         book_price: null,
+        people_num: 0,
         option_price: null,
         total_price: null
     }, data);
@@ -36,8 +37,8 @@ var createBook = function(data, callback){
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-    var sql = `INSERT INTO Book(room_id, check_in, check_out, book_price) VALUES(?,?,?,?)`;
-    var values = [parseInt(data.room_id, 10), data.check_in, data.check_out, data.room_price*diffDays];
+    var sql = `INSERT INTO Book(room_id, people_num, check_in, check_out, book_price) VALUES(?,?,?,?,?)`;
+    var values = [parseInt(data.room_id), parseInt(data.people_num), data.check_in, data.check_out, data.room_price*diffDays];
     db.query(sql, values, function(error, results,fields){
         if(error) throw error;
         callback(results);
@@ -60,6 +61,7 @@ var updateBook = function(data, callback){
         book_price: null,
         option_price: null,
         total_price: null,
+        people_num: 0,
         isCheckout: false,
         isClean: false
     }

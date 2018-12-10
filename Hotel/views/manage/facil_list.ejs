@@ -126,14 +126,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>000001</th>
-                                            <th>B-1</th>
-                                            <th>F1</th>
-                                            <th>보일러</th>
-                                            <th>2018-11-15</th>
-                                            <th>2018-12-15</th>
-                                        </tr>
 
                                         <% for(var i=0; i < facilities.length; i++){ %>
                                             <tr>
@@ -141,12 +133,18 @@
                                                 <th><%- facilities[i].name%></th>
                                                 <th><%- facilities[i].floor%></th>
                                                 <th><%- facilities[i].type%></th>
-                                                <th><%- facilities[i].fix_date%></th>
-                                                <th><%- facilities[i].plan_date%></th>
+                                                <% if(facilities[i].fix_date != null){ %>
+                                                    <th><%- moment(new Date(facilities[i].fix_date)).format('YYYY-MM-DD hh:mm')%></th>
+                                                <% }else{ %>
+                                                    <th><%- '없음' %></th>
+                                                <% } %>
+                                                <% if(facilities[i].fix_date != null){ %>
+                                                    <th><%- moment(new Date(facilities[i].plan_date)).format('YYYY-MM-DD hh:mm')%></th>
+                                                <% }else{ %>
+                                                    <th><%- '미정' %></th>
+                                                <% } %>
                                             </tr>
                                         <% } %>
-                       
-
                                     </tbody>
                                 </table>
                             </div>

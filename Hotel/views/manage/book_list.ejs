@@ -122,6 +122,7 @@
                                             <th>예약 번호</th>
                                             <th>객실 번호</th>
                                             <th>고객 번호</th>
+                                            <th>고객 명수</th>
                                             <th>체크인 정보</th>
                                             <th>체크아웃 정보</th>
                                             <th>추가옵션 정보</th>
@@ -137,8 +138,9 @@
                                                 <th><%- books[i].book_id%></th>
                                                 <th><%- books[i].room_id%></th>
                                                 <th><%- books[i].customer_id%></th>
-                                                <th><%- moment(new Date(books[i].check_in)).format('YYYY-MM-DD hh:mm') %></th>
-                                                <th><%- moment(new Date(books[i].check_out)).format('YYYY-MM-DD hh:mm') %></th>
+                                                <th><%- books[i].people_num%></th>
+                                                <th><%- moment(new Date(books[i].check_in)).format('YYYY-MM-DD') %></th>
+                                                <th><%- moment(new Date(books[i].check_out)).format('YYYY-MM-DD') %></th>
                                                 <th><%- books[i].options%></th>
                                                 <th><%- books[i].book_price%></th>
                                                 <th><%- books[i].option_price%></th>

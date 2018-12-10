@@ -16,6 +16,18 @@ var findAllJoin = function(callback){
     conn.getTable(`Option natural left join Option_Kind`, callback);
 };
 
+var findOfBookOptionKinds = function(book_id, callback){
+    const db = conn.connect();
+
+    var sql = 'SELECT * FROM `Option` natural left join `Option_Kind` WHERE book_id = ?';
+    var values = [parseInt(book_id, 10)];
+    db.query(sql, values, function(error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
 /**
  * 
  * @param {Object} all 
@@ -73,6 +85,7 @@ module.exports = {
     find:{
         all: findAllOption_Kind,
         allJoin: findAllJoin,
+        ofBook: findOfBookOptionKinds
     },
     create: createOption_Kind,
     update: updateOption_Kind,

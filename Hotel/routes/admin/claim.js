@@ -34,6 +34,7 @@ router.delete('/', function(req, res, next) {
 //요청사항목록 가져오기
 router.get('/', function(req, res, next) {
   claim.find.allJoin(function(results){
+    console.log(results);
     res.render('manage/claim',{
         claims: results,
         moment: moment

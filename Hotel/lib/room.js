@@ -114,22 +114,24 @@ var updateRoom = function(data, callback){
         room_price: null,
         view: null,
         equipment: null,
-        isCheckout: null,
-        isClean: null,
+        is_checkout: null,
+        is_clean: null,
         main_staff_id: null,
         sub_staff_id: null
     }, data);
 
     var sql = `UPDATE Room SET `;
+    var set = [];
     var values = [];
     for(var name in data){
-        if(name != `room_id` && data[name] != null && data[name] != ''){
-            sql += `${name} = ? `;
+        if(name != `room_id` && data[name] != null){
+            set.push(`${name} = ? `);
             values.push(data[name]);
         }
     }
 
-    sql += `WHERE room_id = ?`;
+    sql += set.join(', ');
+    sql += ` WHERE room_id = ?`;
     values.push(data.room_id);
     
     db.query(sql, values, function (error, results, fields){

@@ -41,6 +41,8 @@ var finishClaim = function(claim_id, callback){
     const db = conn.connect();
     var sql = `UPDATE Take SET finish_time = NOW() WHERE claim_id = ?`;
     
+    console.log(sql);
+
     db.query(sql, [claim_id], function (error, results, fields){
         if(error) throw error;
         callback(results);

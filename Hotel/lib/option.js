@@ -8,7 +8,6 @@ var findAllOption = function(callback){
     conn.getTable('`Option`',callback);
 };
 
-
 /** 
  *
  * @param {function} callback
@@ -33,16 +32,24 @@ var findOfBook = function(book_id, callback){
  * 
  * @param {Object} all 
  */
-var createOption = function(allList, callback){
-    const db = conn.connectMulitiple();
+var createOption = function(all, callback){
+    const db = conn.connect();
 
-    var sql = [];
+    var sql = 'INSERT INTO `Option`(book_id, option_name, apply_num) VALUES';
+    var sqlvalues = [];
     var values = [];
-    for(var all in allList){
-        sql.push('INSERT INTO `Option`(book_id, option_name, apply_num) VALUES(?, ?, ?)');
-        values.push([all.book_id, all.option_name, all.apply_num]);
+    var i = 0;
+    while(i < all.options.length){
+        sqlvalues.push(`(?, ?, ?)`);
+        values.push(parseInt(all.book_id));
+        values.push(all.options[i]);
+        values.push(parseInt(all.apply_num));
+        i++;
     }
-    sql = sql.join(';');
+    sql += sqlvalues.join(', ');
+
+    console.log(sql);
+    console.log(values);
 
     db.query(sql, values, function(error, results, fields){
         if(error) throw error;
@@ -84,9 +91,6 @@ var updateOption = function(data, callback){
     conn.end();
 };
 
-
-
-
 var deleteOption = function(id, callback){
     const db = conn.connect();
     var sql = 'DELETE FROM `Option` where book_id = ?';
@@ -96,8 +100,6 @@ var deleteOption = function(id, callback){
     });
     conn.end();
 };
-
-
 
 module.exports = {
     find:{
