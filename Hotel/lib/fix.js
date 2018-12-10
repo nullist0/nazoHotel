@@ -18,13 +18,15 @@ var updatefix = function(all, callback){
     }, all);
 
     var sql = `UPDATE Fix SET `;
+    var set = [];
     var values = [];
     for(var name in all){
         if(all[name] != null){
-            sql += `${name} = ? `;
+            set.push(`${name} = ? `);
             values.push(all[name]);
         }
     }
+    sql += set.join(', ');
     sql += `WHERE fix_id = ?`;
     values.push(target);
 
@@ -55,11 +57,23 @@ var createfix = function(all, callback){
     conn.end();
 };
 
+var deleteFix = function(id, callback){
+    const db = conn.connect();
+
+    var sql = `DELETE FROM Fix WHERE fix_id = ?`;
+    db.query(sql, [id], function (error, results, fields){
+        if(error) throw error;
+        callback(results);
+    });
+    conn.end();
+};
+
 module.exports = {
     find:{
         all: findAllfix,
         joinEmployee: findAllFixJoinEmployee
     },
     update: updatefix,
-    create: createfix
+    create: createfix,
+    delete: deleteFix
 };

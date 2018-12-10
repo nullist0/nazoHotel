@@ -2,6 +2,9 @@ var mysql = require(`mysql`);
 
 module.exports = {
     conn:null,
+    /**
+     * @returns {mysql.createConnection()}
+     */
     connect:function(){
         this.conn = mysql.createConnection({
             host     : 'localhost',
@@ -9,18 +12,6 @@ module.exports = {
             password : '1234',
             database : 'hotel',
             insecureAuth : true
-        });
-        this.conn.connect();
-        return this.conn;
-    },
-    connectMulitiple:function(){
-        this.conn = mysql.createConnection({
-            host     : 'localhost',
-            user     : 'root',
-            password : '1234',
-            database : 'hotel',
-            insecureAuth : true,
-            multipleStatements: true
         });
         this.conn.connect();
         return this.conn;

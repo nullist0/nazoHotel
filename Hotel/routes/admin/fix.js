@@ -1,8 +1,7 @@
 var express = require('express');
-var facility = require("../../lib/facility.js");
 var fix = require("../../lib/fix.js");
-var employee = require("../../lib/employee.js");
 var router = express.Router();
+var moment = require('moment');
 
 //TODO
 
@@ -10,29 +9,41 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   fix.find.joinEmployee(function(results){
     res.render('manage/facil_fix', {
-      fixes: results
+      fixes: results,
+      moment: moment
     });
   });
 });
 
-//시설 생성
+//시설수리 삭제
+router.delete('/', function(req, res, next) {
+  fix.delete(req.body.fix_id, function(results){
+      res.redirect('/admin/facility/fixlist');
+  });
+});
+
+//시설수리 생성
 router.post('/', function(req, res, next) {
-  facility.create(req.body.floor, req.body.type, req.body.m_staff, req.body.s_staff, function(results){
-      res.redirect('/admin/facility/list');
+  fix.create(req.body, function(results){
+      res.redirect('/admin/facility/fixlist');
   });
 });
 
 //시설수리 수정
 router.put('/', function(req, res, next) {
-    all = {
-        facility_id: req.params.id,
-        floor: req.body.floor, 
-        type: req.body.type, 
-        m_staff: req.body.m_staff,
-        s_staff: req.body.s_staff
-    };
-  fix.update(all, function(results){
-    res.redirect('/admin/facility/list');
+  if (!isNaN(parseInt(req.body.facility_id, 10))) {
+    req.body.facility_id = parseInt(req.body.facility_id);
+  }
+
+  if (!isNaN(parseInt(req.body.employee_id, 10))) {
+    req.body.employee_id = parseInt(req.body.employee_id);
+  }
+
+  if (!isNaN(parseInt(req.body.fix_id, 10))) {
+    req.body.fix_id = parseInt(req.body.fix_id);
+  }
+  fix.update(req.body, function(results){
+    res.redirect('/admin/facility/fixlist');
   });
 });
 

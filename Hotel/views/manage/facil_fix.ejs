@@ -13,8 +13,8 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
 
     <link rel="stylesheet" href="/manage/vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/manage/vendors/font-awesome/css/font-awesome.min.css">
@@ -131,19 +131,15 @@
                                             <tr>
                                                 <th><%- fixes[i].fix_id%></th>
                                                 <th><%- fixes[i].facility_id%></th>
-                                                <th><%- fixes[i].fixed_time%></th>
+                                                <th><%- moment(fixes[i].fixed_time).format('YYYY-MM-DD hh:mm')%></th>
                                                 <th><%- fixes[i].name%></th>
                                             </tr>
                                         <% } %>
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -157,17 +153,17 @@
                                 <strong class="card-title">시설 수리 현황 추가</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/facility/fixlist" method="post">
                                     <div class="table">
                                         <div class="row">
                                             <label class="col">시설 번호:
-                                                <input class="form-control" type="text" name="fixfac">
+                                                <input class="form-control" type="text" name="facility_id">
                                             </label>
                                             <label class="col">수리 일자:
-                                                <input class="form-control" type="date" name="fixdate">
+                                                <input class="form-control" type="date" name="fixed_time">
                                             </label>
                                             <label class="col">수리 직원:
-                                                <input class="form-control" type="text" name="fixemp">
+                                                <input class="form-control" type="text" name="employee_id">
                                             </label>
                                             <button type="button col" class="modifybtn">추가</button>
                                         </div>
@@ -189,20 +185,21 @@
                                 <strong class="card-title">시설 수리 현황 수정</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/facility/fixlist" method="post">
+                                    <input type="hidden" name="_method" value="PUT"/>
                                     <div class="table">
                                         <div class="row">                                    
                                             <label class="col">시설 번호:
-                                                <input class="form-control" type="text" name="fixid">
+                                                <input class="form-control" type="text" name="fix_id">
                                             </label>
                                             <label class="col">시설 번호:
-                                                <input class="form-control" type="text" name="fixfac">
+                                                <input class="form-control" type="text" name="facility_id">
                                             </label>
                                             <label class="col">수리 일자:
-                                                <input class="form-control" type="text" name="fixdate">
+                                                <input class="form-control" type="date" name="fixed_time">
                                             </label>
                                             <label class="col">수리 직원:
-                                                <input class="form-control" type="text" name="fixemp">
+                                                <input class="form-control" type="text" name="employee_id">
                                             </label>
                                             <button type="button col" class="modifybtn">수정</button>
                                         </div>
@@ -224,11 +221,12 @@
                                 <strong class="card-title">시설 수리 현황 삭제</strong>
                             </div>
                             <div class="card-body">
-                                <form action="#" method="post">
+                                <form action="/admin/facility/fixlist" method="post">
+                                    <input type="hidden" name="_method" value="DELETE"/>
                                     <div class="table">
                                         <div class="row">
                                             <label class="col-10">수리 번호:
-                                                <input class="form-control" type="text" name="fixid">
+                                                <input class="form-control" type="text" name="fix_id">
                                             </label>
                                             <button type="button col-5" class="modifybtn">삭제</button>
                                         </div>

@@ -154,7 +154,7 @@ CREATE TABLE `Use`
 
 CREATE TABLE `Fix` 
 (
-	`fix_id` int,
+	`fix_id` int AUTO_INCREMENT,
 	`facility_id` int,
 	`employee_id` int,
 	`fixed_time` datetime,

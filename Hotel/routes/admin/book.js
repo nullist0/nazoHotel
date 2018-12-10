@@ -1,6 +1,7 @@
 var express = require('express');
 var moment = require('moment');
-var book = require('../../lib/book.js')
+var book = require('../../lib/book.js');
+var option = require('../../lib/option');
 var router = express.Router();
 
 //TODO
@@ -28,10 +29,24 @@ router.delete('/', function(req, res, next) {
 
 //예약목록 가져오기
 router.get('/', function(req, res, next) {
-    book.find.all(function(results){
-        res.render('manage/book_list',{
-            books: results,
-            moment: moment
+    option.find.all(function(opts){
+        book.find.all(function(results){
+            var option = [];
+            for(var i = 0; i < results.length; i++){
+                var book_id = results[i].book_id;
+                var opt = [];
+                for(var j = 0; j < opts.length; j++){
+                    if(opts[j].book_id === book_id){
+                        opt.push(opts[j].option_name);
+                    }
+                }
+                option.push(opt.join(', '));
+            }
+            res.render('manage/book_list',{
+                books: results,
+                options: option,
+                moment: moment
+            });
         });
     });
 });
