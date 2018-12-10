@@ -92,15 +92,17 @@ var updateEmployee = function(data, callback){
     }, data);
 
     var sql = `UPDATE Employee SET `;
+    var set = [];
     var values = [];
     for(var name in data){
         if(name != `employee_id` && data[name] != null){
-            sql += `${name} = ? `;
+            set.push(`${name} = ? `);
             values.push(data[name]);
         }
     }
     values.push(parseInt(data.employee_id, 10));
 
+    sql += set.join(', ');
     sql += `WHERE employee_id = ?`;
 
     db.query(sql, values, function (error, results, fields){

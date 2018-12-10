@@ -72,15 +72,17 @@ var updateOption = function(data, callback){
     }, data);
 
     var sql = 'UPDATE `Option` SET ';
+    var sets = [];
     var values = [];
     for(var name in data){
         if(name != `option_name` && data[name] != null){
-            sql += `${name} = ? `;
+            sets.push(`${name} = ? `);
             values.push(data[name]);
         }
     }
     values.push(data.option_name);
 
+    sql += sets.join(', ');
     sql += `WHERE option_name = ?`;
     
     db.query(sql, values, function (error, results, fields){
